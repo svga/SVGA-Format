@@ -20,7 +20,7 @@
 
 ## 描述文件
 
-* 描述文件格式为 JSON，文件为 movie.spec。
+* 描述文件协议为 JSON，文件名为 movie.spec。
 
 ### JSON 结构
 
