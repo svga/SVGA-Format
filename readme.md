@@ -26,7 +26,7 @@
 
 ```js
 {
-    ver: "1.0.1",                                // SVGA 格式版本号
+    ver: "1.1.0",                                // SVGA 格式版本号
     movie: {
         viewBox: {
             width: 300.0,
@@ -58,7 +58,13 @@
                         tx: 0,
                         ty: 0
                     },                           // 元件变化矩阵，3 * 3 矩阵中的具体含义，参照 CSS transform。
-                    clipPath: ""                 // 遮罩路径，使用 SVG 标准 Path 绘制图案进行 Mask 遮罩。
+                    clipPath: "",                // 遮罩路径，使用 SVG 标准 Path 绘制图案进行 Mask 遮罩。
+                    shapePath: "",               // 矢量路径，使用 SVG 标准 Path 绘制图案。
+                    shapeStyles: {
+                        fill: "#000000",         // 填充色
+                        stroke: "#000000",       // 描边色
+                        stroke-width: 0          // 描边宽
+                    }
                 }
             ]                                    // 元件在每一帖中的表现，对于某一帖中隐藏的元件，也需要使用一个对象进行占位。
         }
