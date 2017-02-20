@@ -61,15 +61,15 @@
                     clipPath: "",                // 遮罩路径，使用 SVG 标准 Path 绘制图案进行 Mask 遮罩。
                     shapes: [
                         {
-                            type: enum("shape", "rect", "ellipse"),  // 矢量类型
-                            args: {},                                // 矢量参数 [附1]
+                            type: enum("shape", "rect", "ellipse", "keep"),  // 矢量类型
+                            args: {},                                        // 矢量参数 [附1]
                             styles: {
-                                fill: [0.0, 0.0, 0.0, 1.0],          // 填充色, RGBA
-                                stroke: [0.0, 0.0, 0.0, 1.0],        // 描边色, RGBA
-                                strokeWidth: 0                       // 描边宽
+                                fill: [0.0, 0.0, 0.0, 1.0],                  // 填充色, RGBA
+                                stroke: [0.0, 0.0, 0.0, 1.0],                // 描边色, RGBA
+                                strokeWidth: 0                               // 描边宽
                             }
                         }
-                    ]                            // 矢量路径，使用 SVG 标准 Path 绘制图案，如果 shapes == "KEEP"，则使用上一帖进行绘制。
+                    ]                            // 矢量路径，使用 SVG 标准 Path 绘制图案，如果 shapes[0].type == "KEEP" 时，则使用上一帖进行绘制。
                 }
             ]                                    // 元件在每一帖中的表现，对于某一帖中隐藏的元件，也需要使用一个对象进行占位。
         }
