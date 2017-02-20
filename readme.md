@@ -64,8 +64,8 @@
                             type: enum("shape", "rect", "ellipse"),  // 矢量类型
                             args: {},                                // 矢量参数 [附1]
                             styles: {
-                                fill: "#000000",                     // 填充色
-                                stroke: "#000000",                   // 描边色
+                                fill: [0.0, 0.0, 0.0, 1.0],          // 填充色, RGBA
+                                stroke: [0.0, 0.0, 0.0, 1.0],        // 描边色, RGBA
                                 strokeWidth: 0                       // 描边宽
                             }
                         }
