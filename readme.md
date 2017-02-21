@@ -67,6 +67,14 @@
                                 fill: [0.0, 0.0, 0.0, 1.0],                  // 填充色, RGBA
                                 stroke: [0.0, 0.0, 0.0, 1.0],                // 描边色, RGBA
                                 strokeWidth: 0                               // 描边宽
+                            },
+                            transform: {
+                                a: 0,
+                                b: 0,
+                                c: 0,
+                                d: 0,
+                                tx: 0,
+                                ty: 0
                             }
                         }
                     ]                            // 矢量路径，使用 SVG 标准 Path 绘制图案，如果 shapes[0].type == "KEEP" 时，则使用上一帖进行绘制。
@@ -89,22 +97,27 @@
 #### shape
 ```
 {
-    pts: [                                      // Curve 点阵
-        {
-            x: 0.0,
-            y: 0.0,
-        }
-    ]
+    d: "M 0 0 C 0 0 0 0 0"                      // SVG Path
 }
 ```
 
 #### rect
+```
+{
+    x: 0.0,                                     // x
+    y: 0.0,                                     // y
+    width: 0.0,                                 // 宽
+    height: 0.0,                                // 高
+    cornerRadius: 0.0                           // 圆角大小
+}
+```
 
 #### ellipse
 ```
 {
     x: 0.0,                                     // 圆中心点 X
     y: 0.0,                                     // 圆中心点 Y
-    radius: 0.0                                 // 圆半径
+    radiusX: 0.0                                // 圆半径
+    radiusY: 0.0                                // 圆半径
 }
 ```
