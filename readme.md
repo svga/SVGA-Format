@@ -66,7 +66,10 @@
                             styles: {
                                 fill: [0.0, 0.0, 0.0, 1.0],                  // 填充色, RGBA
                                 stroke: [0.0, 0.0, 0.0, 1.0],                // 描边色, RGBA
-                                strokeWidth: 0                               // 描边宽
+                                strokeWidth: 0,                              // 描边宽
+                                lineCap: enum("butt", "round", "square"),    // 线段端点样式
+                                lineJoin: enum("miter", "round", "bevel"),   // 线段连接样式
+                                lineDash: [0.0, 0.0, 0.0]                    // 虚线参数
                             },
                             transform: {
                                 a: 1.0,
