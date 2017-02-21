@@ -51,12 +51,12 @@
                         height: 100
                     },                           // 元件初始约束大小
                     transform: {
-                        a: 0,
-                        b: 0,
-                        c: 0,
-                        d: 0,
-                        tx: 0,
-                        ty: 0
+                        a: 1.0,
+                        b: 0.0,
+                        c: 0.0,
+                        d: 1.0,
+                        tx: 0.0,
+                        ty: 0.0
                     },                           // 元件变化矩阵，3 * 3 矩阵中的具体含义，参照 CSS transform。
                     clipPath: "",                // 遮罩路径，使用 SVG 标准 Path 绘制图案进行 Mask 遮罩。
                     shapes: [
@@ -69,12 +69,12 @@
                                 strokeWidth: 0                               // 描边宽
                             },
                             transform: {
-                                a: 0,
-                                b: 0,
-                                c: 0,
-                                d: 0,
-                                tx: 0,
-                                ty: 0
+                                a: 1.0,
+                                b: 0.0,
+                                c: 0.0,
+                                d: 1.0,
+                                tx: 0.0,
+                                ty: 0.0
                             }
                         }
                     ]                            // 矢量路径，使用 SVG 标准 Path 绘制图案，如果 shapes[0].type == "KEEP" 时，则使用上一帖进行绘制。
