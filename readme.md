@@ -69,7 +69,8 @@
                                 strokeWidth: 0,                              // 描边宽
                                 lineCap: enum("butt", "round", "square"),    // 线段端点样式
                                 lineJoin: enum("miter", "round", "bevel"),   // 线段连接样式
-                                lineDash: [0.0, 0.0, 0.0]                    // 虚线参数
+                                miterLimit: 0,                               // 尖角限制
+                                lineDash: [0.0, 0.0, 0.0]                    // 虚线参数, dash,gap,offset
                             },
                             transform: {
                                 a: 1.0,
