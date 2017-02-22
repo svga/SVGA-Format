@@ -40,7 +40,7 @@
     },
     sprites: [
         {
-            imageKey: "AwesomeSprite",           // 元件所对应的位图键名
+            imageKey: "AwesomeSprite",           // 元件所对应的位图键名, 如果 imageKey 含有 .vector 后缀，该 sprite 为矢量图层。
             frames: [
                 {
                     alpha: 1.0,                  // 元件透明度
