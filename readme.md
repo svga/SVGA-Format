@@ -67,10 +67,6 @@
                                 fill: [0.0, 0.0, 0.0, 1.0],                  // 填充色, RGBA
                                 stroke: [0.0, 0.0, 0.0, 1.0],                // 描边色, RGBA
                                 strokeWidth: 0,                              // 描边宽
-                                trim: {
-                                    start: 0,                                // 描边开始点
-                                    end: 1,                                  // 描边结束点
-                                }
                                 lineCap: enum("butt", "round", "square"),    // 线段端点样式
                                 lineJoin: enum("miter", "round", "bevel"),   // 线段连接样式
                                 miterLimit: 0,                               // 尖角限制
