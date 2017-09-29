@@ -27,95 +27,95 @@
 
 CF_EXTERN_C_BEGIN
 
-@class FrameEntity;
-@class Layout;
-@class MovieParams;
-@class ShapeEntity;
-@class ShapeEntity_EllipseArgs;
-@class ShapeEntity_RectArgs;
-@class ShapeEntity_ShapeArgs;
-@class ShapeEntity_ShapeStyle;
-@class ShapeEntity_ShapeStyle_RGBAColor;
-@class SpriteEntity;
-@class Transform;
+@class SVGAProtoFrameEntity;
+@class SVGAProtoLayout;
+@class SVGAProtoMovieParams;
+@class SVGAProtoShapeEntity;
+@class SVGAProtoShapeEntity_EllipseArgs;
+@class SVGAProtoShapeEntity_RectArgs;
+@class SVGAProtoShapeEntity_ShapeArgs;
+@class SVGAProtoShapeEntity_ShapeStyle;
+@class SVGAProtoShapeEntity_ShapeStyle_RGBAColor;
+@class SVGAProtoSpriteEntity;
+@class SVGAProtoTransform;
 
 NS_ASSUME_NONNULL_BEGIN
 
-#pragma mark - Enum ShapeEntity_ShapeType
+#pragma mark - Enum SVGAProtoShapeEntity_ShapeType
 
-typedef GPB_ENUM(ShapeEntity_ShapeType) {
+typedef GPB_ENUM(SVGAProtoShapeEntity_ShapeType) {
   /**
    * Value used if any message's field encounters a value that is not defined
    * by this enum. The message will also have C functions to get/set the rawValue
    * of the field.
    **/
-  ShapeEntity_ShapeType_GPBUnrecognizedEnumeratorValue = kGPBUnrecognizedEnumeratorValue,
+  SVGAProtoShapeEntity_ShapeType_GPBUnrecognizedEnumeratorValue = kGPBUnrecognizedEnumeratorValue,
   /** 路径 */
-  ShapeEntity_ShapeType_Shape = 0,
+  SVGAProtoShapeEntity_ShapeType_Shape = 0,
 
   /** 矩形 */
-  ShapeEntity_ShapeType_Rect = 1,
+  SVGAProtoShapeEntity_ShapeType_Rect = 1,
 
   /** 圆形 */
-  ShapeEntity_ShapeType_Ellipse = 2,
+  SVGAProtoShapeEntity_ShapeType_Ellipse = 2,
 
   /** 与前帧一致 */
-  ShapeEntity_ShapeType_Keep = 3,
+  SVGAProtoShapeEntity_ShapeType_Keep = 3,
 };
 
-GPBEnumDescriptor *ShapeEntity_ShapeType_EnumDescriptor(void);
+GPBEnumDescriptor *SVGAProtoShapeEntity_ShapeType_EnumDescriptor(void);
 
 /**
  * Checks to see if the given value is defined by the enum or was not known at
  * the time this source was generated.
  **/
-BOOL ShapeEntity_ShapeType_IsValidValue(int32_t value);
+BOOL SVGAProtoShapeEntity_ShapeType_IsValidValue(int32_t value);
 
-#pragma mark - Enum ShapeEntity_ShapeStyle_LineCap
+#pragma mark - Enum SVGAProtoShapeEntity_ShapeStyle_LineCap
 
-typedef GPB_ENUM(ShapeEntity_ShapeStyle_LineCap) {
+typedef GPB_ENUM(SVGAProtoShapeEntity_ShapeStyle_LineCap) {
   /**
    * Value used if any message's field encounters a value that is not defined
    * by this enum. The message will also have C functions to get/set the rawValue
    * of the field.
    **/
-  ShapeEntity_ShapeStyle_LineCap_GPBUnrecognizedEnumeratorValue = kGPBUnrecognizedEnumeratorValue,
-  ShapeEntity_ShapeStyle_LineCap_LineCapButt = 0,
-  ShapeEntity_ShapeStyle_LineCap_LineCapRound = 1,
-  ShapeEntity_ShapeStyle_LineCap_LineCapSquare = 2,
+  SVGAProtoShapeEntity_ShapeStyle_LineCap_GPBUnrecognizedEnumeratorValue = kGPBUnrecognizedEnumeratorValue,
+  SVGAProtoShapeEntity_ShapeStyle_LineCap_LineCapButt = 0,
+  SVGAProtoShapeEntity_ShapeStyle_LineCap_LineCapRound = 1,
+  SVGAProtoShapeEntity_ShapeStyle_LineCap_LineCapSquare = 2,
 };
 
-GPBEnumDescriptor *ShapeEntity_ShapeStyle_LineCap_EnumDescriptor(void);
+GPBEnumDescriptor *SVGAProtoShapeEntity_ShapeStyle_LineCap_EnumDescriptor(void);
 
 /**
  * Checks to see if the given value is defined by the enum or was not known at
  * the time this source was generated.
  **/
-BOOL ShapeEntity_ShapeStyle_LineCap_IsValidValue(int32_t value);
+BOOL SVGAProtoShapeEntity_ShapeStyle_LineCap_IsValidValue(int32_t value);
 
-#pragma mark - Enum ShapeEntity_ShapeStyle_LineJoin
+#pragma mark - Enum SVGAProtoShapeEntity_ShapeStyle_LineJoin
 
-typedef GPB_ENUM(ShapeEntity_ShapeStyle_LineJoin) {
+typedef GPB_ENUM(SVGAProtoShapeEntity_ShapeStyle_LineJoin) {
   /**
    * Value used if any message's field encounters a value that is not defined
    * by this enum. The message will also have C functions to get/set the rawValue
    * of the field.
    **/
-  ShapeEntity_ShapeStyle_LineJoin_GPBUnrecognizedEnumeratorValue = kGPBUnrecognizedEnumeratorValue,
-  ShapeEntity_ShapeStyle_LineJoin_LineJoinMiter = 0,
-  ShapeEntity_ShapeStyle_LineJoin_LineJoinRound = 1,
-  ShapeEntity_ShapeStyle_LineJoin_LineJoinBevel = 2,
+  SVGAProtoShapeEntity_ShapeStyle_LineJoin_GPBUnrecognizedEnumeratorValue = kGPBUnrecognizedEnumeratorValue,
+  SVGAProtoShapeEntity_ShapeStyle_LineJoin_LineJoinMiter = 0,
+  SVGAProtoShapeEntity_ShapeStyle_LineJoin_LineJoinRound = 1,
+  SVGAProtoShapeEntity_ShapeStyle_LineJoin_LineJoinBevel = 2,
 };
 
-GPBEnumDescriptor *ShapeEntity_ShapeStyle_LineJoin_EnumDescriptor(void);
+GPBEnumDescriptor *SVGAProtoShapeEntity_ShapeStyle_LineJoin_EnumDescriptor(void);
 
 /**
  * Checks to see if the given value is defined by the enum or was not known at
  * the time this source was generated.
  **/
-BOOL ShapeEntity_ShapeStyle_LineJoin_IsValidValue(int32_t value);
+BOOL SVGAProtoShapeEntity_ShapeStyle_LineJoin_IsValidValue(int32_t value);
 
-#pragma mark - ComOpensourceSvgaVideoRoot
+#pragma mark - SVGAProtoComOpensourceSvgaVideoRoot
 
 /**
  * Exposes the extension registry for this file.
@@ -127,19 +127,19 @@ BOOL ShapeEntity_ShapeStyle_LineJoin_IsValidValue(int32_t value);
  * which is a @c GPBExtensionRegistry that includes all the extensions defined by
  * this file and all files that it depends on.
  **/
-@interface ComOpensourceSvgaVideoRoot : GPBRootObject
+@interface SVGAProtoComOpensourceSvgaVideoRoot : GPBRootObject
 @end
 
-#pragma mark - MovieParams
+#pragma mark - SVGAProtoMovieParams
 
-typedef GPB_ENUM(MovieParams_FieldNumber) {
-  MovieParams_FieldNumber_ViewBoxWidth = 1,
-  MovieParams_FieldNumber_ViewBoxHeight = 2,
-  MovieParams_FieldNumber_Fps = 3,
-  MovieParams_FieldNumber_Frames = 4,
+typedef GPB_ENUM(SVGAProtoMovieParams_FieldNumber) {
+  SVGAProtoMovieParams_FieldNumber_ViewBoxWidth = 1,
+  SVGAProtoMovieParams_FieldNumber_ViewBoxHeight = 2,
+  SVGAProtoMovieParams_FieldNumber_Fps = 3,
+  SVGAProtoMovieParams_FieldNumber_Frames = 4,
 };
 
-@interface MovieParams : GPBMessage
+@interface SVGAProtoMovieParams : GPBMessage
 
 /** 画布宽 */
 @property(nonatomic, readwrite) float viewBoxWidth;
@@ -155,35 +155,35 @@ typedef GPB_ENUM(MovieParams_FieldNumber) {
 
 @end
 
-#pragma mark - SpriteEntity
+#pragma mark - SVGAProtoSpriteEntity
 
-typedef GPB_ENUM(SpriteEntity_FieldNumber) {
-  SpriteEntity_FieldNumber_ImageKey = 1,
-  SpriteEntity_FieldNumber_FramesArray = 2,
+typedef GPB_ENUM(SVGAProtoSpriteEntity_FieldNumber) {
+  SVGAProtoSpriteEntity_FieldNumber_ImageKey = 1,
+  SVGAProtoSpriteEntity_FieldNumber_FramesArray = 2,
 };
 
-@interface SpriteEntity : GPBMessage
+@interface SVGAProtoSpriteEntity : GPBMessage
 
 /** 元件所对应的位图键名, 如果 imageKey 含有 .vector 后缀，该 sprite 为矢量图层。 */
 @property(nonatomic, readwrite, copy, null_resettable) NSString *imageKey;
 
 /** 帧列表 */
-@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<FrameEntity*> *framesArray;
+@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<SVGAProtoFrameEntity*> *framesArray;
 /** The number of items in @c framesArray without causing the array to be created. */
 @property(nonatomic, readonly) NSUInteger framesArray_Count;
 
 @end
 
-#pragma mark - Layout
+#pragma mark - SVGAProtoLayout
 
-typedef GPB_ENUM(Layout_FieldNumber) {
-  Layout_FieldNumber_X = 1,
-  Layout_FieldNumber_Y = 2,
-  Layout_FieldNumber_Width = 3,
-  Layout_FieldNumber_Height = 4,
+typedef GPB_ENUM(SVGAProtoLayout_FieldNumber) {
+  SVGAProtoLayout_FieldNumber_X = 1,
+  SVGAProtoLayout_FieldNumber_Y = 2,
+  SVGAProtoLayout_FieldNumber_Width = 3,
+  SVGAProtoLayout_FieldNumber_Height = 4,
 };
 
-@interface Layout : GPBMessage
+@interface SVGAProtoLayout : GPBMessage
 
 @property(nonatomic, readwrite) float x;
 
@@ -195,18 +195,18 @@ typedef GPB_ENUM(Layout_FieldNumber) {
 
 @end
 
-#pragma mark - Transform
+#pragma mark - SVGAProtoTransform
 
-typedef GPB_ENUM(Transform_FieldNumber) {
-  Transform_FieldNumber_A = 1,
-  Transform_FieldNumber_B = 2,
-  Transform_FieldNumber_C = 3,
-  Transform_FieldNumber_D = 4,
-  Transform_FieldNumber_Tx = 5,
-  Transform_FieldNumber_Ty = 6,
+typedef GPB_ENUM(SVGAProtoTransform_FieldNumber) {
+  SVGAProtoTransform_FieldNumber_A = 1,
+  SVGAProtoTransform_FieldNumber_B = 2,
+  SVGAProtoTransform_FieldNumber_C = 3,
+  SVGAProtoTransform_FieldNumber_D = 4,
+  SVGAProtoTransform_FieldNumber_Tx = 5,
+  SVGAProtoTransform_FieldNumber_Ty = 6,
 };
 
-@interface Transform : GPBMessage
+@interface SVGAProtoTransform : GPBMessage
 
 @property(nonatomic, readwrite) float a;
 
@@ -222,90 +222,90 @@ typedef GPB_ENUM(Transform_FieldNumber) {
 
 @end
 
-#pragma mark - ShapeEntity
+#pragma mark - SVGAProtoShapeEntity
 
-typedef GPB_ENUM(ShapeEntity_FieldNumber) {
-  ShapeEntity_FieldNumber_Type = 1,
-  ShapeEntity_FieldNumber_Shape = 2,
-  ShapeEntity_FieldNumber_Rect = 3,
-  ShapeEntity_FieldNumber_Ellipse = 4,
-  ShapeEntity_FieldNumber_Styles = 10,
-  ShapeEntity_FieldNumber_Transform = 11,
+typedef GPB_ENUM(SVGAProtoShapeEntity_FieldNumber) {
+  SVGAProtoShapeEntity_FieldNumber_Type = 1,
+  SVGAProtoShapeEntity_FieldNumber_Shape = 2,
+  SVGAProtoShapeEntity_FieldNumber_Rect = 3,
+  SVGAProtoShapeEntity_FieldNumber_Ellipse = 4,
+  SVGAProtoShapeEntity_FieldNumber_Styles = 10,
+  SVGAProtoShapeEntity_FieldNumber_Transform = 11,
 };
 
-typedef GPB_ENUM(ShapeEntity_Args_OneOfCase) {
-  ShapeEntity_Args_OneOfCase_GPBUnsetOneOfCase = 0,
-  ShapeEntity_Args_OneOfCase_Shape = 2,
-  ShapeEntity_Args_OneOfCase_Rect = 3,
-  ShapeEntity_Args_OneOfCase_Ellipse = 4,
+typedef GPB_ENUM(SVGAProtoShapeEntity_Args_OneOfCase) {
+  SVGAProtoShapeEntity_Args_OneOfCase_GPBUnsetOneOfCase = 0,
+  SVGAProtoShapeEntity_Args_OneOfCase_Shape = 2,
+  SVGAProtoShapeEntity_Args_OneOfCase_Rect = 3,
+  SVGAProtoShapeEntity_Args_OneOfCase_Ellipse = 4,
 };
 
-@interface ShapeEntity : GPBMessage
+@interface SVGAProtoShapeEntity : GPBMessage
 
 /** 矢量类型 */
-@property(nonatomic, readwrite) ShapeEntity_ShapeType type;
+@property(nonatomic, readwrite) SVGAProtoShapeEntity_ShapeType type;
 
-@property(nonatomic, readonly) ShapeEntity_Args_OneOfCase argsOneOfCase;
+@property(nonatomic, readonly) SVGAProtoShapeEntity_Args_OneOfCase argsOneOfCase;
 
-@property(nonatomic, readwrite, strong, null_resettable) ShapeEntity_ShapeArgs *shape;
+@property(nonatomic, readwrite, strong, null_resettable) SVGAProtoShapeEntity_ShapeArgs *shape;
 
-@property(nonatomic, readwrite, strong, null_resettable) ShapeEntity_RectArgs *rect;
+@property(nonatomic, readwrite, strong, null_resettable) SVGAProtoShapeEntity_RectArgs *rect;
 
-@property(nonatomic, readwrite, strong, null_resettable) ShapeEntity_EllipseArgs *ellipse;
+@property(nonatomic, readwrite, strong, null_resettable) SVGAProtoShapeEntity_EllipseArgs *ellipse;
 
 /** 渲染参数 */
-@property(nonatomic, readwrite, strong, null_resettable) ShapeEntity_ShapeStyle *styles;
+@property(nonatomic, readwrite, strong, null_resettable) SVGAProtoShapeEntity_ShapeStyle *styles;
 /** Test to see if @c styles has been set. */
 @property(nonatomic, readwrite) BOOL hasStyles;
 
 /** 矢量图层 2D 变换矩阵 */
-@property(nonatomic, readwrite, strong, null_resettable) Transform *transform;
+@property(nonatomic, readwrite, strong, null_resettable) SVGAProtoTransform *transform;
 /** Test to see if @c transform has been set. */
 @property(nonatomic, readwrite) BOOL hasTransform;
 
 @end
 
 /**
- * Fetches the raw value of a @c ShapeEntity's @c type property, even
+ * Fetches the raw value of a @c SVGAProtoShapeEntity's @c type property, even
  * if the value was not defined by the enum at the time the code was generated.
  **/
-int32_t ShapeEntity_Type_RawValue(ShapeEntity *message);
+int32_t SVGAProtoShapeEntity_Type_RawValue(SVGAProtoShapeEntity *message);
 /**
- * Sets the raw value of an @c ShapeEntity's @c type property, allowing
+ * Sets the raw value of an @c SVGAProtoShapeEntity's @c type property, allowing
  * it to be set to a value that was not defined by the enum at the time the code
  * was generated.
  **/
-void SetShapeEntity_Type_RawValue(ShapeEntity *message, int32_t value);
+void SetSVGAProtoShapeEntity_Type_RawValue(SVGAProtoShapeEntity *message, int32_t value);
 
 /**
  * Clears whatever value was set for the oneof 'args'.
  **/
-void ShapeEntity_ClearArgsOneOfCase(ShapeEntity *message);
+void SVGAProtoShapeEntity_ClearArgsOneOfCase(SVGAProtoShapeEntity *message);
 
-#pragma mark - ShapeEntity_ShapeArgs
+#pragma mark - SVGAProtoShapeEntity_ShapeArgs
 
-typedef GPB_ENUM(ShapeEntity_ShapeArgs_FieldNumber) {
-  ShapeEntity_ShapeArgs_FieldNumber_D = 1,
+typedef GPB_ENUM(SVGAProtoShapeEntity_ShapeArgs_FieldNumber) {
+  SVGAProtoShapeEntity_ShapeArgs_FieldNumber_D = 1,
 };
 
-@interface ShapeEntity_ShapeArgs : GPBMessage
+@interface SVGAProtoShapeEntity_ShapeArgs : GPBMessage
 
 /** SVG 路径 */
 @property(nonatomic, readwrite, copy, null_resettable) NSString *d;
 
 @end
 
-#pragma mark - ShapeEntity_RectArgs
+#pragma mark - SVGAProtoShapeEntity_RectArgs
 
-typedef GPB_ENUM(ShapeEntity_RectArgs_FieldNumber) {
-  ShapeEntity_RectArgs_FieldNumber_X = 1,
-  ShapeEntity_RectArgs_FieldNumber_Y = 2,
-  ShapeEntity_RectArgs_FieldNumber_Width = 3,
-  ShapeEntity_RectArgs_FieldNumber_Height = 4,
-  ShapeEntity_RectArgs_FieldNumber_CornerRadius = 5,
+typedef GPB_ENUM(SVGAProtoShapeEntity_RectArgs_FieldNumber) {
+  SVGAProtoShapeEntity_RectArgs_FieldNumber_X = 1,
+  SVGAProtoShapeEntity_RectArgs_FieldNumber_Y = 2,
+  SVGAProtoShapeEntity_RectArgs_FieldNumber_Width = 3,
+  SVGAProtoShapeEntity_RectArgs_FieldNumber_Height = 4,
+  SVGAProtoShapeEntity_RectArgs_FieldNumber_CornerRadius = 5,
 };
 
-@interface ShapeEntity_RectArgs : GPBMessage
+@interface SVGAProtoShapeEntity_RectArgs : GPBMessage
 
 @property(nonatomic, readwrite) float x;
 
@@ -320,16 +320,16 @@ typedef GPB_ENUM(ShapeEntity_RectArgs_FieldNumber) {
 
 @end
 
-#pragma mark - ShapeEntity_EllipseArgs
+#pragma mark - SVGAProtoShapeEntity_EllipseArgs
 
-typedef GPB_ENUM(ShapeEntity_EllipseArgs_FieldNumber) {
-  ShapeEntity_EllipseArgs_FieldNumber_X = 1,
-  ShapeEntity_EllipseArgs_FieldNumber_Y = 2,
-  ShapeEntity_EllipseArgs_FieldNumber_RadiusX = 3,
-  ShapeEntity_EllipseArgs_FieldNumber_RadiusY = 4,
+typedef GPB_ENUM(SVGAProtoShapeEntity_EllipseArgs_FieldNumber) {
+  SVGAProtoShapeEntity_EllipseArgs_FieldNumber_X = 1,
+  SVGAProtoShapeEntity_EllipseArgs_FieldNumber_Y = 2,
+  SVGAProtoShapeEntity_EllipseArgs_FieldNumber_RadiusX = 3,
+  SVGAProtoShapeEntity_EllipseArgs_FieldNumber_RadiusY = 4,
 };
 
-@interface ShapeEntity_EllipseArgs : GPBMessage
+@interface SVGAProtoShapeEntity_EllipseArgs : GPBMessage
 
 /** 圆中心点 X */
 @property(nonatomic, readwrite) float x;
@@ -345,29 +345,29 @@ typedef GPB_ENUM(ShapeEntity_EllipseArgs_FieldNumber) {
 
 @end
 
-#pragma mark - ShapeEntity_ShapeStyle
+#pragma mark - SVGAProtoShapeEntity_ShapeStyle
 
-typedef GPB_ENUM(ShapeEntity_ShapeStyle_FieldNumber) {
-  ShapeEntity_ShapeStyle_FieldNumber_Fill = 1,
-  ShapeEntity_ShapeStyle_FieldNumber_Stroke = 2,
-  ShapeEntity_ShapeStyle_FieldNumber_StrokeWidth = 3,
-  ShapeEntity_ShapeStyle_FieldNumber_LineCap = 4,
-  ShapeEntity_ShapeStyle_FieldNumber_LineJoin = 5,
-  ShapeEntity_ShapeStyle_FieldNumber_MiterLimit = 6,
-  ShapeEntity_ShapeStyle_FieldNumber_LineDashI = 7,
-  ShapeEntity_ShapeStyle_FieldNumber_LineDashIi = 8,
-  ShapeEntity_ShapeStyle_FieldNumber_LineDashIii = 9,
+typedef GPB_ENUM(SVGAProtoShapeEntity_ShapeStyle_FieldNumber) {
+  SVGAProtoShapeEntity_ShapeStyle_FieldNumber_Fill = 1,
+  SVGAProtoShapeEntity_ShapeStyle_FieldNumber_Stroke = 2,
+  SVGAProtoShapeEntity_ShapeStyle_FieldNumber_StrokeWidth = 3,
+  SVGAProtoShapeEntity_ShapeStyle_FieldNumber_LineCap = 4,
+  SVGAProtoShapeEntity_ShapeStyle_FieldNumber_LineJoin = 5,
+  SVGAProtoShapeEntity_ShapeStyle_FieldNumber_MiterLimit = 6,
+  SVGAProtoShapeEntity_ShapeStyle_FieldNumber_LineDashI = 7,
+  SVGAProtoShapeEntity_ShapeStyle_FieldNumber_LineDashIi = 8,
+  SVGAProtoShapeEntity_ShapeStyle_FieldNumber_LineDashIii = 9,
 };
 
-@interface ShapeEntity_ShapeStyle : GPBMessage
+@interface SVGAProtoShapeEntity_ShapeStyle : GPBMessage
 
 /** 填充色 */
-@property(nonatomic, readwrite, strong, null_resettable) ShapeEntity_ShapeStyle_RGBAColor *fill;
+@property(nonatomic, readwrite, strong, null_resettable) SVGAProtoShapeEntity_ShapeStyle_RGBAColor *fill;
 /** Test to see if @c fill has been set. */
 @property(nonatomic, readwrite) BOOL hasFill;
 
 /** 描边色 */
-@property(nonatomic, readwrite, strong, null_resettable) ShapeEntity_ShapeStyle_RGBAColor *stroke;
+@property(nonatomic, readwrite, strong, null_resettable) SVGAProtoShapeEntity_ShapeStyle_RGBAColor *stroke;
 /** Test to see if @c stroke has been set. */
 @property(nonatomic, readwrite) BOOL hasStroke;
 
@@ -375,10 +375,10 @@ typedef GPB_ENUM(ShapeEntity_ShapeStyle_FieldNumber) {
 @property(nonatomic, readwrite) float strokeWidth;
 
 /** 线段端点样式 */
-@property(nonatomic, readwrite) ShapeEntity_ShapeStyle_LineCap lineCap;
+@property(nonatomic, readwrite) SVGAProtoShapeEntity_ShapeStyle_LineCap lineCap;
 
 /** 线段连接样式 */
-@property(nonatomic, readwrite) ShapeEntity_ShapeStyle_LineJoin lineJoin;
+@property(nonatomic, readwrite) SVGAProtoShapeEntity_ShapeStyle_LineJoin lineJoin;
 
 /** 尖角限制 */
 @property(nonatomic, readwrite) float miterLimit;
@@ -395,39 +395,39 @@ typedef GPB_ENUM(ShapeEntity_ShapeStyle_FieldNumber) {
 @end
 
 /**
- * Fetches the raw value of a @c ShapeEntity_ShapeStyle's @c lineCap property, even
+ * Fetches the raw value of a @c SVGAProtoShapeEntity_ShapeStyle's @c lineCap property, even
  * if the value was not defined by the enum at the time the code was generated.
  **/
-int32_t ShapeEntity_ShapeStyle_LineCap_RawValue(ShapeEntity_ShapeStyle *message);
+int32_t SVGAProtoShapeEntity_ShapeStyle_LineCap_RawValue(SVGAProtoShapeEntity_ShapeStyle *message);
 /**
- * Sets the raw value of an @c ShapeEntity_ShapeStyle's @c lineCap property, allowing
+ * Sets the raw value of an @c SVGAProtoShapeEntity_ShapeStyle's @c lineCap property, allowing
  * it to be set to a value that was not defined by the enum at the time the code
  * was generated.
  **/
-void SetShapeEntity_ShapeStyle_LineCap_RawValue(ShapeEntity_ShapeStyle *message, int32_t value);
+void SetSVGAProtoShapeEntity_ShapeStyle_LineCap_RawValue(SVGAProtoShapeEntity_ShapeStyle *message, int32_t value);
 
 /**
- * Fetches the raw value of a @c ShapeEntity_ShapeStyle's @c lineJoin property, even
+ * Fetches the raw value of a @c SVGAProtoShapeEntity_ShapeStyle's @c lineJoin property, even
  * if the value was not defined by the enum at the time the code was generated.
  **/
-int32_t ShapeEntity_ShapeStyle_LineJoin_RawValue(ShapeEntity_ShapeStyle *message);
+int32_t SVGAProtoShapeEntity_ShapeStyle_LineJoin_RawValue(SVGAProtoShapeEntity_ShapeStyle *message);
 /**
- * Sets the raw value of an @c ShapeEntity_ShapeStyle's @c lineJoin property, allowing
+ * Sets the raw value of an @c SVGAProtoShapeEntity_ShapeStyle's @c lineJoin property, allowing
  * it to be set to a value that was not defined by the enum at the time the code
  * was generated.
  **/
-void SetShapeEntity_ShapeStyle_LineJoin_RawValue(ShapeEntity_ShapeStyle *message, int32_t value);
+void SetSVGAProtoShapeEntity_ShapeStyle_LineJoin_RawValue(SVGAProtoShapeEntity_ShapeStyle *message, int32_t value);
 
-#pragma mark - ShapeEntity_ShapeStyle_RGBAColor
+#pragma mark - SVGAProtoShapeEntity_ShapeStyle_RGBAColor
 
-typedef GPB_ENUM(ShapeEntity_ShapeStyle_RGBAColor_FieldNumber) {
-  ShapeEntity_ShapeStyle_RGBAColor_FieldNumber_R = 1,
-  ShapeEntity_ShapeStyle_RGBAColor_FieldNumber_G = 2,
-  ShapeEntity_ShapeStyle_RGBAColor_FieldNumber_B = 3,
-  ShapeEntity_ShapeStyle_RGBAColor_FieldNumber_A = 4,
+typedef GPB_ENUM(SVGAProtoShapeEntity_ShapeStyle_RGBAColor_FieldNumber) {
+  SVGAProtoShapeEntity_ShapeStyle_RGBAColor_FieldNumber_R = 1,
+  SVGAProtoShapeEntity_ShapeStyle_RGBAColor_FieldNumber_G = 2,
+  SVGAProtoShapeEntity_ShapeStyle_RGBAColor_FieldNumber_B = 3,
+  SVGAProtoShapeEntity_ShapeStyle_RGBAColor_FieldNumber_A = 4,
 };
 
-@interface ShapeEntity_ShapeStyle_RGBAColor : GPBMessage
+@interface SVGAProtoShapeEntity_ShapeStyle_RGBAColor : GPBMessage
 
 @property(nonatomic, readwrite) float r;
 
@@ -439,28 +439,28 @@ typedef GPB_ENUM(ShapeEntity_ShapeStyle_RGBAColor_FieldNumber) {
 
 @end
 
-#pragma mark - FrameEntity
+#pragma mark - SVGAProtoFrameEntity
 
-typedef GPB_ENUM(FrameEntity_FieldNumber) {
-  FrameEntity_FieldNumber_Alpha = 1,
-  FrameEntity_FieldNumber_Layout = 2,
-  FrameEntity_FieldNumber_Transform = 3,
-  FrameEntity_FieldNumber_ClipPath = 4,
-  FrameEntity_FieldNumber_ShapesArray = 5,
+typedef GPB_ENUM(SVGAProtoFrameEntity_FieldNumber) {
+  SVGAProtoFrameEntity_FieldNumber_Alpha = 1,
+  SVGAProtoFrameEntity_FieldNumber_Layout = 2,
+  SVGAProtoFrameEntity_FieldNumber_Transform = 3,
+  SVGAProtoFrameEntity_FieldNumber_ClipPath = 4,
+  SVGAProtoFrameEntity_FieldNumber_ShapesArray = 5,
 };
 
-@interface FrameEntity : GPBMessage
+@interface SVGAProtoFrameEntity : GPBMessage
 
 /** 透明度 */
 @property(nonatomic, readwrite) float alpha;
 
 /** 初始约束大小 */
-@property(nonatomic, readwrite, strong, null_resettable) Layout *layout;
+@property(nonatomic, readwrite, strong, null_resettable) SVGAProtoLayout *layout;
 /** Test to see if @c layout has been set. */
 @property(nonatomic, readwrite) BOOL hasLayout;
 
 /** 2D 变换矩阵 */
-@property(nonatomic, readwrite, strong, null_resettable) Transform *transform;
+@property(nonatomic, readwrite, strong, null_resettable) SVGAProtoTransform *transform;
 /** Test to see if @c transform has been set. */
 @property(nonatomic, readwrite) BOOL hasTransform;
 
@@ -468,28 +468,28 @@ typedef GPB_ENUM(FrameEntity_FieldNumber) {
 @property(nonatomic, readwrite, copy, null_resettable) NSString *clipPath;
 
 /** 矢量元素列表 */
-@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<ShapeEntity*> *shapesArray;
+@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<SVGAProtoShapeEntity*> *shapesArray;
 /** The number of items in @c shapesArray without causing the array to be created. */
 @property(nonatomic, readonly) NSUInteger shapesArray_Count;
 
 @end
 
-#pragma mark - MovieEntity
+#pragma mark - SVGAProtoMovieEntity
 
-typedef GPB_ENUM(MovieEntity_FieldNumber) {
-  MovieEntity_FieldNumber_Version = 1,
-  MovieEntity_FieldNumber_Params = 2,
-  MovieEntity_FieldNumber_Images = 3,
-  MovieEntity_FieldNumber_SpritesArray = 4,
+typedef GPB_ENUM(SVGAProtoMovieEntity_FieldNumber) {
+  SVGAProtoMovieEntity_FieldNumber_Version = 1,
+  SVGAProtoMovieEntity_FieldNumber_Params = 2,
+  SVGAProtoMovieEntity_FieldNumber_Images = 3,
+  SVGAProtoMovieEntity_FieldNumber_SpritesArray = 4,
 };
 
-@interface MovieEntity : GPBMessage
+@interface SVGAProtoMovieEntity : GPBMessage
 
 /** SVGA 格式版本号 */
 @property(nonatomic, readwrite, copy, null_resettable) NSString *version;
 
 /** 动画参数 */
-@property(nonatomic, readwrite, strong, null_resettable) MovieParams *params;
+@property(nonatomic, readwrite, strong, null_resettable) SVGAProtoMovieParams *params;
 /** Test to see if @c params has been set. */
 @property(nonatomic, readwrite) BOOL hasParams;
 
@@ -499,7 +499,7 @@ typedef GPB_ENUM(MovieEntity_FieldNumber) {
 @property(nonatomic, readonly) NSUInteger images_Count;
 
 /** 元素列表 */
-@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<SpriteEntity*> *spritesArray;
+@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<SVGAProtoSpriteEntity*> *spritesArray;
 /** The number of items in @c spritesArray without causing the array to be created. */
 @property(nonatomic, readonly) NSUInteger spritesArray_Count;
 

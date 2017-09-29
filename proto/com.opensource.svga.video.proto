@@ -1,5 +1,6 @@
 syntax = "proto3";
 package com.opensource.svga;
+option objc_class_prefix = "SVGAProto";
 
 message MovieParams {
     float viewBoxWidth = 1;     // 画布宽
