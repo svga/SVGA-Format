@@ -113,7 +113,7 @@ message MovieEntity {
 
     string version = 1;                 // SVGA 格式版本号
     MovieParams params = 2;             // 动画参数
-    map<string, string> images = 3;     // Key 是位图键名，Path 是位图文件名。
+    map<string, string> images = 3;     // Key 是位图键名，Value 是位图文件名或 Base64 数据。
     repeated SpriteEntity sprites = 4;  // 元素列表
 
 }
