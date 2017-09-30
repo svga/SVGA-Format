@@ -3008,7 +3008,7 @@ proto.com.opensource.svga.MovieEntity.deserializeBinaryFromReader = function(msg
     case 3:
       var value = msg.getImagesMap();
       reader.readMessage(value, function(message, reader) {
-        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString);
+        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readBytes);
          });
       break;
     case 4:
@@ -3062,7 +3062,7 @@ proto.com.opensource.svga.MovieEntity.serializeBinaryToWriter = function(message
   }
   f = message.getImagesMap(true);
   if (f && f.getLength() > 0) {
-    f.serializeBinary(3, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
+    f.serializeBinary(3, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeBytes);
   }
   f = message.getSpritesList();
   if (f.length > 0) {
@@ -3121,13 +3121,13 @@ proto.com.opensource.svga.MovieEntity.prototype.hasParams = function() {
 
 
 /**
- * map<string, string> images = 3;
+ * map<string, bytes> images = 3;
  * @param {boolean=} opt_noLazyCreate Do not create the map if
  * empty, instead returning `undefined`
- * @return {!jspb.Map<string,string>}
+ * @return {!jspb.Map<string,!(string|Uint8Array)>}
  */
 proto.com.opensource.svga.MovieEntity.prototype.getImagesMap = function(opt_noLazyCreate) {
-  return /** @type {!jspb.Map<string,string>} */ (
+  return /** @type {!jspb.Map<string,!(string|Uint8Array)>} */ (
       jspb.Message.getMapField(this, 3, opt_noLazyCreate,
       null));
 };
