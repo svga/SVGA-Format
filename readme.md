@@ -3,7 +3,7 @@
 ## 介绍
 
 * SVGA 是一种动画格式
-* SVGA 类似于 DragonBorn / CreateJS 
+* SVGA 类似于 Dragonbones / CreateJS 
 
 ## 格式规范
 
