@@ -40,4 +40,4 @@
 
 ## 1.x
 
-* Will not support.
+* 只保证稳定性
