@@ -7,7 +7,7 @@
             "svga": {
               "options": {
                 "objc_class_prefix": "SVGAProto",
-                "java_package": "com.opensource.svgaplayer"
+                "java_package": "com.opensource.svgaplayer.proto"
               },
               "nested": {
                 "MovieParams": {
@@ -39,6 +39,18 @@
                     "frames": {
                       "rule": "repeated",
                       "type": "FrameEntity",
+                      "id": 2
+                    }
+                  }
+                },
+                "AudioEntity": {
+                  "fields": {
+                    "audioKey": {
+                      "type": "string",
+                      "id": 1
+                    },
+                    "startFrame": {
+                      "type": "int32",
                       "id": 2
                     }
                   }
@@ -310,6 +322,11 @@
                       "rule": "repeated",
                       "type": "SpriteEntity",
                       "id": 4
+                    },
+                    "audios": {
+                      "rule": "repeated",
+                      "type": "AudioEntity",
+                      "id": 5
                     }
                   }
                 }

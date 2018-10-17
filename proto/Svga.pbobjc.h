@@ -27,6 +27,7 @@
 
 CF_EXTERN_C_BEGIN
 
+@class SVGAProtoAudioEntity;
 @class SVGAProtoFrameEntity;
 @class SVGAProtoLayout;
 @class SVGAProtoMovieParams;
@@ -171,6 +172,23 @@ typedef GPB_ENUM(SVGAProtoSpriteEntity_FieldNumber) {
 @property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<SVGAProtoFrameEntity*> *framesArray;
 /** The number of items in @c framesArray without causing the array to be created. */
 @property(nonatomic, readonly) NSUInteger framesArray_Count;
+
+@end
+
+#pragma mark - SVGAProtoAudioEntity
+
+typedef GPB_ENUM(SVGAProtoAudioEntity_FieldNumber) {
+  SVGAProtoAudioEntity_FieldNumber_AudioKey = 1,
+  SVGAProtoAudioEntity_FieldNumber_StartFrame = 2,
+};
+
+@interface SVGAProtoAudioEntity : GPBMessage
+
+/** 音频文件名 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *audioKey;
+
+/** 音频播放起始帧 */
+@property(nonatomic, readwrite) int32_t startFrame;
 
 @end
 
@@ -481,6 +499,7 @@ typedef GPB_ENUM(SVGAProtoMovieEntity_FieldNumber) {
   SVGAProtoMovieEntity_FieldNumber_Params = 2,
   SVGAProtoMovieEntity_FieldNumber_Images = 3,
   SVGAProtoMovieEntity_FieldNumber_SpritesArray = 4,
+  SVGAProtoMovieEntity_FieldNumber_AudiosArray = 5,
 };
 
 @interface SVGAProtoMovieEntity : GPBMessage
@@ -502,6 +521,11 @@ typedef GPB_ENUM(SVGAProtoMovieEntity_FieldNumber) {
 @property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<SVGAProtoSpriteEntity*> *spritesArray;
 /** The number of items in @c spritesArray without causing the array to be created. */
 @property(nonatomic, readonly) NSUInteger spritesArray_Count;
+
+/** 音频列表 */
+@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<SVGAProtoAudioEntity*> *audiosArray;
+/** The number of items in @c audiosArray without causing the array to be created. */
+@property(nonatomic, readonly) NSUInteger audiosArray_Count;
 
 @end
 
