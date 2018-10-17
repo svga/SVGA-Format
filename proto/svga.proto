@@ -15,6 +15,11 @@ message SpriteEntity {
     repeated FrameEntity frames = 2;    // 帧列表
 }
 
+message AudioEntity {
+    string audioKey = 1;        // 音频文件名
+    int32 startFrame = 2;       // 音频播放起始帧
+}
+
 message Layout {
     float x = 1;
     float y = 2;
@@ -115,7 +120,8 @@ message MovieEntity {
 
     string version = 1;                 // SVGA 格式版本号
     MovieParams params = 2;             // 动画参数
-    map<string, bytes> images = 3;     // Key 是位图键名，Value 是位图文件名或二进制 PNG 数据。
+    map<string, bytes> images = 3;      // Key 是位图键名，Value 是位图文件名或二进制 PNG 数据。
     repeated SpriteEntity sprites = 4;  // 元素列表
+    repeated AudioEntity audios = 5;    // 音频列表
 
 }
