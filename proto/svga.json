@@ -52,6 +52,14 @@
                     "startFrame": {
                       "type": "int32",
                       "id": 2
+                    },
+                    "endFrame": {
+                      "type": "int32",
+                      "id": 3
+                    },
+                    "startTime": {
+                      "type": "int32",
+                      "id": 4
                     }
                   }
                 },

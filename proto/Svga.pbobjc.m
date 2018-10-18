@@ -192,10 +192,14 @@ typedef struct SVGAProtoSpriteEntity__storage_ {
 
 @dynamic audioKey;
 @dynamic startFrame;
+@dynamic endFrame;
+@dynamic startTime;
 
 typedef struct SVGAProtoAudioEntity__storage_ {
   uint32_t _has_storage_[1];
   int32_t startFrame;
+  int32_t endFrame;
+  int32_t startTime;
   NSString *audioKey;
 } SVGAProtoAudioEntity__storage_;
 
@@ -223,6 +227,24 @@ typedef struct SVGAProtoAudioEntity__storage_ {
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeInt32,
       },
+      {
+        .name = "endFrame",
+        .dataTypeSpecific.className = NULL,
+        .number = SVGAProtoAudioEntity_FieldNumber_EndFrame,
+        .hasIndex = 2,
+        .offset = (uint32_t)offsetof(SVGAProtoAudioEntity__storage_, endFrame),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeInt32,
+      },
+      {
+        .name = "startTime",
+        .dataTypeSpecific.className = NULL,
+        .number = SVGAProtoAudioEntity_FieldNumber_StartTime,
+        .hasIndex = 3,
+        .offset = (uint32_t)offsetof(SVGAProtoAudioEntity__storage_, startTime),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeInt32,
+      },
     };
     GPBDescriptor *localDescriptor =
         [GPBDescriptor allocDescriptorForClass:[SVGAProtoAudioEntity class]
@@ -234,7 +256,7 @@ typedef struct SVGAProtoAudioEntity__storage_ {
                                          flags:GPBDescriptorInitializationFlag_None];
 #if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     static const char *extraTextFormatInfo =
-        "\002\001\010\000\002\n\000";
+        "\004\001\010\000\002\n\000\003\010\000\004\t\000";
     [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
 #endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     NSAssert(descriptor == nil, @"Startup recursed!");

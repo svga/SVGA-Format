@@ -493,7 +493,9 @@ proto.com.opensource.svga.AudioEntity.prototype.toObject = function(opt_includeI
 proto.com.opensource.svga.AudioEntity.toObject = function(includeInstance, msg) {
   var f, obj = {
     audiokey: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    startframe: jspb.Message.getFieldWithDefault(msg, 2, 0)
+    startframe: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    endframe: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    starttime: jspb.Message.getFieldWithDefault(msg, 4, 0)
   };
 
   if (includeInstance) {
@@ -538,6 +540,14 @@ proto.com.opensource.svga.AudioEntity.deserializeBinaryFromReader = function(msg
       var value = /** @type {number} */ (reader.readInt32());
       msg.setStartframe(value);
       break;
+    case 3:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setEndframe(value);
+      break;
+    case 4:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setStarttime(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -581,6 +591,20 @@ proto.com.opensource.svga.AudioEntity.serializeBinaryToWriter = function(message
       f
     );
   }
+  f = message.getEndframe();
+  if (f !== 0) {
+    writer.writeInt32(
+      3,
+      f
+    );
+  }
+  f = message.getStarttime();
+  if (f !== 0) {
+    writer.writeInt32(
+      4,
+      f
+    );
+  }
 };
 
 
@@ -611,6 +635,36 @@ proto.com.opensource.svga.AudioEntity.prototype.getStartframe = function() {
 /** @param {number} value */
 proto.com.opensource.svga.AudioEntity.prototype.setStartframe = function(value) {
   jspb.Message.setProto3IntField(this, 2, value);
+};
+
+
+/**
+ * optional int32 endFrame = 3;
+ * @return {number}
+ */
+proto.com.opensource.svga.AudioEntity.prototype.getEndframe = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+};
+
+
+/** @param {number} value */
+proto.com.opensource.svga.AudioEntity.prototype.setEndframe = function(value) {
+  jspb.Message.setProto3IntField(this, 3, value);
+};
+
+
+/**
+ * optional int32 startTime = 4;
+ * @return {number}
+ */
+proto.com.opensource.svga.AudioEntity.prototype.getStarttime = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+};
+
+
+/** @param {number} value */
+proto.com.opensource.svga.AudioEntity.prototype.setStarttime = function(value) {
+  jspb.Message.setProto3IntField(this, 4, value);
 };
 
 
