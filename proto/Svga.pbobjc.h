@@ -182,6 +182,7 @@ typedef GPB_ENUM(SVGAProtoAudioEntity_FieldNumber) {
   SVGAProtoAudioEntity_FieldNumber_StartFrame = 2,
   SVGAProtoAudioEntity_FieldNumber_EndFrame = 3,
   SVGAProtoAudioEntity_FieldNumber_StartTime = 4,
+  SVGAProtoAudioEntity_FieldNumber_TotalTime = 5,
 };
 
 @interface SVGAProtoAudioEntity : GPBMessage
@@ -197,6 +198,9 @@ typedef GPB_ENUM(SVGAProtoAudioEntity_FieldNumber) {
 
 /** 音频播放起始时间（相对音频长度） */
 @property(nonatomic, readwrite) int32_t startTime;
+
+/** 音频总长度 */
+@property(nonatomic, readwrite) int32_t totalTime;
 
 @end
 

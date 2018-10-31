@@ -60,6 +60,10 @@
                     "startTime": {
                       "type": "int32",
                       "id": 4
+                    },
+                    "totalTime": {
+                      "type": "int32",
+                      "id": 5
                     }
                   }
                 },

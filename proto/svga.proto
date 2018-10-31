@@ -20,6 +20,7 @@ message AudioEntity {
     int32 startFrame = 2;       // 音频播放起始帧
     int32 endFrame = 3;         // 音频播放结束帧
     int32 startTime = 4;        // 音频播放起始时间（相对音频长度）
+    int32 totalTime = 5;        // 音频总长度
 }
 
 message Layout {

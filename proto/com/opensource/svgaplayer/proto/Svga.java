@@ -1883,6 +1883,15 @@ public final class Svga {
      * <code>int32 startTime = 4;</code>
      */
     int getStartTime();
+
+    /**
+     * <pre>
+     * 音频总长度
+     * </pre>
+     *
+     * <code>int32 totalTime = 5;</code>
+     */
+    int getTotalTime();
   }
   /**
    * Protobuf type {@code com.opensource.svga.AudioEntity}
@@ -1901,6 +1910,7 @@ public final class Svga {
       startFrame_ = 0;
       endFrame_ = 0;
       startTime_ = 0;
+      totalTime_ = 0;
     }
 
     @java.lang.Override
@@ -1946,6 +1956,11 @@ public final class Svga {
             case 32: {
 
               startTime_ = input.readInt32();
+              break;
+            }
+            case 40: {
+
+              totalTime_ = input.readInt32();
               break;
             }
             default: {
@@ -2061,6 +2076,19 @@ public final class Svga {
       return startTime_;
     }
 
+    public static final int TOTALTIME_FIELD_NUMBER = 5;
+    private int totalTime_;
+    /**
+     * <pre>
+     * 音频总长度
+     * </pre>
+     *
+     * <code>int32 totalTime = 5;</code>
+     */
+    public int getTotalTime() {
+      return totalTime_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -2087,6 +2115,9 @@ public final class Svga {
       if (startTime_ != 0) {
         output.writeInt32(4, startTime_);
       }
+      if (totalTime_ != 0) {
+        output.writeInt32(5, totalTime_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -2110,6 +2141,10 @@ public final class Svga {
       if (startTime_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(4, startTime_);
+      }
+      if (totalTime_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(5, totalTime_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2135,6 +2170,8 @@ public final class Svga {
           == other.getEndFrame());
       result = result && (getStartTime()
           == other.getStartTime());
+      result = result && (getTotalTime()
+          == other.getTotalTime());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -2154,6 +2191,8 @@ public final class Svga {
       hash = (53 * hash) + getEndFrame();
       hash = (37 * hash) + STARTTIME_FIELD_NUMBER;
       hash = (53 * hash) + getStartTime();
+      hash = (37 * hash) + TOTALTIME_FIELD_NUMBER;
+      hash = (53 * hash) + getTotalTime();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -2295,6 +2334,8 @@ public final class Svga {
 
         startTime_ = 0;
 
+        totalTime_ = 0;
+
         return this;
       }
 
@@ -2325,6 +2366,7 @@ public final class Svga {
         result.startFrame_ = startFrame_;
         result.endFrame_ = endFrame_;
         result.startTime_ = startTime_;
+        result.totalTime_ = totalTime_;
         onBuilt();
         return result;
       }
@@ -2385,6 +2427,9 @@ public final class Svga {
         }
         if (other.getStartTime() != 0) {
           setStartTime(other.getStartTime());
+        }
+        if (other.getTotalTime() != 0) {
+          setTotalTime(other.getTotalTime());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -2614,6 +2659,44 @@ public final class Svga {
       public Builder clearStartTime() {
         
         startTime_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int totalTime_ ;
+      /**
+       * <pre>
+       * 音频总长度
+       * </pre>
+       *
+       * <code>int32 totalTime = 5;</code>
+       */
+      public int getTotalTime() {
+        return totalTime_;
+      }
+      /**
+       * <pre>
+       * 音频总长度
+       * </pre>
+       *
+       * <code>int32 totalTime = 5;</code>
+       */
+      public Builder setTotalTime(int value) {
+        
+        totalTime_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 音频总长度
+       * </pre>
+       *
+       * <code>int32 totalTime = 5;</code>
+       */
+      public Builder clearTotalTime() {
+        
+        totalTime_ = 0;
         onChanged();
         return this;
       }
@@ -14606,56 +14689,57 @@ public final class Svga {
       "xHeight\030\002 \001(\002\022\013\n\003fps\030\003 \001(\005\022\016\n\006frames\030\004 \001" +
       "(\005\"R\n\014SpriteEntity\022\020\n\010imageKey\030\001 \001(\t\0220\n\006" +
       "frames\030\002 \003(\0132 .com.opensource.svga.Frame" +
-      "Entity\"X\n\013AudioEntity\022\020\n\010audioKey\030\001 \001(\t\022" +
+      "Entity\"k\n\013AudioEntity\022\020\n\010audioKey\030\001 \001(\t\022" +
       "\022\n\nstartFrame\030\002 \001(\005\022\020\n\010endFrame\030\003 \001(\005\022\021\n" +
-      "\tstartTime\030\004 \001(\005\"=\n\006Layout\022\t\n\001x\030\001 \001(\002\022\t\n" +
-      "\001y\030\002 \001(\002\022\r\n\005width\030\003 \001(\002\022\016\n\006height\030\004 \001(\002\"" +
-      "O\n\tTransform\022\t\n\001a\030\001 \001(\002\022\t\n\001b\030\002 \001(\002\022\t\n\001c\030" +
-      "\003 \001(\002\022\t\n\001d\030\004 \001(\002\022\n\n\002tx\030\005 \001(\002\022\n\n\002ty\030\006 \001(\002" +
-      "\"\272\t\n\013ShapeEntity\0228\n\004type\030\001 \001(\0162*.com.ope" +
-      "nsource.svga.ShapeEntity.ShapeType\022;\n\005sh" +
-      "ape\030\002 \001(\0132*.com.opensource.svga.ShapeEnt" +
-      "ity.ShapeArgsH\000\0229\n\004rect\030\003 \001(\0132).com.open" +
-      "source.svga.ShapeEntity.RectArgsH\000\022?\n\007el" +
-      "lipse\030\004 \001(\0132,.com.opensource.svga.ShapeE" +
-      "ntity.EllipseArgsH\000\022;\n\006styles\030\n \001(\0132+.co" +
-      "m.opensource.svga.ShapeEntity.ShapeStyle" +
-      "\0221\n\ttransform\030\013 \001(\0132\036.com.opensource.svg" +
-      "a.Transform\032\026\n\tShapeArgs\022\t\n\001d\030\001 \001(\t\032U\n\010R" +
-      "ectArgs\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\022\r\n\005width\030\003" +
-      " \001(\002\022\016\n\006height\030\004 \001(\002\022\024\n\014cornerRadius\030\005 \001" +
-      "(\002\032E\n\013EllipseArgs\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\022" +
-      "\017\n\007radiusX\030\003 \001(\002\022\017\n\007radiusY\030\004 \001(\002\032\320\004\n\nSh" +
-      "apeStyle\022C\n\004fill\030\001 \001(\01325.com.opensource." +
-      "svga.ShapeEntity.ShapeStyle.RGBAColor\022E\n" +
-      "\006stroke\030\002 \001(\01325.com.opensource.svga.Shap" +
-      "eEntity.ShapeStyle.RGBAColor\022\023\n\013strokeWi" +
-      "dth\030\003 \001(\002\022D\n\007lineCap\030\004 \001(\01623.com.opensou" +
-      "rce.svga.ShapeEntity.ShapeStyle.LineCap\022" +
-      "F\n\010lineJoin\030\005 \001(\01624.com.opensource.svga." +
-      "ShapeEntity.ShapeStyle.LineJoin\022\022\n\nmiter" +
-      "Limit\030\006 \001(\002\022\021\n\tlineDashI\030\007 \001(\002\022\022\n\nlineDa" +
-      "shII\030\010 \001(\002\022\023\n\013lineDashIII\030\t \001(\002\0327\n\tRGBAC" +
-      "olor\022\t\n\001r\030\001 \001(\002\022\t\n\001g\030\002 \001(\002\022\t\n\001b\030\003 \001(\002\022\t\n" +
-      "\001a\030\004 \001(\002\"B\n\007LineCap\022\020\n\014LineCap_BUTT\020\000\022\021\n" +
-      "\rLineCap_ROUND\020\001\022\022\n\016LineCap_SQUARE\020\002\"F\n\010" +
-      "LineJoin\022\022\n\016LineJoin_MITER\020\000\022\022\n\016LineJoin" +
-      "_ROUND\020\001\022\022\n\016LineJoin_BEVEL\020\002\"7\n\tShapeTyp" +
-      "e\022\t\n\005SHAPE\020\000\022\010\n\004RECT\020\001\022\013\n\007ELLIPSE\020\002\022\010\n\004K" +
-      "EEP\020\003B\006\n\004args\"\300\001\n\013FrameEntity\022\r\n\005alpha\030\001" +
-      " \001(\002\022+\n\006layout\030\002 \001(\0132\033.com.opensource.sv" +
-      "ga.Layout\0221\n\ttransform\030\003 \001(\0132\036.com.opens" +
-      "ource.svga.Transform\022\020\n\010clipPath\030\004 \001(\t\0220" +
-      "\n\006shapes\030\005 \003(\0132 .com.opensource.svga.Sha" +
-      "peEntity\"\243\002\n\013MovieEntity\022\017\n\007version\030\001 \001(" +
-      "\t\0220\n\006params\030\002 \001(\0132 .com.opensource.svga." +
-      "MovieParams\022<\n\006images\030\003 \003(\0132,.com.openso" +
-      "urce.svga.MovieEntity.ImagesEntry\0222\n\007spr" +
-      "ites\030\004 \003(\0132!.com.opensource.svga.SpriteE" +
-      "ntity\0220\n\006audios\030\005 \003(\0132 .com.opensource.s" +
-      "vga.AudioEntity\032-\n\013ImagesEntry\022\013\n\003key\030\001 " +
-      "\001(\t\022\r\n\005value\030\002 \001(\014:\0028\001B-\n\037com.opensource" +
-      ".svgaplayer.proto\242\002\tSVGAProtob\006proto3"
+      "\tstartTime\030\004 \001(\005\022\021\n\ttotalTime\030\005 \001(\005\"=\n\006L" +
+      "ayout\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\022\r\n\005width\030\003 \001" +
+      "(\002\022\016\n\006height\030\004 \001(\002\"O\n\tTransform\022\t\n\001a\030\001 \001" +
+      "(\002\022\t\n\001b\030\002 \001(\002\022\t\n\001c\030\003 \001(\002\022\t\n\001d\030\004 \001(\002\022\n\n\002t" +
+      "x\030\005 \001(\002\022\n\n\002ty\030\006 \001(\002\"\272\t\n\013ShapeEntity\0228\n\004t" +
+      "ype\030\001 \001(\0162*.com.opensource.svga.ShapeEnt" +
+      "ity.ShapeType\022;\n\005shape\030\002 \001(\0132*.com.opens" +
+      "ource.svga.ShapeEntity.ShapeArgsH\000\0229\n\004re" +
+      "ct\030\003 \001(\0132).com.opensource.svga.ShapeEnti" +
+      "ty.RectArgsH\000\022?\n\007ellipse\030\004 \001(\0132,.com.ope" +
+      "nsource.svga.ShapeEntity.EllipseArgsH\000\022;" +
+      "\n\006styles\030\n \001(\0132+.com.opensource.svga.Sha" +
+      "peEntity.ShapeStyle\0221\n\ttransform\030\013 \001(\0132\036" +
+      ".com.opensource.svga.Transform\032\026\n\tShapeA" +
+      "rgs\022\t\n\001d\030\001 \001(\t\032U\n\010RectArgs\022\t\n\001x\030\001 \001(\002\022\t\n" +
+      "\001y\030\002 \001(\002\022\r\n\005width\030\003 \001(\002\022\016\n\006height\030\004 \001(\002\022" +
+      "\024\n\014cornerRadius\030\005 \001(\002\032E\n\013EllipseArgs\022\t\n\001" +
+      "x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\022\017\n\007radiusX\030\003 \001(\002\022\017\n\007r" +
+      "adiusY\030\004 \001(\002\032\320\004\n\nShapeStyle\022C\n\004fill\030\001 \001(" +
+      "\01325.com.opensource.svga.ShapeEntity.Shap" +
+      "eStyle.RGBAColor\022E\n\006stroke\030\002 \001(\01325.com.o" +
+      "pensource.svga.ShapeEntity.ShapeStyle.RG" +
+      "BAColor\022\023\n\013strokeWidth\030\003 \001(\002\022D\n\007lineCap\030" +
+      "\004 \001(\01623.com.opensource.svga.ShapeEntity." +
+      "ShapeStyle.LineCap\022F\n\010lineJoin\030\005 \001(\01624.c" +
+      "om.opensource.svga.ShapeEntity.ShapeStyl" +
+      "e.LineJoin\022\022\n\nmiterLimit\030\006 \001(\002\022\021\n\tlineDa" +
+      "shI\030\007 \001(\002\022\022\n\nlineDashII\030\010 \001(\002\022\023\n\013lineDas" +
+      "hIII\030\t \001(\002\0327\n\tRGBAColor\022\t\n\001r\030\001 \001(\002\022\t\n\001g\030" +
+      "\002 \001(\002\022\t\n\001b\030\003 \001(\002\022\t\n\001a\030\004 \001(\002\"B\n\007LineCap\022\020" +
+      "\n\014LineCap_BUTT\020\000\022\021\n\rLineCap_ROUND\020\001\022\022\n\016L" +
+      "ineCap_SQUARE\020\002\"F\n\010LineJoin\022\022\n\016LineJoin_" +
+      "MITER\020\000\022\022\n\016LineJoin_ROUND\020\001\022\022\n\016LineJoin_" +
+      "BEVEL\020\002\"7\n\tShapeType\022\t\n\005SHAPE\020\000\022\010\n\004RECT\020" +
+      "\001\022\013\n\007ELLIPSE\020\002\022\010\n\004KEEP\020\003B\006\n\004args\"\300\001\n\013Fra" +
+      "meEntity\022\r\n\005alpha\030\001 \001(\002\022+\n\006layout\030\002 \001(\0132" +
+      "\033.com.opensource.svga.Layout\0221\n\ttransfor" +
+      "m\030\003 \001(\0132\036.com.opensource.svga.Transform\022" +
+      "\020\n\010clipPath\030\004 \001(\t\0220\n\006shapes\030\005 \003(\0132 .com." +
+      "opensource.svga.ShapeEntity\"\243\002\n\013MovieEnt" +
+      "ity\022\017\n\007version\030\001 \001(\t\0220\n\006params\030\002 \001(\0132 .c" +
+      "om.opensource.svga.MovieParams\022<\n\006images" +
+      "\030\003 \003(\0132,.com.opensource.svga.MovieEntity" +
+      ".ImagesEntry\0222\n\007sprites\030\004 \003(\0132!.com.open" +
+      "source.svga.SpriteEntity\0220\n\006audios\030\005 \003(\013" +
+      "2 .com.opensource.svga.AudioEntity\032-\n\013Im" +
+      "agesEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028" +
+      "\001B-\n\037com.opensource.svgaplayer.proto\242\002\tS" +
+      "VGAProtob\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -14686,7 +14770,7 @@ public final class Svga {
     internal_static_com_opensource_svga_AudioEntity_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_opensource_svga_AudioEntity_descriptor,
-        new java.lang.String[] { "AudioKey", "StartFrame", "EndFrame", "StartTime", });
+        new java.lang.String[] { "AudioKey", "StartFrame", "EndFrame", "StartTime", "TotalTime", });
     internal_static_com_opensource_svga_Layout_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_com_opensource_svga_Layout_fieldAccessorTable = new
