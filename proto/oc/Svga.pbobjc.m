@@ -13,9 +13,7 @@
  #import "GPBProtocolBuffers_RuntimeSupport.h"
 #endif
 
-#import <stdatomic.h>
-
-#import "Svga.pbobjc.h"
+ #import "Svga.pbobjc.h"
 // @@protoc_insertion_point(imports)
 
 #pragma clang diagnostic push
@@ -133,11 +131,13 @@ typedef struct SVGAProtoMovieParams__storage_ {
 
 @dynamic imageKey;
 @dynamic framesArray, framesArray_Count;
+@dynamic matteKey;
 
 typedef struct SVGAProtoSpriteEntity__storage_ {
   uint32_t _has_storage_[1];
   NSString *imageKey;
   NSMutableArray *framesArray;
+  NSString *matteKey;
 } SVGAProtoSpriteEntity__storage_;
 
 // This method is threadsafe because it is initially called
@@ -164,6 +164,15 @@ typedef struct SVGAProtoSpriteEntity__storage_ {
         .flags = GPBFieldRepeated,
         .dataType = GPBDataTypeMessage,
       },
+      {
+        .name = "matteKey",
+        .dataTypeSpecific.className = NULL,
+        .number = SVGAProtoSpriteEntity_FieldNumber_MatteKey,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(SVGAProtoSpriteEntity__storage_, matteKey),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeString,
+      },
     };
     GPBDescriptor *localDescriptor =
         [GPBDescriptor allocDescriptorForClass:[SVGAProtoSpriteEntity class]
@@ -175,7 +184,7 @@ typedef struct SVGAProtoSpriteEntity__storage_ {
                                          flags:GPBDescriptorInitializationFlag_None];
 #if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     static const char *extraTextFormatInfo =
-        "\001\001\010\000";
+        "\002\001\010\000\003\010\000";
     [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
 #endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     NSAssert(descriptor == nil, @"Startup recursed!");
@@ -577,7 +586,7 @@ void SVGAProtoShapeEntity_ClearArgsOneOfCase(SVGAProtoShapeEntity *message) {
 #pragma mark - Enum SVGAProtoShapeEntity_ShapeType
 
 GPBEnumDescriptor *SVGAProtoShapeEntity_ShapeType_EnumDescriptor(void) {
-  static _Atomic(GPBEnumDescriptor*) descriptor = nil;
+  static GPBEnumDescriptor *descriptor = NULL;
   if (!descriptor) {
     static const char *valueNames =
         "Shape\000Rect\000Ellipse\000Keep\000";
@@ -593,8 +602,7 @@ GPBEnumDescriptor *SVGAProtoShapeEntity_ShapeType_EnumDescriptor(void) {
                                            values:values
                                             count:(uint32_t)(sizeof(values) / sizeof(int32_t))
                                      enumVerifier:SVGAProtoShapeEntity_ShapeType_IsValidValue];
-    GPBEnumDescriptor *expected = nil;
-    if (!atomic_compare_exchange_strong(&descriptor, &expected, worker)) {
+    if (!OSAtomicCompareAndSwapPtrBarrier(nil, worker, (void * volatile *)&descriptor)) {
       [worker release];
     }
   }
@@ -996,7 +1004,7 @@ void SetSVGAProtoShapeEntity_ShapeStyle_LineJoin_RawValue(SVGAProtoShapeEntity_S
 #pragma mark - Enum SVGAProtoShapeEntity_ShapeStyle_LineCap
 
 GPBEnumDescriptor *SVGAProtoShapeEntity_ShapeStyle_LineCap_EnumDescriptor(void) {
-  static _Atomic(GPBEnumDescriptor*) descriptor = nil;
+  static GPBEnumDescriptor *descriptor = NULL;
   if (!descriptor) {
     static const char *valueNames =
         "LineCapButt\000LineCapRound\000LineCapSquare\000";
@@ -1013,8 +1021,7 @@ GPBEnumDescriptor *SVGAProtoShapeEntity_ShapeStyle_LineCap_EnumDescriptor(void) 
                                             count:(uint32_t)(sizeof(values) / sizeof(int32_t))
                                      enumVerifier:SVGAProtoShapeEntity_ShapeStyle_LineCap_IsValidValue
                               extraTextFormatInfo:extraTextFormatInfo];
-    GPBEnumDescriptor *expected = nil;
-    if (!atomic_compare_exchange_strong(&descriptor, &expected, worker)) {
+    if (!OSAtomicCompareAndSwapPtrBarrier(nil, worker, (void * volatile *)&descriptor)) {
       [worker release];
     }
   }
@@ -1035,7 +1042,7 @@ BOOL SVGAProtoShapeEntity_ShapeStyle_LineCap_IsValidValue(int32_t value__) {
 #pragma mark - Enum SVGAProtoShapeEntity_ShapeStyle_LineJoin
 
 GPBEnumDescriptor *SVGAProtoShapeEntity_ShapeStyle_LineJoin_EnumDescriptor(void) {
-  static _Atomic(GPBEnumDescriptor*) descriptor = nil;
+  static GPBEnumDescriptor *descriptor = NULL;
   if (!descriptor) {
     static const char *valueNames =
         "LineJoinMiter\000LineJoinRound\000LineJoinBeve"
@@ -1053,8 +1060,7 @@ GPBEnumDescriptor *SVGAProtoShapeEntity_ShapeStyle_LineJoin_EnumDescriptor(void)
                                             count:(uint32_t)(sizeof(values) / sizeof(int32_t))
                                      enumVerifier:SVGAProtoShapeEntity_ShapeStyle_LineJoin_IsValidValue
                               extraTextFormatInfo:extraTextFormatInfo];
-    GPBEnumDescriptor *expected = nil;
-    if (!atomic_compare_exchange_strong(&descriptor, &expected, worker)) {
+    if (!OSAtomicCompareAndSwapPtrBarrier(nil, worker, (void * volatile *)&descriptor)) {
       [worker release];
     }
   }

@@ -40,6 +40,10 @@
                       "rule": "repeated",
                       "type": "FrameEntity",
                       "id": 2
+                    },
+                    "matteKey": {
+                      "type": "string",
+                      "id": 3
                     }
                   }
                 },

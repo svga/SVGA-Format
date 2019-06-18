@@ -23,7 +23,7 @@ public final class Svga {
      * 画布宽
      * </pre>
      *
-     * <code>float viewBoxWidth = 1;</code>
+     * <code>optional float viewBoxWidth = 1;</code>
      */
     float getViewBoxWidth();
 
@@ -32,7 +32,7 @@ public final class Svga {
      * 画布高
      * </pre>
      *
-     * <code>float viewBoxHeight = 2;</code>
+     * <code>optional float viewBoxHeight = 2;</code>
      */
     float getViewBoxHeight();
 
@@ -41,7 +41,7 @@ public final class Svga {
      * 动画每秒播放帧数，合法值是 [1, 2, 3, 5, 6, 10, 12, 15, 20, 30, 60] 中的任意一个。
      * </pre>
      *
-     * <code>int32 fps = 3;</code>
+     * <code>optional int32 fps = 3;</code>
      */
     int getFps();
 
@@ -50,7 +50,7 @@ public final class Svga {
      * 动画总帧数
      * </pre>
      *
-     * <code>int32 frames = 4;</code>
+     * <code>optional int32 frames = 4;</code>
      */
     int getFrames();
   }
@@ -61,7 +61,6 @@ public final class Svga {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.opensource.svga.MovieParams)
       MovieParamsOrBuilder {
-  private static final long serialVersionUID = 0L;
     // Use MovieParams.newBuilder() to construct.
     private MovieParams(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -76,19 +75,14 @@ public final class Svga {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return this.unknownFields;
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
     }
     private MovieParams(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -97,6 +91,12 @@ public final class Svga {
             case 0:
               done = true;
               break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
             case 13: {
 
               viewBoxWidth_ = input.readFloat();
@@ -117,13 +117,6 @@ public final class Svga {
               frames_ = input.readInt32();
               break;
             }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -132,7 +125,6 @@ public final class Svga {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -141,7 +133,6 @@ public final class Svga {
       return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_MovieParams_descriptor;
     }
 
-    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_MovieParams_fieldAccessorTable
@@ -156,7 +147,7 @@ public final class Svga {
      * 画布宽
      * </pre>
      *
-     * <code>float viewBoxWidth = 1;</code>
+     * <code>optional float viewBoxWidth = 1;</code>
      */
     public float getViewBoxWidth() {
       return viewBoxWidth_;
@@ -169,7 +160,7 @@ public final class Svga {
      * 画布高
      * </pre>
      *
-     * <code>float viewBoxHeight = 2;</code>
+     * <code>optional float viewBoxHeight = 2;</code>
      */
     public float getViewBoxHeight() {
       return viewBoxHeight_;
@@ -182,7 +173,7 @@ public final class Svga {
      * 动画每秒播放帧数，合法值是 [1, 2, 3, 5, 6, 10, 12, 15, 20, 30, 60] 中的任意一个。
      * </pre>
      *
-     * <code>int32 fps = 3;</code>
+     * <code>optional int32 fps = 3;</code>
      */
     public int getFps() {
       return fps_;
@@ -195,14 +186,13 @@ public final class Svga {
      * 动画总帧数
      * </pre>
      *
-     * <code>int32 frames = 4;</code>
+     * <code>optional int32 frames = 4;</code>
      */
     public int getFrames() {
       return frames_;
     }
 
     private byte memoizedIsInitialized = -1;
-    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -212,7 +202,6 @@ public final class Svga {
       return true;
     }
 
-    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (viewBoxWidth_ != 0F) {
@@ -227,10 +216,8 @@ public final class Svga {
       if (frames_ != 0) {
         output.writeInt32(4, frames_);
       }
-      unknownFields.writeTo(output);
     }
 
-    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -252,11 +239,11 @@ public final class Svga {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(4, frames_);
       }
-      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
+    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -280,7 +267,6 @@ public final class Svga {
           == other.getFps());
       result = result && (getFrames()
           == other.getFrames());
-      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -290,7 +276,7 @@ public final class Svga {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (19 * hash) + getDescriptorForType().hashCode();
       hash = (37 * hash) + VIEWBOXWIDTH_FIELD_NUMBER;
       hash = (53 * hash) + java.lang.Float.floatToIntBits(
           getViewBoxWidth());
@@ -306,17 +292,6 @@ public final class Svga {
       return hash;
     }
 
-    public static com.opensource.svgaplayer.proto.Svga.MovieParams parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.opensource.svgaplayer.proto.Svga.MovieParams parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
     public static com.opensource.svgaplayer.proto.Svga.MovieParams parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -376,7 +351,6 @@ public final class Svga {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -384,7 +358,6 @@ public final class Svga {
     public static Builder newBuilder(com.opensource.svgaplayer.proto.Svga.MovieParams prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -408,7 +381,6 @@ public final class Svga {
         return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_MovieParams_descriptor;
       }
 
-      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_MovieParams_fieldAccessorTable
@@ -431,7 +403,6 @@ public final class Svga {
                 .alwaysUseFieldBuilders) {
         }
       }
-      @java.lang.Override
       public Builder clear() {
         super.clear();
         viewBoxWidth_ = 0F;
@@ -445,18 +416,15 @@ public final class Svga {
         return this;
       }
 
-      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_MovieParams_descriptor;
       }
 
-      @java.lang.Override
       public com.opensource.svgaplayer.proto.Svga.MovieParams getDefaultInstanceForType() {
         return com.opensource.svgaplayer.proto.Svga.MovieParams.getDefaultInstance();
       }
 
-      @java.lang.Override
       public com.opensource.svgaplayer.proto.Svga.MovieParams build() {
         com.opensource.svgaplayer.proto.Svga.MovieParams result = buildPartial();
         if (!result.isInitialized()) {
@@ -465,7 +433,6 @@ public final class Svga {
         return result;
       }
 
-      @java.lang.Override
       public com.opensource.svgaplayer.proto.Svga.MovieParams buildPartial() {
         com.opensource.svgaplayer.proto.Svga.MovieParams result = new com.opensource.svgaplayer.proto.Svga.MovieParams(this);
         result.viewBoxWidth_ = viewBoxWidth_;
@@ -476,39 +443,32 @@ public final class Svga {
         return result;
       }
 
-      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
-      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
-      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
-      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
-      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
-      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.opensource.svgaplayer.proto.Svga.MovieParams) {
           return mergeFrom((com.opensource.svgaplayer.proto.Svga.MovieParams)other);
@@ -532,17 +492,14 @@ public final class Svga {
         if (other.getFrames() != 0) {
           setFrames(other.getFrames());
         }
-        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
-      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -567,7 +524,7 @@ public final class Svga {
        * 画布宽
        * </pre>
        *
-       * <code>float viewBoxWidth = 1;</code>
+       * <code>optional float viewBoxWidth = 1;</code>
        */
       public float getViewBoxWidth() {
         return viewBoxWidth_;
@@ -577,7 +534,7 @@ public final class Svga {
        * 画布宽
        * </pre>
        *
-       * <code>float viewBoxWidth = 1;</code>
+       * <code>optional float viewBoxWidth = 1;</code>
        */
       public Builder setViewBoxWidth(float value) {
         
@@ -590,7 +547,7 @@ public final class Svga {
        * 画布宽
        * </pre>
        *
-       * <code>float viewBoxWidth = 1;</code>
+       * <code>optional float viewBoxWidth = 1;</code>
        */
       public Builder clearViewBoxWidth() {
         
@@ -605,7 +562,7 @@ public final class Svga {
        * 画布高
        * </pre>
        *
-       * <code>float viewBoxHeight = 2;</code>
+       * <code>optional float viewBoxHeight = 2;</code>
        */
       public float getViewBoxHeight() {
         return viewBoxHeight_;
@@ -615,7 +572,7 @@ public final class Svga {
        * 画布高
        * </pre>
        *
-       * <code>float viewBoxHeight = 2;</code>
+       * <code>optional float viewBoxHeight = 2;</code>
        */
       public Builder setViewBoxHeight(float value) {
         
@@ -628,7 +585,7 @@ public final class Svga {
        * 画布高
        * </pre>
        *
-       * <code>float viewBoxHeight = 2;</code>
+       * <code>optional float viewBoxHeight = 2;</code>
        */
       public Builder clearViewBoxHeight() {
         
@@ -643,7 +600,7 @@ public final class Svga {
        * 动画每秒播放帧数，合法值是 [1, 2, 3, 5, 6, 10, 12, 15, 20, 30, 60] 中的任意一个。
        * </pre>
        *
-       * <code>int32 fps = 3;</code>
+       * <code>optional int32 fps = 3;</code>
        */
       public int getFps() {
         return fps_;
@@ -653,7 +610,7 @@ public final class Svga {
        * 动画每秒播放帧数，合法值是 [1, 2, 3, 5, 6, 10, 12, 15, 20, 30, 60] 中的任意一个。
        * </pre>
        *
-       * <code>int32 fps = 3;</code>
+       * <code>optional int32 fps = 3;</code>
        */
       public Builder setFps(int value) {
         
@@ -666,7 +623,7 @@ public final class Svga {
        * 动画每秒播放帧数，合法值是 [1, 2, 3, 5, 6, 10, 12, 15, 20, 30, 60] 中的任意一个。
        * </pre>
        *
-       * <code>int32 fps = 3;</code>
+       * <code>optional int32 fps = 3;</code>
        */
       public Builder clearFps() {
         
@@ -681,7 +638,7 @@ public final class Svga {
        * 动画总帧数
        * </pre>
        *
-       * <code>int32 frames = 4;</code>
+       * <code>optional int32 frames = 4;</code>
        */
       public int getFrames() {
         return frames_;
@@ -691,7 +648,7 @@ public final class Svga {
        * 动画总帧数
        * </pre>
        *
-       * <code>int32 frames = 4;</code>
+       * <code>optional int32 frames = 4;</code>
        */
       public Builder setFrames(int value) {
         
@@ -704,7 +661,7 @@ public final class Svga {
        * 动画总帧数
        * </pre>
        *
-       * <code>int32 frames = 4;</code>
+       * <code>optional int32 frames = 4;</code>
        */
       public Builder clearFrames() {
         
@@ -712,16 +669,14 @@ public final class Svga {
         onChanged();
         return this;
       }
-      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return this;
       }
 
-      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
+        return this;
       }
 
 
@@ -740,12 +695,11 @@ public final class Svga {
 
     private static final com.google.protobuf.Parser<MovieParams>
         PARSER = new com.google.protobuf.AbstractParser<MovieParams>() {
-      @java.lang.Override
       public MovieParams parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new MovieParams(input, extensionRegistry);
+          return new MovieParams(input, extensionRegistry);
       }
     };
 
@@ -758,7 +712,6 @@ public final class Svga {
       return PARSER;
     }
 
-    @java.lang.Override
     public com.opensource.svgaplayer.proto.Svga.MovieParams getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -771,18 +724,18 @@ public final class Svga {
 
     /**
      * <pre>
-     * 元件所对应的位图键名, 如果 imageKey 含有 .vector 后缀，该 sprite 为矢量图层。
+     * 元件所对应的位图键名, 如果 imageKey 含有 .vector 后缀，该 sprite 为矢量图层 含有 .matte 后缀，该 sprite 为遮罩图层。
      * </pre>
      *
-     * <code>string imageKey = 1;</code>
+     * <code>optional string imageKey = 1;</code>
      */
     java.lang.String getImageKey();
     /**
      * <pre>
-     * 元件所对应的位图键名, 如果 imageKey 含有 .vector 后缀，该 sprite 为矢量图层。
+     * 元件所对应的位图键名, 如果 imageKey 含有 .vector 后缀，该 sprite 为矢量图层 含有 .matte 后缀，该 sprite 为遮罩图层。
      * </pre>
      *
-     * <code>string imageKey = 1;</code>
+     * <code>optional string imageKey = 1;</code>
      */
     com.google.protobuf.ByteString
         getImageKeyBytes();
@@ -830,6 +783,24 @@ public final class Svga {
      */
     com.opensource.svgaplayer.proto.Svga.FrameEntityOrBuilder getFramesOrBuilder(
         int index);
+
+    /**
+     * <pre>
+     * 被遮罩图层的 matteKey 对应的是其遮罩图层的 imageKey.
+     * </pre>
+     *
+     * <code>optional string matteKey = 3;</code>
+     */
+    java.lang.String getMatteKey();
+    /**
+     * <pre>
+     * 被遮罩图层的 matteKey 对应的是其遮罩图层的 imageKey.
+     * </pre>
+     *
+     * <code>optional string matteKey = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getMatteKeyBytes();
   }
   /**
    * Protobuf type {@code com.opensource.svga.SpriteEntity}
@@ -838,7 +809,6 @@ public final class Svga {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.opensource.svga.SpriteEntity)
       SpriteEntityOrBuilder {
-  private static final long serialVersionUID = 0L;
     // Use SpriteEntity.newBuilder() to construct.
     private SpriteEntity(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -846,24 +816,20 @@ public final class Svga {
     private SpriteEntity() {
       imageKey_ = "";
       frames_ = java.util.Collections.emptyList();
+      matteKey_ = "";
     }
 
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return this.unknownFields;
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
     }
     private SpriteEntity(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -872,6 +838,12 @@ public final class Svga {
             case 0:
               done = true;
               break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
 
@@ -887,11 +859,10 @@ public final class Svga {
                   input.readMessage(com.opensource.svgaplayer.proto.Svga.FrameEntity.parser(), extensionRegistry));
               break;
             }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              matteKey_ = s;
               break;
             }
           }
@@ -905,7 +876,6 @@ public final class Svga {
         if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
           frames_ = java.util.Collections.unmodifiableList(frames_);
         }
-        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -914,7 +884,6 @@ public final class Svga {
       return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_SpriteEntity_descriptor;
     }
 
-    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_SpriteEntity_fieldAccessorTable
@@ -927,10 +896,10 @@ public final class Svga {
     private volatile java.lang.Object imageKey_;
     /**
      * <pre>
-     * 元件所对应的位图键名, 如果 imageKey 含有 .vector 后缀，该 sprite 为矢量图层。
+     * 元件所对应的位图键名, 如果 imageKey 含有 .vector 后缀，该 sprite 为矢量图层 含有 .matte 后缀，该 sprite 为遮罩图层。
      * </pre>
      *
-     * <code>string imageKey = 1;</code>
+     * <code>optional string imageKey = 1;</code>
      */
     public java.lang.String getImageKey() {
       java.lang.Object ref = imageKey_;
@@ -946,10 +915,10 @@ public final class Svga {
     }
     /**
      * <pre>
-     * 元件所对应的位图键名, 如果 imageKey 含有 .vector 后缀，该 sprite 为矢量图层。
+     * 元件所对应的位图键名, 如果 imageKey 含有 .vector 后缀，该 sprite 为矢量图层 含有 .matte 后缀，该 sprite 为遮罩图层。
      * </pre>
      *
-     * <code>string imageKey = 1;</code>
+     * <code>optional string imageKey = 1;</code>
      */
     public com.google.protobuf.ByteString
         getImageKeyBytes() {
@@ -1020,8 +989,49 @@ public final class Svga {
       return frames_.get(index);
     }
 
+    public static final int MATTEKEY_FIELD_NUMBER = 3;
+    private volatile java.lang.Object matteKey_;
+    /**
+     * <pre>
+     * 被遮罩图层的 matteKey 对应的是其遮罩图层的 imageKey.
+     * </pre>
+     *
+     * <code>optional string matteKey = 3;</code>
+     */
+    public java.lang.String getMatteKey() {
+      java.lang.Object ref = matteKey_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        matteKey_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * 被遮罩图层的 matteKey 对应的是其遮罩图层的 imageKey.
+     * </pre>
+     *
+     * <code>optional string matteKey = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getMatteKeyBytes() {
+      java.lang.Object ref = matteKey_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        matteKey_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
-    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -1031,7 +1041,6 @@ public final class Svga {
       return true;
     }
 
-    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (!getImageKeyBytes().isEmpty()) {
@@ -1040,10 +1049,11 @@ public final class Svga {
       for (int i = 0; i < frames_.size(); i++) {
         output.writeMessage(2, frames_.get(i));
       }
-      unknownFields.writeTo(output);
+      if (!getMatteKeyBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, matteKey_);
+      }
     }
 
-    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -1056,11 +1066,14 @@ public final class Svga {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, frames_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      if (!getMatteKeyBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, matteKey_);
+      }
       memoizedSize = size;
       return size;
     }
 
+    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -1076,7 +1089,8 @@ public final class Svga {
           .equals(other.getImageKey());
       result = result && getFramesList()
           .equals(other.getFramesList());
-      result = result && unknownFields.equals(other.unknownFields);
+      result = result && getMatteKey()
+          .equals(other.getMatteKey());
       return result;
     }
 
@@ -1086,29 +1100,20 @@ public final class Svga {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (19 * hash) + getDescriptorForType().hashCode();
       hash = (37 * hash) + IMAGEKEY_FIELD_NUMBER;
       hash = (53 * hash) + getImageKey().hashCode();
       if (getFramesCount() > 0) {
         hash = (37 * hash) + FRAMES_FIELD_NUMBER;
         hash = (53 * hash) + getFramesList().hashCode();
       }
+      hash = (37 * hash) + MATTEKEY_FIELD_NUMBER;
+      hash = (53 * hash) + getMatteKey().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static com.opensource.svgaplayer.proto.Svga.SpriteEntity parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.opensource.svgaplayer.proto.Svga.SpriteEntity parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
     public static com.opensource.svgaplayer.proto.Svga.SpriteEntity parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -1168,7 +1173,6 @@ public final class Svga {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -1176,7 +1180,6 @@ public final class Svga {
     public static Builder newBuilder(com.opensource.svgaplayer.proto.Svga.SpriteEntity prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -1200,7 +1203,6 @@ public final class Svga {
         return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_SpriteEntity_descriptor;
       }
 
-      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_SpriteEntity_fieldAccessorTable
@@ -1224,7 +1226,6 @@ public final class Svga {
           getFramesFieldBuilder();
         }
       }
-      @java.lang.Override
       public Builder clear() {
         super.clear();
         imageKey_ = "";
@@ -1235,21 +1236,20 @@ public final class Svga {
         } else {
           framesBuilder_.clear();
         }
+        matteKey_ = "";
+
         return this;
       }
 
-      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_SpriteEntity_descriptor;
       }
 
-      @java.lang.Override
       public com.opensource.svgaplayer.proto.Svga.SpriteEntity getDefaultInstanceForType() {
         return com.opensource.svgaplayer.proto.Svga.SpriteEntity.getDefaultInstance();
       }
 
-      @java.lang.Override
       public com.opensource.svgaplayer.proto.Svga.SpriteEntity build() {
         com.opensource.svgaplayer.proto.Svga.SpriteEntity result = buildPartial();
         if (!result.isInitialized()) {
@@ -1258,7 +1258,6 @@ public final class Svga {
         return result;
       }
 
-      @java.lang.Override
       public com.opensource.svgaplayer.proto.Svga.SpriteEntity buildPartial() {
         com.opensource.svgaplayer.proto.Svga.SpriteEntity result = new com.opensource.svgaplayer.proto.Svga.SpriteEntity(this);
         int from_bitField0_ = bitField0_;
@@ -1273,44 +1272,38 @@ public final class Svga {
         } else {
           result.frames_ = framesBuilder_.build();
         }
+        result.matteKey_ = matteKey_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
 
-      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
-      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
-      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
-      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
-      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
-      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.opensource.svgaplayer.proto.Svga.SpriteEntity) {
           return mergeFrom((com.opensource.svgaplayer.proto.Svga.SpriteEntity)other);
@@ -1352,17 +1345,18 @@ public final class Svga {
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        if (!other.getMatteKey().isEmpty()) {
+          matteKey_ = other.matteKey_;
+          onChanged();
+        }
         onChanged();
         return this;
       }
 
-      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1385,10 +1379,10 @@ public final class Svga {
       private java.lang.Object imageKey_ = "";
       /**
        * <pre>
-       * 元件所对应的位图键名, 如果 imageKey 含有 .vector 后缀，该 sprite 为矢量图层。
+       * 元件所对应的位图键名, 如果 imageKey 含有 .vector 后缀，该 sprite 为矢量图层 含有 .matte 后缀，该 sprite 为遮罩图层。
        * </pre>
        *
-       * <code>string imageKey = 1;</code>
+       * <code>optional string imageKey = 1;</code>
        */
       public java.lang.String getImageKey() {
         java.lang.Object ref = imageKey_;
@@ -1404,10 +1398,10 @@ public final class Svga {
       }
       /**
        * <pre>
-       * 元件所对应的位图键名, 如果 imageKey 含有 .vector 后缀，该 sprite 为矢量图层。
+       * 元件所对应的位图键名, 如果 imageKey 含有 .vector 后缀，该 sprite 为矢量图层 含有 .matte 后缀，该 sprite 为遮罩图层。
        * </pre>
        *
-       * <code>string imageKey = 1;</code>
+       * <code>optional string imageKey = 1;</code>
        */
       public com.google.protobuf.ByteString
           getImageKeyBytes() {
@@ -1424,10 +1418,10 @@ public final class Svga {
       }
       /**
        * <pre>
-       * 元件所对应的位图键名, 如果 imageKey 含有 .vector 后缀，该 sprite 为矢量图层。
+       * 元件所对应的位图键名, 如果 imageKey 含有 .vector 后缀，该 sprite 为矢量图层 含有 .matte 后缀，该 sprite 为遮罩图层。
        * </pre>
        *
-       * <code>string imageKey = 1;</code>
+       * <code>optional string imageKey = 1;</code>
        */
       public Builder setImageKey(
           java.lang.String value) {
@@ -1441,10 +1435,10 @@ public final class Svga {
       }
       /**
        * <pre>
-       * 元件所对应的位图键名, 如果 imageKey 含有 .vector 后缀，该 sprite 为矢量图层。
+       * 元件所对应的位图键名, 如果 imageKey 含有 .vector 后缀，该 sprite 为矢量图层 含有 .matte 后缀，该 sprite 为遮罩图层。
        * </pre>
        *
-       * <code>string imageKey = 1;</code>
+       * <code>optional string imageKey = 1;</code>
        */
       public Builder clearImageKey() {
         
@@ -1454,10 +1448,10 @@ public final class Svga {
       }
       /**
        * <pre>
-       * 元件所对应的位图键名, 如果 imageKey 含有 .vector 后缀，该 sprite 为矢量图层。
+       * 元件所对应的位图键名, 如果 imageKey 含有 .vector 后缀，该 sprite 为矢量图层 含有 .matte 后缀，该 sprite 为遮罩图层。
        * </pre>
        *
-       * <code>string imageKey = 1;</code>
+       * <code>optional string imageKey = 1;</code>
        */
       public Builder setImageKeyBytes(
           com.google.protobuf.ByteString value) {
@@ -1782,16 +1776,103 @@ public final class Svga {
         }
         return framesBuilder_;
       }
-      @java.lang.Override
+
+      private java.lang.Object matteKey_ = "";
+      /**
+       * <pre>
+       * 被遮罩图层的 matteKey 对应的是其遮罩图层的 imageKey.
+       * </pre>
+       *
+       * <code>optional string matteKey = 3;</code>
+       */
+      public java.lang.String getMatteKey() {
+        java.lang.Object ref = matteKey_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          matteKey_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 被遮罩图层的 matteKey 对应的是其遮罩图层的 imageKey.
+       * </pre>
+       *
+       * <code>optional string matteKey = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getMatteKeyBytes() {
+        java.lang.Object ref = matteKey_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          matteKey_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 被遮罩图层的 matteKey 对应的是其遮罩图层的 imageKey.
+       * </pre>
+       *
+       * <code>optional string matteKey = 3;</code>
+       */
+      public Builder setMatteKey(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        matteKey_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 被遮罩图层的 matteKey 对应的是其遮罩图层的 imageKey.
+       * </pre>
+       *
+       * <code>optional string matteKey = 3;</code>
+       */
+      public Builder clearMatteKey() {
+        
+        matteKey_ = getDefaultInstance().getMatteKey();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 被遮罩图层的 matteKey 对应的是其遮罩图层的 imageKey.
+       * </pre>
+       *
+       * <code>optional string matteKey = 3;</code>
+       */
+      public Builder setMatteKeyBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        matteKey_ = value;
+        onChanged();
+        return this;
+      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return this;
       }
 
-      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
+        return this;
       }
 
 
@@ -1810,12 +1891,11 @@ public final class Svga {
 
     private static final com.google.protobuf.Parser<SpriteEntity>
         PARSER = new com.google.protobuf.AbstractParser<SpriteEntity>() {
-      @java.lang.Override
       public SpriteEntity parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new SpriteEntity(input, extensionRegistry);
+          return new SpriteEntity(input, extensionRegistry);
       }
     };
 
@@ -1828,7 +1908,6 @@ public final class Svga {
       return PARSER;
     }
 
-    @java.lang.Override
     public com.opensource.svgaplayer.proto.Svga.SpriteEntity getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -1844,7 +1923,7 @@ public final class Svga {
      * 音频文件名
      * </pre>
      *
-     * <code>string audioKey = 1;</code>
+     * <code>optional string audioKey = 1;</code>
      */
     java.lang.String getAudioKey();
     /**
@@ -1852,7 +1931,7 @@ public final class Svga {
      * 音频文件名
      * </pre>
      *
-     * <code>string audioKey = 1;</code>
+     * <code>optional string audioKey = 1;</code>
      */
     com.google.protobuf.ByteString
         getAudioKeyBytes();
@@ -1862,7 +1941,7 @@ public final class Svga {
      * 音频播放起始帧
      * </pre>
      *
-     * <code>int32 startFrame = 2;</code>
+     * <code>optional int32 startFrame = 2;</code>
      */
     int getStartFrame();
 
@@ -1871,7 +1950,7 @@ public final class Svga {
      * 音频播放结束帧
      * </pre>
      *
-     * <code>int32 endFrame = 3;</code>
+     * <code>optional int32 endFrame = 3;</code>
      */
     int getEndFrame();
 
@@ -1880,7 +1959,7 @@ public final class Svga {
      * 音频播放起始时间（相对音频长度）
      * </pre>
      *
-     * <code>int32 startTime = 4;</code>
+     * <code>optional int32 startTime = 4;</code>
      */
     int getStartTime();
 
@@ -1889,7 +1968,7 @@ public final class Svga {
      * 音频总长度
      * </pre>
      *
-     * <code>int32 totalTime = 5;</code>
+     * <code>optional int32 totalTime = 5;</code>
      */
     int getTotalTime();
   }
@@ -1900,7 +1979,6 @@ public final class Svga {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.opensource.svga.AudioEntity)
       AudioEntityOrBuilder {
-  private static final long serialVersionUID = 0L;
     // Use AudioEntity.newBuilder() to construct.
     private AudioEntity(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -1916,19 +1994,14 @@ public final class Svga {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return this.unknownFields;
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
     }
     private AudioEntity(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -1937,6 +2010,12 @@ public final class Svga {
             case 0:
               done = true;
               break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
 
@@ -1963,13 +2042,6 @@ public final class Svga {
               totalTime_ = input.readInt32();
               break;
             }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -1978,7 +2050,6 @@ public final class Svga {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -1987,7 +2058,6 @@ public final class Svga {
       return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_AudioEntity_descriptor;
     }
 
-    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_AudioEntity_fieldAccessorTable
@@ -2002,7 +2072,7 @@ public final class Svga {
      * 音频文件名
      * </pre>
      *
-     * <code>string audioKey = 1;</code>
+     * <code>optional string audioKey = 1;</code>
      */
     public java.lang.String getAudioKey() {
       java.lang.Object ref = audioKey_;
@@ -2021,7 +2091,7 @@ public final class Svga {
      * 音频文件名
      * </pre>
      *
-     * <code>string audioKey = 1;</code>
+     * <code>optional string audioKey = 1;</code>
      */
     public com.google.protobuf.ByteString
         getAudioKeyBytes() {
@@ -2044,7 +2114,7 @@ public final class Svga {
      * 音频播放起始帧
      * </pre>
      *
-     * <code>int32 startFrame = 2;</code>
+     * <code>optional int32 startFrame = 2;</code>
      */
     public int getStartFrame() {
       return startFrame_;
@@ -2057,7 +2127,7 @@ public final class Svga {
      * 音频播放结束帧
      * </pre>
      *
-     * <code>int32 endFrame = 3;</code>
+     * <code>optional int32 endFrame = 3;</code>
      */
     public int getEndFrame() {
       return endFrame_;
@@ -2070,7 +2140,7 @@ public final class Svga {
      * 音频播放起始时间（相对音频长度）
      * </pre>
      *
-     * <code>int32 startTime = 4;</code>
+     * <code>optional int32 startTime = 4;</code>
      */
     public int getStartTime() {
       return startTime_;
@@ -2083,14 +2153,13 @@ public final class Svga {
      * 音频总长度
      * </pre>
      *
-     * <code>int32 totalTime = 5;</code>
+     * <code>optional int32 totalTime = 5;</code>
      */
     public int getTotalTime() {
       return totalTime_;
     }
 
     private byte memoizedIsInitialized = -1;
-    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -2100,7 +2169,6 @@ public final class Svga {
       return true;
     }
 
-    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (!getAudioKeyBytes().isEmpty()) {
@@ -2118,10 +2186,8 @@ public final class Svga {
       if (totalTime_ != 0) {
         output.writeInt32(5, totalTime_);
       }
-      unknownFields.writeTo(output);
     }
 
-    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -2146,11 +2212,11 @@ public final class Svga {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(5, totalTime_);
       }
-      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
+    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -2172,7 +2238,6 @@ public final class Svga {
           == other.getStartTime());
       result = result && (getTotalTime()
           == other.getTotalTime());
-      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -2182,7 +2247,7 @@ public final class Svga {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (19 * hash) + getDescriptorForType().hashCode();
       hash = (37 * hash) + AUDIOKEY_FIELD_NUMBER;
       hash = (53 * hash) + getAudioKey().hashCode();
       hash = (37 * hash) + STARTFRAME_FIELD_NUMBER;
@@ -2198,17 +2263,6 @@ public final class Svga {
       return hash;
     }
 
-    public static com.opensource.svgaplayer.proto.Svga.AudioEntity parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.opensource.svgaplayer.proto.Svga.AudioEntity parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
     public static com.opensource.svgaplayer.proto.Svga.AudioEntity parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -2268,7 +2322,6 @@ public final class Svga {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -2276,7 +2329,6 @@ public final class Svga {
     public static Builder newBuilder(com.opensource.svgaplayer.proto.Svga.AudioEntity prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -2300,7 +2352,6 @@ public final class Svga {
         return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_AudioEntity_descriptor;
       }
 
-      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_AudioEntity_fieldAccessorTable
@@ -2323,7 +2374,6 @@ public final class Svga {
                 .alwaysUseFieldBuilders) {
         }
       }
-      @java.lang.Override
       public Builder clear() {
         super.clear();
         audioKey_ = "";
@@ -2339,18 +2389,15 @@ public final class Svga {
         return this;
       }
 
-      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_AudioEntity_descriptor;
       }
 
-      @java.lang.Override
       public com.opensource.svgaplayer.proto.Svga.AudioEntity getDefaultInstanceForType() {
         return com.opensource.svgaplayer.proto.Svga.AudioEntity.getDefaultInstance();
       }
 
-      @java.lang.Override
       public com.opensource.svgaplayer.proto.Svga.AudioEntity build() {
         com.opensource.svgaplayer.proto.Svga.AudioEntity result = buildPartial();
         if (!result.isInitialized()) {
@@ -2359,7 +2406,6 @@ public final class Svga {
         return result;
       }
 
-      @java.lang.Override
       public com.opensource.svgaplayer.proto.Svga.AudioEntity buildPartial() {
         com.opensource.svgaplayer.proto.Svga.AudioEntity result = new com.opensource.svgaplayer.proto.Svga.AudioEntity(this);
         result.audioKey_ = audioKey_;
@@ -2371,39 +2417,32 @@ public final class Svga {
         return result;
       }
 
-      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
-      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
-      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
-      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
-      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
-      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.opensource.svgaplayer.proto.Svga.AudioEntity) {
           return mergeFrom((com.opensource.svgaplayer.proto.Svga.AudioEntity)other);
@@ -2431,17 +2470,14 @@ public final class Svga {
         if (other.getTotalTime() != 0) {
           setTotalTime(other.getTotalTime());
         }
-        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
-      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2466,7 +2502,7 @@ public final class Svga {
        * 音频文件名
        * </pre>
        *
-       * <code>string audioKey = 1;</code>
+       * <code>optional string audioKey = 1;</code>
        */
       public java.lang.String getAudioKey() {
         java.lang.Object ref = audioKey_;
@@ -2485,7 +2521,7 @@ public final class Svga {
        * 音频文件名
        * </pre>
        *
-       * <code>string audioKey = 1;</code>
+       * <code>optional string audioKey = 1;</code>
        */
       public com.google.protobuf.ByteString
           getAudioKeyBytes() {
@@ -2505,7 +2541,7 @@ public final class Svga {
        * 音频文件名
        * </pre>
        *
-       * <code>string audioKey = 1;</code>
+       * <code>optional string audioKey = 1;</code>
        */
       public Builder setAudioKey(
           java.lang.String value) {
@@ -2522,7 +2558,7 @@ public final class Svga {
        * 音频文件名
        * </pre>
        *
-       * <code>string audioKey = 1;</code>
+       * <code>optional string audioKey = 1;</code>
        */
       public Builder clearAudioKey() {
         
@@ -2535,7 +2571,7 @@ public final class Svga {
        * 音频文件名
        * </pre>
        *
-       * <code>string audioKey = 1;</code>
+       * <code>optional string audioKey = 1;</code>
        */
       public Builder setAudioKeyBytes(
           com.google.protobuf.ByteString value) {
@@ -2555,7 +2591,7 @@ public final class Svga {
        * 音频播放起始帧
        * </pre>
        *
-       * <code>int32 startFrame = 2;</code>
+       * <code>optional int32 startFrame = 2;</code>
        */
       public int getStartFrame() {
         return startFrame_;
@@ -2565,7 +2601,7 @@ public final class Svga {
        * 音频播放起始帧
        * </pre>
        *
-       * <code>int32 startFrame = 2;</code>
+       * <code>optional int32 startFrame = 2;</code>
        */
       public Builder setStartFrame(int value) {
         
@@ -2578,7 +2614,7 @@ public final class Svga {
        * 音频播放起始帧
        * </pre>
        *
-       * <code>int32 startFrame = 2;</code>
+       * <code>optional int32 startFrame = 2;</code>
        */
       public Builder clearStartFrame() {
         
@@ -2593,7 +2629,7 @@ public final class Svga {
        * 音频播放结束帧
        * </pre>
        *
-       * <code>int32 endFrame = 3;</code>
+       * <code>optional int32 endFrame = 3;</code>
        */
       public int getEndFrame() {
         return endFrame_;
@@ -2603,7 +2639,7 @@ public final class Svga {
        * 音频播放结束帧
        * </pre>
        *
-       * <code>int32 endFrame = 3;</code>
+       * <code>optional int32 endFrame = 3;</code>
        */
       public Builder setEndFrame(int value) {
         
@@ -2616,7 +2652,7 @@ public final class Svga {
        * 音频播放结束帧
        * </pre>
        *
-       * <code>int32 endFrame = 3;</code>
+       * <code>optional int32 endFrame = 3;</code>
        */
       public Builder clearEndFrame() {
         
@@ -2631,7 +2667,7 @@ public final class Svga {
        * 音频播放起始时间（相对音频长度）
        * </pre>
        *
-       * <code>int32 startTime = 4;</code>
+       * <code>optional int32 startTime = 4;</code>
        */
       public int getStartTime() {
         return startTime_;
@@ -2641,7 +2677,7 @@ public final class Svga {
        * 音频播放起始时间（相对音频长度）
        * </pre>
        *
-       * <code>int32 startTime = 4;</code>
+       * <code>optional int32 startTime = 4;</code>
        */
       public Builder setStartTime(int value) {
         
@@ -2654,7 +2690,7 @@ public final class Svga {
        * 音频播放起始时间（相对音频长度）
        * </pre>
        *
-       * <code>int32 startTime = 4;</code>
+       * <code>optional int32 startTime = 4;</code>
        */
       public Builder clearStartTime() {
         
@@ -2669,7 +2705,7 @@ public final class Svga {
        * 音频总长度
        * </pre>
        *
-       * <code>int32 totalTime = 5;</code>
+       * <code>optional int32 totalTime = 5;</code>
        */
       public int getTotalTime() {
         return totalTime_;
@@ -2679,7 +2715,7 @@ public final class Svga {
        * 音频总长度
        * </pre>
        *
-       * <code>int32 totalTime = 5;</code>
+       * <code>optional int32 totalTime = 5;</code>
        */
       public Builder setTotalTime(int value) {
         
@@ -2692,7 +2728,7 @@ public final class Svga {
        * 音频总长度
        * </pre>
        *
-       * <code>int32 totalTime = 5;</code>
+       * <code>optional int32 totalTime = 5;</code>
        */
       public Builder clearTotalTime() {
         
@@ -2700,16 +2736,14 @@ public final class Svga {
         onChanged();
         return this;
       }
-      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return this;
       }
 
-      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
+        return this;
       }
 
 
@@ -2728,12 +2762,11 @@ public final class Svga {
 
     private static final com.google.protobuf.Parser<AudioEntity>
         PARSER = new com.google.protobuf.AbstractParser<AudioEntity>() {
-      @java.lang.Override
       public AudioEntity parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new AudioEntity(input, extensionRegistry);
+          return new AudioEntity(input, extensionRegistry);
       }
     };
 
@@ -2746,7 +2779,6 @@ public final class Svga {
       return PARSER;
     }
 
-    @java.lang.Override
     public com.opensource.svgaplayer.proto.Svga.AudioEntity getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -2758,22 +2790,22 @@ public final class Svga {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>float x = 1;</code>
+     * <code>optional float x = 1;</code>
      */
     float getX();
 
     /**
-     * <code>float y = 2;</code>
+     * <code>optional float y = 2;</code>
      */
     float getY();
 
     /**
-     * <code>float width = 3;</code>
+     * <code>optional float width = 3;</code>
      */
     float getWidth();
 
     /**
-     * <code>float height = 4;</code>
+     * <code>optional float height = 4;</code>
      */
     float getHeight();
   }
@@ -2784,7 +2816,6 @@ public final class Svga {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.opensource.svga.Layout)
       LayoutOrBuilder {
-  private static final long serialVersionUID = 0L;
     // Use Layout.newBuilder() to construct.
     private Layout(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -2799,19 +2830,14 @@ public final class Svga {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return this.unknownFields;
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
     }
     private Layout(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -2820,6 +2846,12 @@ public final class Svga {
             case 0:
               done = true;
               break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
             case 13: {
 
               x_ = input.readFloat();
@@ -2840,13 +2872,6 @@ public final class Svga {
               height_ = input.readFloat();
               break;
             }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -2855,7 +2880,6 @@ public final class Svga {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -2864,7 +2888,6 @@ public final class Svga {
       return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_Layout_descriptor;
     }
 
-    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_Layout_fieldAccessorTable
@@ -2875,7 +2898,7 @@ public final class Svga {
     public static final int X_FIELD_NUMBER = 1;
     private float x_;
     /**
-     * <code>float x = 1;</code>
+     * <code>optional float x = 1;</code>
      */
     public float getX() {
       return x_;
@@ -2884,7 +2907,7 @@ public final class Svga {
     public static final int Y_FIELD_NUMBER = 2;
     private float y_;
     /**
-     * <code>float y = 2;</code>
+     * <code>optional float y = 2;</code>
      */
     public float getY() {
       return y_;
@@ -2893,7 +2916,7 @@ public final class Svga {
     public static final int WIDTH_FIELD_NUMBER = 3;
     private float width_;
     /**
-     * <code>float width = 3;</code>
+     * <code>optional float width = 3;</code>
      */
     public float getWidth() {
       return width_;
@@ -2902,14 +2925,13 @@ public final class Svga {
     public static final int HEIGHT_FIELD_NUMBER = 4;
     private float height_;
     /**
-     * <code>float height = 4;</code>
+     * <code>optional float height = 4;</code>
      */
     public float getHeight() {
       return height_;
     }
 
     private byte memoizedIsInitialized = -1;
-    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -2919,7 +2941,6 @@ public final class Svga {
       return true;
     }
 
-    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (x_ != 0F) {
@@ -2934,10 +2955,8 @@ public final class Svga {
       if (height_ != 0F) {
         output.writeFloat(4, height_);
       }
-      unknownFields.writeTo(output);
     }
 
-    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -2959,11 +2978,11 @@ public final class Svga {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(4, height_);
       }
-      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
+    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -2991,7 +3010,6 @@ public final class Svga {
           java.lang.Float.floatToIntBits(getHeight())
           == java.lang.Float.floatToIntBits(
               other.getHeight()));
-      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -3001,7 +3019,7 @@ public final class Svga {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (19 * hash) + getDescriptorForType().hashCode();
       hash = (37 * hash) + X_FIELD_NUMBER;
       hash = (53 * hash) + java.lang.Float.floatToIntBits(
           getX());
@@ -3019,17 +3037,6 @@ public final class Svga {
       return hash;
     }
 
-    public static com.opensource.svgaplayer.proto.Svga.Layout parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.opensource.svgaplayer.proto.Svga.Layout parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
     public static com.opensource.svgaplayer.proto.Svga.Layout parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -3089,7 +3096,6 @@ public final class Svga {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -3097,7 +3103,6 @@ public final class Svga {
     public static Builder newBuilder(com.opensource.svgaplayer.proto.Svga.Layout prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -3121,7 +3126,6 @@ public final class Svga {
         return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_Layout_descriptor;
       }
 
-      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_Layout_fieldAccessorTable
@@ -3144,7 +3148,6 @@ public final class Svga {
                 .alwaysUseFieldBuilders) {
         }
       }
-      @java.lang.Override
       public Builder clear() {
         super.clear();
         x_ = 0F;
@@ -3158,18 +3161,15 @@ public final class Svga {
         return this;
       }
 
-      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_Layout_descriptor;
       }
 
-      @java.lang.Override
       public com.opensource.svgaplayer.proto.Svga.Layout getDefaultInstanceForType() {
         return com.opensource.svgaplayer.proto.Svga.Layout.getDefaultInstance();
       }
 
-      @java.lang.Override
       public com.opensource.svgaplayer.proto.Svga.Layout build() {
         com.opensource.svgaplayer.proto.Svga.Layout result = buildPartial();
         if (!result.isInitialized()) {
@@ -3178,7 +3178,6 @@ public final class Svga {
         return result;
       }
 
-      @java.lang.Override
       public com.opensource.svgaplayer.proto.Svga.Layout buildPartial() {
         com.opensource.svgaplayer.proto.Svga.Layout result = new com.opensource.svgaplayer.proto.Svga.Layout(this);
         result.x_ = x_;
@@ -3189,39 +3188,32 @@ public final class Svga {
         return result;
       }
 
-      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
-      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
-      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
-      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
-      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
-      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.opensource.svgaplayer.proto.Svga.Layout) {
           return mergeFrom((com.opensource.svgaplayer.proto.Svga.Layout)other);
@@ -3245,17 +3237,14 @@ public final class Svga {
         if (other.getHeight() != 0F) {
           setHeight(other.getHeight());
         }
-        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
-      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -3276,13 +3265,13 @@ public final class Svga {
 
       private float x_ ;
       /**
-       * <code>float x = 1;</code>
+       * <code>optional float x = 1;</code>
        */
       public float getX() {
         return x_;
       }
       /**
-       * <code>float x = 1;</code>
+       * <code>optional float x = 1;</code>
        */
       public Builder setX(float value) {
         
@@ -3291,7 +3280,7 @@ public final class Svga {
         return this;
       }
       /**
-       * <code>float x = 1;</code>
+       * <code>optional float x = 1;</code>
        */
       public Builder clearX() {
         
@@ -3302,13 +3291,13 @@ public final class Svga {
 
       private float y_ ;
       /**
-       * <code>float y = 2;</code>
+       * <code>optional float y = 2;</code>
        */
       public float getY() {
         return y_;
       }
       /**
-       * <code>float y = 2;</code>
+       * <code>optional float y = 2;</code>
        */
       public Builder setY(float value) {
         
@@ -3317,7 +3306,7 @@ public final class Svga {
         return this;
       }
       /**
-       * <code>float y = 2;</code>
+       * <code>optional float y = 2;</code>
        */
       public Builder clearY() {
         
@@ -3328,13 +3317,13 @@ public final class Svga {
 
       private float width_ ;
       /**
-       * <code>float width = 3;</code>
+       * <code>optional float width = 3;</code>
        */
       public float getWidth() {
         return width_;
       }
       /**
-       * <code>float width = 3;</code>
+       * <code>optional float width = 3;</code>
        */
       public Builder setWidth(float value) {
         
@@ -3343,7 +3332,7 @@ public final class Svga {
         return this;
       }
       /**
-       * <code>float width = 3;</code>
+       * <code>optional float width = 3;</code>
        */
       public Builder clearWidth() {
         
@@ -3354,13 +3343,13 @@ public final class Svga {
 
       private float height_ ;
       /**
-       * <code>float height = 4;</code>
+       * <code>optional float height = 4;</code>
        */
       public float getHeight() {
         return height_;
       }
       /**
-       * <code>float height = 4;</code>
+       * <code>optional float height = 4;</code>
        */
       public Builder setHeight(float value) {
         
@@ -3369,7 +3358,7 @@ public final class Svga {
         return this;
       }
       /**
-       * <code>float height = 4;</code>
+       * <code>optional float height = 4;</code>
        */
       public Builder clearHeight() {
         
@@ -3377,16 +3366,14 @@ public final class Svga {
         onChanged();
         return this;
       }
-      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return this;
       }
 
-      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
+        return this;
       }
 
 
@@ -3405,12 +3392,11 @@ public final class Svga {
 
     private static final com.google.protobuf.Parser<Layout>
         PARSER = new com.google.protobuf.AbstractParser<Layout>() {
-      @java.lang.Override
       public Layout parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Layout(input, extensionRegistry);
+          return new Layout(input, extensionRegistry);
       }
     };
 
@@ -3423,7 +3409,6 @@ public final class Svga {
       return PARSER;
     }
 
-    @java.lang.Override
     public com.opensource.svgaplayer.proto.Svga.Layout getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -3435,32 +3420,32 @@ public final class Svga {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>float a = 1;</code>
+     * <code>optional float a = 1;</code>
      */
     float getA();
 
     /**
-     * <code>float b = 2;</code>
+     * <code>optional float b = 2;</code>
      */
     float getB();
 
     /**
-     * <code>float c = 3;</code>
+     * <code>optional float c = 3;</code>
      */
     float getC();
 
     /**
-     * <code>float d = 4;</code>
+     * <code>optional float d = 4;</code>
      */
     float getD();
 
     /**
-     * <code>float tx = 5;</code>
+     * <code>optional float tx = 5;</code>
      */
     float getTx();
 
     /**
-     * <code>float ty = 6;</code>
+     * <code>optional float ty = 6;</code>
      */
     float getTy();
   }
@@ -3471,7 +3456,6 @@ public final class Svga {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.opensource.svga.Transform)
       TransformOrBuilder {
-  private static final long serialVersionUID = 0L;
     // Use Transform.newBuilder() to construct.
     private Transform(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -3488,19 +3472,14 @@ public final class Svga {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return this.unknownFields;
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
     }
     private Transform(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -3509,6 +3488,12 @@ public final class Svga {
             case 0:
               done = true;
               break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
             case 13: {
 
               a_ = input.readFloat();
@@ -3539,13 +3524,6 @@ public final class Svga {
               ty_ = input.readFloat();
               break;
             }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -3554,7 +3532,6 @@ public final class Svga {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -3563,7 +3540,6 @@ public final class Svga {
       return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_Transform_descriptor;
     }
 
-    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_Transform_fieldAccessorTable
@@ -3574,7 +3550,7 @@ public final class Svga {
     public static final int A_FIELD_NUMBER = 1;
     private float a_;
     /**
-     * <code>float a = 1;</code>
+     * <code>optional float a = 1;</code>
      */
     public float getA() {
       return a_;
@@ -3583,7 +3559,7 @@ public final class Svga {
     public static final int B_FIELD_NUMBER = 2;
     private float b_;
     /**
-     * <code>float b = 2;</code>
+     * <code>optional float b = 2;</code>
      */
     public float getB() {
       return b_;
@@ -3592,7 +3568,7 @@ public final class Svga {
     public static final int C_FIELD_NUMBER = 3;
     private float c_;
     /**
-     * <code>float c = 3;</code>
+     * <code>optional float c = 3;</code>
      */
     public float getC() {
       return c_;
@@ -3601,7 +3577,7 @@ public final class Svga {
     public static final int D_FIELD_NUMBER = 4;
     private float d_;
     /**
-     * <code>float d = 4;</code>
+     * <code>optional float d = 4;</code>
      */
     public float getD() {
       return d_;
@@ -3610,7 +3586,7 @@ public final class Svga {
     public static final int TX_FIELD_NUMBER = 5;
     private float tx_;
     /**
-     * <code>float tx = 5;</code>
+     * <code>optional float tx = 5;</code>
      */
     public float getTx() {
       return tx_;
@@ -3619,14 +3595,13 @@ public final class Svga {
     public static final int TY_FIELD_NUMBER = 6;
     private float ty_;
     /**
-     * <code>float ty = 6;</code>
+     * <code>optional float ty = 6;</code>
      */
     public float getTy() {
       return ty_;
     }
 
     private byte memoizedIsInitialized = -1;
-    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -3636,7 +3611,6 @@ public final class Svga {
       return true;
     }
 
-    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (a_ != 0F) {
@@ -3657,10 +3631,8 @@ public final class Svga {
       if (ty_ != 0F) {
         output.writeFloat(6, ty_);
       }
-      unknownFields.writeTo(output);
     }
 
-    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -3690,11 +3662,11 @@ public final class Svga {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(6, ty_);
       }
-      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
+    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -3730,7 +3702,6 @@ public final class Svga {
           java.lang.Float.floatToIntBits(getTy())
           == java.lang.Float.floatToIntBits(
               other.getTy()));
-      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -3740,7 +3711,7 @@ public final class Svga {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (19 * hash) + getDescriptorForType().hashCode();
       hash = (37 * hash) + A_FIELD_NUMBER;
       hash = (53 * hash) + java.lang.Float.floatToIntBits(
           getA());
@@ -3764,17 +3735,6 @@ public final class Svga {
       return hash;
     }
 
-    public static com.opensource.svgaplayer.proto.Svga.Transform parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.opensource.svgaplayer.proto.Svga.Transform parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
     public static com.opensource.svgaplayer.proto.Svga.Transform parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -3834,7 +3794,6 @@ public final class Svga {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -3842,7 +3801,6 @@ public final class Svga {
     public static Builder newBuilder(com.opensource.svgaplayer.proto.Svga.Transform prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -3866,7 +3824,6 @@ public final class Svga {
         return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_Transform_descriptor;
       }
 
-      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_Transform_fieldAccessorTable
@@ -3889,7 +3846,6 @@ public final class Svga {
                 .alwaysUseFieldBuilders) {
         }
       }
-      @java.lang.Override
       public Builder clear() {
         super.clear();
         a_ = 0F;
@@ -3907,18 +3863,15 @@ public final class Svga {
         return this;
       }
 
-      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_Transform_descriptor;
       }
 
-      @java.lang.Override
       public com.opensource.svgaplayer.proto.Svga.Transform getDefaultInstanceForType() {
         return com.opensource.svgaplayer.proto.Svga.Transform.getDefaultInstance();
       }
 
-      @java.lang.Override
       public com.opensource.svgaplayer.proto.Svga.Transform build() {
         com.opensource.svgaplayer.proto.Svga.Transform result = buildPartial();
         if (!result.isInitialized()) {
@@ -3927,7 +3880,6 @@ public final class Svga {
         return result;
       }
 
-      @java.lang.Override
       public com.opensource.svgaplayer.proto.Svga.Transform buildPartial() {
         com.opensource.svgaplayer.proto.Svga.Transform result = new com.opensource.svgaplayer.proto.Svga.Transform(this);
         result.a_ = a_;
@@ -3940,39 +3892,32 @@ public final class Svga {
         return result;
       }
 
-      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
-      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
-      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
-      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
-      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
-      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.opensource.svgaplayer.proto.Svga.Transform) {
           return mergeFrom((com.opensource.svgaplayer.proto.Svga.Transform)other);
@@ -4002,17 +3947,14 @@ public final class Svga {
         if (other.getTy() != 0F) {
           setTy(other.getTy());
         }
-        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
-      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -4033,13 +3975,13 @@ public final class Svga {
 
       private float a_ ;
       /**
-       * <code>float a = 1;</code>
+       * <code>optional float a = 1;</code>
        */
       public float getA() {
         return a_;
       }
       /**
-       * <code>float a = 1;</code>
+       * <code>optional float a = 1;</code>
        */
       public Builder setA(float value) {
         
@@ -4048,7 +3990,7 @@ public final class Svga {
         return this;
       }
       /**
-       * <code>float a = 1;</code>
+       * <code>optional float a = 1;</code>
        */
       public Builder clearA() {
         
@@ -4059,13 +4001,13 @@ public final class Svga {
 
       private float b_ ;
       /**
-       * <code>float b = 2;</code>
+       * <code>optional float b = 2;</code>
        */
       public float getB() {
         return b_;
       }
       /**
-       * <code>float b = 2;</code>
+       * <code>optional float b = 2;</code>
        */
       public Builder setB(float value) {
         
@@ -4074,7 +4016,7 @@ public final class Svga {
         return this;
       }
       /**
-       * <code>float b = 2;</code>
+       * <code>optional float b = 2;</code>
        */
       public Builder clearB() {
         
@@ -4085,13 +4027,13 @@ public final class Svga {
 
       private float c_ ;
       /**
-       * <code>float c = 3;</code>
+       * <code>optional float c = 3;</code>
        */
       public float getC() {
         return c_;
       }
       /**
-       * <code>float c = 3;</code>
+       * <code>optional float c = 3;</code>
        */
       public Builder setC(float value) {
         
@@ -4100,7 +4042,7 @@ public final class Svga {
         return this;
       }
       /**
-       * <code>float c = 3;</code>
+       * <code>optional float c = 3;</code>
        */
       public Builder clearC() {
         
@@ -4111,13 +4053,13 @@ public final class Svga {
 
       private float d_ ;
       /**
-       * <code>float d = 4;</code>
+       * <code>optional float d = 4;</code>
        */
       public float getD() {
         return d_;
       }
       /**
-       * <code>float d = 4;</code>
+       * <code>optional float d = 4;</code>
        */
       public Builder setD(float value) {
         
@@ -4126,7 +4068,7 @@ public final class Svga {
         return this;
       }
       /**
-       * <code>float d = 4;</code>
+       * <code>optional float d = 4;</code>
        */
       public Builder clearD() {
         
@@ -4137,13 +4079,13 @@ public final class Svga {
 
       private float tx_ ;
       /**
-       * <code>float tx = 5;</code>
+       * <code>optional float tx = 5;</code>
        */
       public float getTx() {
         return tx_;
       }
       /**
-       * <code>float tx = 5;</code>
+       * <code>optional float tx = 5;</code>
        */
       public Builder setTx(float value) {
         
@@ -4152,7 +4094,7 @@ public final class Svga {
         return this;
       }
       /**
-       * <code>float tx = 5;</code>
+       * <code>optional float tx = 5;</code>
        */
       public Builder clearTx() {
         
@@ -4163,13 +4105,13 @@ public final class Svga {
 
       private float ty_ ;
       /**
-       * <code>float ty = 6;</code>
+       * <code>optional float ty = 6;</code>
        */
       public float getTy() {
         return ty_;
       }
       /**
-       * <code>float ty = 6;</code>
+       * <code>optional float ty = 6;</code>
        */
       public Builder setTy(float value) {
         
@@ -4178,7 +4120,7 @@ public final class Svga {
         return this;
       }
       /**
-       * <code>float ty = 6;</code>
+       * <code>optional float ty = 6;</code>
        */
       public Builder clearTy() {
         
@@ -4186,16 +4128,14 @@ public final class Svga {
         onChanged();
         return this;
       }
-      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return this;
       }
 
-      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
+        return this;
       }
 
 
@@ -4214,12 +4154,11 @@ public final class Svga {
 
     private static final com.google.protobuf.Parser<Transform>
         PARSER = new com.google.protobuf.AbstractParser<Transform>() {
-      @java.lang.Override
       public Transform parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Transform(input, extensionRegistry);
+          return new Transform(input, extensionRegistry);
       }
     };
 
@@ -4232,7 +4171,6 @@ public final class Svga {
       return PARSER;
     }
 
-    @java.lang.Override
     public com.opensource.svgaplayer.proto.Svga.Transform getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -4248,7 +4186,7 @@ public final class Svga {
      * 矢量类型
      * </pre>
      *
-     * <code>.com.opensource.svga.ShapeEntity.ShapeType type = 1;</code>
+     * <code>optional .com.opensource.svga.ShapeEntity.ShapeType type = 1;</code>
      */
     int getTypeValue();
     /**
@@ -4256,46 +4194,34 @@ public final class Svga {
      * 矢量类型
      * </pre>
      *
-     * <code>.com.opensource.svga.ShapeEntity.ShapeType type = 1;</code>
+     * <code>optional .com.opensource.svga.ShapeEntity.ShapeType type = 1;</code>
      */
     com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeType getType();
 
     /**
-     * <code>.com.opensource.svga.ShapeEntity.ShapeArgs shape = 2;</code>
-     */
-    boolean hasShape();
-    /**
-     * <code>.com.opensource.svga.ShapeEntity.ShapeArgs shape = 2;</code>
+     * <code>optional .com.opensource.svga.ShapeEntity.ShapeArgs shape = 2;</code>
      */
     com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeArgs getShape();
     /**
-     * <code>.com.opensource.svga.ShapeEntity.ShapeArgs shape = 2;</code>
+     * <code>optional .com.opensource.svga.ShapeEntity.ShapeArgs shape = 2;</code>
      */
     com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeArgsOrBuilder getShapeOrBuilder();
 
     /**
-     * <code>.com.opensource.svga.ShapeEntity.RectArgs rect = 3;</code>
-     */
-    boolean hasRect();
-    /**
-     * <code>.com.opensource.svga.ShapeEntity.RectArgs rect = 3;</code>
+     * <code>optional .com.opensource.svga.ShapeEntity.RectArgs rect = 3;</code>
      */
     com.opensource.svgaplayer.proto.Svga.ShapeEntity.RectArgs getRect();
     /**
-     * <code>.com.opensource.svga.ShapeEntity.RectArgs rect = 3;</code>
+     * <code>optional .com.opensource.svga.ShapeEntity.RectArgs rect = 3;</code>
      */
     com.opensource.svgaplayer.proto.Svga.ShapeEntity.RectArgsOrBuilder getRectOrBuilder();
 
     /**
-     * <code>.com.opensource.svga.ShapeEntity.EllipseArgs ellipse = 4;</code>
-     */
-    boolean hasEllipse();
-    /**
-     * <code>.com.opensource.svga.ShapeEntity.EllipseArgs ellipse = 4;</code>
+     * <code>optional .com.opensource.svga.ShapeEntity.EllipseArgs ellipse = 4;</code>
      */
     com.opensource.svgaplayer.proto.Svga.ShapeEntity.EllipseArgs getEllipse();
     /**
-     * <code>.com.opensource.svga.ShapeEntity.EllipseArgs ellipse = 4;</code>
+     * <code>optional .com.opensource.svga.ShapeEntity.EllipseArgs ellipse = 4;</code>
      */
     com.opensource.svgaplayer.proto.Svga.ShapeEntity.EllipseArgsOrBuilder getEllipseOrBuilder();
 
@@ -4304,7 +4230,7 @@ public final class Svga {
      * 渲染参数
      * </pre>
      *
-     * <code>.com.opensource.svga.ShapeEntity.ShapeStyle styles = 10;</code>
+     * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle styles = 10;</code>
      */
     boolean hasStyles();
     /**
@@ -4312,7 +4238,7 @@ public final class Svga {
      * 渲染参数
      * </pre>
      *
-     * <code>.com.opensource.svga.ShapeEntity.ShapeStyle styles = 10;</code>
+     * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle styles = 10;</code>
      */
     com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle getStyles();
     /**
@@ -4320,7 +4246,7 @@ public final class Svga {
      * 渲染参数
      * </pre>
      *
-     * <code>.com.opensource.svga.ShapeEntity.ShapeStyle styles = 10;</code>
+     * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle styles = 10;</code>
      */
     com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyleOrBuilder getStylesOrBuilder();
 
@@ -4329,7 +4255,7 @@ public final class Svga {
      * 矢量图层 2D 变换矩阵
      * </pre>
      *
-     * <code>.com.opensource.svga.Transform transform = 11;</code>
+     * <code>optional .com.opensource.svga.Transform transform = 11;</code>
      */
     boolean hasTransform();
     /**
@@ -4337,7 +4263,7 @@ public final class Svga {
      * 矢量图层 2D 变换矩阵
      * </pre>
      *
-     * <code>.com.opensource.svga.Transform transform = 11;</code>
+     * <code>optional .com.opensource.svga.Transform transform = 11;</code>
      */
     com.opensource.svgaplayer.proto.Svga.Transform getTransform();
     /**
@@ -4345,7 +4271,7 @@ public final class Svga {
      * 矢量图层 2D 变换矩阵
      * </pre>
      *
-     * <code>.com.opensource.svga.Transform transform = 11;</code>
+     * <code>optional .com.opensource.svga.Transform transform = 11;</code>
      */
     com.opensource.svgaplayer.proto.Svga.TransformOrBuilder getTransformOrBuilder();
 
@@ -4358,7 +4284,6 @@ public final class Svga {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.opensource.svga.ShapeEntity)
       ShapeEntityOrBuilder {
-  private static final long serialVersionUID = 0L;
     // Use ShapeEntity.newBuilder() to construct.
     private ShapeEntity(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -4370,19 +4295,14 @@ public final class Svga {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return this.unknownFields;
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
     }
     private ShapeEntity(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -4391,6 +4311,12 @@ public final class Svga {
             case 0:
               done = true;
               break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
             case 8: {
               int rawValue = input.readEnum();
 
@@ -4465,13 +4391,6 @@ public final class Svga {
 
               break;
             }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -4480,7 +4399,6 @@ public final class Svga {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -4489,7 +4407,6 @@ public final class Svga {
       return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_ShapeEntity_descriptor;
     }
 
-    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_ShapeEntity_fieldAccessorTable
@@ -4654,7 +4571,7 @@ public final class Svga {
        * SVG 路径
        * </pre>
        *
-       * <code>string d = 1;</code>
+       * <code>optional string d = 1;</code>
        */
       java.lang.String getD();
       /**
@@ -4662,7 +4579,7 @@ public final class Svga {
        * SVG 路径
        * </pre>
        *
-       * <code>string d = 1;</code>
+       * <code>optional string d = 1;</code>
        */
       com.google.protobuf.ByteString
           getDBytes();
@@ -4674,7 +4591,6 @@ public final class Svga {
         com.google.protobuf.GeneratedMessageV3 implements
         // @@protoc_insertion_point(message_implements:com.opensource.svga.ShapeEntity.ShapeArgs)
         ShapeArgsOrBuilder {
-    private static final long serialVersionUID = 0L;
       // Use ShapeArgs.newBuilder() to construct.
       private ShapeArgs(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
         super(builder);
@@ -4686,19 +4602,14 @@ public final class Svga {
       @java.lang.Override
       public final com.google.protobuf.UnknownFieldSet
       getUnknownFields() {
-        return this.unknownFields;
+        return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
       }
       private ShapeArgs(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
         int mutable_bitField0_ = 0;
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
         try {
           boolean done = false;
           while (!done) {
@@ -4707,17 +4618,16 @@ public final class Svga {
               case 0:
                 done = true;
                 break;
+              default: {
+                if (!input.skipField(tag)) {
+                  done = true;
+                }
+                break;
+              }
               case 10: {
                 java.lang.String s = input.readStringRequireUtf8();
 
                 d_ = s;
-                break;
-              }
-              default: {
-                if (!parseUnknownFieldProto3(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
                 break;
               }
             }
@@ -4728,7 +4638,6 @@ public final class Svga {
           throw new com.google.protobuf.InvalidProtocolBufferException(
               e).setUnfinishedMessage(this);
         } finally {
-          this.unknownFields = unknownFields.build();
           makeExtensionsImmutable();
         }
       }
@@ -4737,7 +4646,6 @@ public final class Svga {
         return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_ShapeEntity_ShapeArgs_descriptor;
       }
 
-      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_ShapeEntity_ShapeArgs_fieldAccessorTable
@@ -4752,7 +4660,7 @@ public final class Svga {
        * SVG 路径
        * </pre>
        *
-       * <code>string d = 1;</code>
+       * <code>optional string d = 1;</code>
        */
       public java.lang.String getD() {
         java.lang.Object ref = d_;
@@ -4771,7 +4679,7 @@ public final class Svga {
        * SVG 路径
        * </pre>
        *
-       * <code>string d = 1;</code>
+       * <code>optional string d = 1;</code>
        */
       public com.google.protobuf.ByteString
           getDBytes() {
@@ -4788,7 +4696,6 @@ public final class Svga {
       }
 
       private byte memoizedIsInitialized = -1;
-      @java.lang.Override
       public final boolean isInitialized() {
         byte isInitialized = memoizedIsInitialized;
         if (isInitialized == 1) return true;
@@ -4798,16 +4705,13 @@ public final class Svga {
         return true;
       }
 
-      @java.lang.Override
       public void writeTo(com.google.protobuf.CodedOutputStream output)
                           throws java.io.IOException {
         if (!getDBytes().isEmpty()) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 1, d_);
         }
-        unknownFields.writeTo(output);
       }
 
-      @java.lang.Override
       public int getSerializedSize() {
         int size = memoizedSize;
         if (size != -1) return size;
@@ -4816,11 +4720,11 @@ public final class Svga {
         if (!getDBytes().isEmpty()) {
           size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, d_);
         }
-        size += unknownFields.getSerializedSize();
         memoizedSize = size;
         return size;
       }
 
+      private static final long serialVersionUID = 0L;
       @java.lang.Override
       public boolean equals(final java.lang.Object obj) {
         if (obj == this) {
@@ -4834,7 +4738,6 @@ public final class Svga {
         boolean result = true;
         result = result && getD()
             .equals(other.getD());
-        result = result && unknownFields.equals(other.unknownFields);
         return result;
       }
 
@@ -4844,7 +4747,7 @@ public final class Svga {
           return memoizedHashCode;
         }
         int hash = 41;
-        hash = (19 * hash) + getDescriptor().hashCode();
+        hash = (19 * hash) + getDescriptorForType().hashCode();
         hash = (37 * hash) + D_FIELD_NUMBER;
         hash = (53 * hash) + getD().hashCode();
         hash = (29 * hash) + unknownFields.hashCode();
@@ -4852,17 +4755,6 @@ public final class Svga {
         return hash;
       }
 
-      public static com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeArgs parseFrom(
-          java.nio.ByteBuffer data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeArgs parseFrom(
-          java.nio.ByteBuffer data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
       public static com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeArgs parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
@@ -4922,7 +4814,6 @@ public final class Svga {
             .parseWithIOException(PARSER, input, extensionRegistry);
       }
 
-      @java.lang.Override
       public Builder newBuilderForType() { return newBuilder(); }
       public static Builder newBuilder() {
         return DEFAULT_INSTANCE.toBuilder();
@@ -4930,7 +4821,6 @@ public final class Svga {
       public static Builder newBuilder(com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeArgs prototype) {
         return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
       }
-      @java.lang.Override
       public Builder toBuilder() {
         return this == DEFAULT_INSTANCE
             ? new Builder() : new Builder().mergeFrom(this);
@@ -4954,7 +4844,6 @@ public final class Svga {
           return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_ShapeEntity_ShapeArgs_descriptor;
         }
 
-        @java.lang.Override
         protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
           return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_ShapeEntity_ShapeArgs_fieldAccessorTable
@@ -4977,7 +4866,6 @@ public final class Svga {
                   .alwaysUseFieldBuilders) {
           }
         }
-        @java.lang.Override
         public Builder clear() {
           super.clear();
           d_ = "";
@@ -4985,18 +4873,15 @@ public final class Svga {
           return this;
         }
 
-        @java.lang.Override
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
           return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_ShapeEntity_ShapeArgs_descriptor;
         }
 
-        @java.lang.Override
         public com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeArgs getDefaultInstanceForType() {
           return com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeArgs.getDefaultInstance();
         }
 
-        @java.lang.Override
         public com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeArgs build() {
           com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeArgs result = buildPartial();
           if (!result.isInitialized()) {
@@ -5005,7 +4890,6 @@ public final class Svga {
           return result;
         }
 
-        @java.lang.Override
         public com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeArgs buildPartial() {
           com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeArgs result = new com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeArgs(this);
           result.d_ = d_;
@@ -5013,39 +4897,32 @@ public final class Svga {
           return result;
         }
 
-        @java.lang.Override
         public Builder clone() {
           return (Builder) super.clone();
         }
-        @java.lang.Override
         public Builder setField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
+            Object value) {
           return (Builder) super.setField(field, value);
         }
-        @java.lang.Override
         public Builder clearField(
             com.google.protobuf.Descriptors.FieldDescriptor field) {
           return (Builder) super.clearField(field);
         }
-        @java.lang.Override
         public Builder clearOneof(
             com.google.protobuf.Descriptors.OneofDescriptor oneof) {
           return (Builder) super.clearOneof(oneof);
         }
-        @java.lang.Override
         public Builder setRepeatedField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
-            int index, java.lang.Object value) {
+            int index, Object value) {
           return (Builder) super.setRepeatedField(field, index, value);
         }
-        @java.lang.Override
         public Builder addRepeatedField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
+            Object value) {
           return (Builder) super.addRepeatedField(field, value);
         }
-        @java.lang.Override
         public Builder mergeFrom(com.google.protobuf.Message other) {
           if (other instanceof com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeArgs) {
             return mergeFrom((com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeArgs)other);
@@ -5061,17 +4938,14 @@ public final class Svga {
             d_ = other.d_;
             onChanged();
           }
-          this.mergeUnknownFields(other.unknownFields);
           onChanged();
           return this;
         }
 
-        @java.lang.Override
         public final boolean isInitialized() {
           return true;
         }
 
-        @java.lang.Override
         public Builder mergeFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -5096,7 +4970,7 @@ public final class Svga {
          * SVG 路径
          * </pre>
          *
-         * <code>string d = 1;</code>
+         * <code>optional string d = 1;</code>
          */
         public java.lang.String getD() {
           java.lang.Object ref = d_;
@@ -5115,7 +4989,7 @@ public final class Svga {
          * SVG 路径
          * </pre>
          *
-         * <code>string d = 1;</code>
+         * <code>optional string d = 1;</code>
          */
         public com.google.protobuf.ByteString
             getDBytes() {
@@ -5135,7 +5009,7 @@ public final class Svga {
          * SVG 路径
          * </pre>
          *
-         * <code>string d = 1;</code>
+         * <code>optional string d = 1;</code>
          */
         public Builder setD(
             java.lang.String value) {
@@ -5152,7 +5026,7 @@ public final class Svga {
          * SVG 路径
          * </pre>
          *
-         * <code>string d = 1;</code>
+         * <code>optional string d = 1;</code>
          */
         public Builder clearD() {
           
@@ -5165,7 +5039,7 @@ public final class Svga {
          * SVG 路径
          * </pre>
          *
-         * <code>string d = 1;</code>
+         * <code>optional string d = 1;</code>
          */
         public Builder setDBytes(
             com.google.protobuf.ByteString value) {
@@ -5178,16 +5052,14 @@ public final class Svga {
           onChanged();
           return this;
         }
-        @java.lang.Override
         public final Builder setUnknownFields(
             final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.setUnknownFieldsProto3(unknownFields);
+          return this;
         }
 
-        @java.lang.Override
         public final Builder mergeUnknownFields(
             final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.mergeUnknownFields(unknownFields);
+          return this;
         }
 
 
@@ -5206,12 +5078,11 @@ public final class Svga {
 
       private static final com.google.protobuf.Parser<ShapeArgs>
           PARSER = new com.google.protobuf.AbstractParser<ShapeArgs>() {
-        @java.lang.Override
         public ShapeArgs parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new ShapeArgs(input, extensionRegistry);
+            return new ShapeArgs(input, extensionRegistry);
         }
       };
 
@@ -5224,7 +5095,6 @@ public final class Svga {
         return PARSER;
       }
 
-      @java.lang.Override
       public com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeArgs getDefaultInstanceForType() {
         return DEFAULT_INSTANCE;
       }
@@ -5236,22 +5106,22 @@ public final class Svga {
         com.google.protobuf.MessageOrBuilder {
 
       /**
-       * <code>float x = 1;</code>
+       * <code>optional float x = 1;</code>
        */
       float getX();
 
       /**
-       * <code>float y = 2;</code>
+       * <code>optional float y = 2;</code>
        */
       float getY();
 
       /**
-       * <code>float width = 3;</code>
+       * <code>optional float width = 3;</code>
        */
       float getWidth();
 
       /**
-       * <code>float height = 4;</code>
+       * <code>optional float height = 4;</code>
        */
       float getHeight();
 
@@ -5260,7 +5130,7 @@ public final class Svga {
        * 圆角半径
        * </pre>
        *
-       * <code>float cornerRadius = 5;</code>
+       * <code>optional float cornerRadius = 5;</code>
        */
       float getCornerRadius();
     }
@@ -5271,7 +5141,6 @@ public final class Svga {
         com.google.protobuf.GeneratedMessageV3 implements
         // @@protoc_insertion_point(message_implements:com.opensource.svga.ShapeEntity.RectArgs)
         RectArgsOrBuilder {
-    private static final long serialVersionUID = 0L;
       // Use RectArgs.newBuilder() to construct.
       private RectArgs(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
         super(builder);
@@ -5287,19 +5156,14 @@ public final class Svga {
       @java.lang.Override
       public final com.google.protobuf.UnknownFieldSet
       getUnknownFields() {
-        return this.unknownFields;
+        return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
       }
       private RectArgs(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
         int mutable_bitField0_ = 0;
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
         try {
           boolean done = false;
           while (!done) {
@@ -5308,6 +5172,12 @@ public final class Svga {
               case 0:
                 done = true;
                 break;
+              default: {
+                if (!input.skipField(tag)) {
+                  done = true;
+                }
+                break;
+              }
               case 13: {
 
                 x_ = input.readFloat();
@@ -5333,13 +5203,6 @@ public final class Svga {
                 cornerRadius_ = input.readFloat();
                 break;
               }
-              default: {
-                if (!parseUnknownFieldProto3(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
             }
           }
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -5348,7 +5211,6 @@ public final class Svga {
           throw new com.google.protobuf.InvalidProtocolBufferException(
               e).setUnfinishedMessage(this);
         } finally {
-          this.unknownFields = unknownFields.build();
           makeExtensionsImmutable();
         }
       }
@@ -5357,7 +5219,6 @@ public final class Svga {
         return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_ShapeEntity_RectArgs_descriptor;
       }
 
-      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_ShapeEntity_RectArgs_fieldAccessorTable
@@ -5368,7 +5229,7 @@ public final class Svga {
       public static final int X_FIELD_NUMBER = 1;
       private float x_;
       /**
-       * <code>float x = 1;</code>
+       * <code>optional float x = 1;</code>
        */
       public float getX() {
         return x_;
@@ -5377,7 +5238,7 @@ public final class Svga {
       public static final int Y_FIELD_NUMBER = 2;
       private float y_;
       /**
-       * <code>float y = 2;</code>
+       * <code>optional float y = 2;</code>
        */
       public float getY() {
         return y_;
@@ -5386,7 +5247,7 @@ public final class Svga {
       public static final int WIDTH_FIELD_NUMBER = 3;
       private float width_;
       /**
-       * <code>float width = 3;</code>
+       * <code>optional float width = 3;</code>
        */
       public float getWidth() {
         return width_;
@@ -5395,7 +5256,7 @@ public final class Svga {
       public static final int HEIGHT_FIELD_NUMBER = 4;
       private float height_;
       /**
-       * <code>float height = 4;</code>
+       * <code>optional float height = 4;</code>
        */
       public float getHeight() {
         return height_;
@@ -5408,14 +5269,13 @@ public final class Svga {
        * 圆角半径
        * </pre>
        *
-       * <code>float cornerRadius = 5;</code>
+       * <code>optional float cornerRadius = 5;</code>
        */
       public float getCornerRadius() {
         return cornerRadius_;
       }
 
       private byte memoizedIsInitialized = -1;
-      @java.lang.Override
       public final boolean isInitialized() {
         byte isInitialized = memoizedIsInitialized;
         if (isInitialized == 1) return true;
@@ -5425,7 +5285,6 @@ public final class Svga {
         return true;
       }
 
-      @java.lang.Override
       public void writeTo(com.google.protobuf.CodedOutputStream output)
                           throws java.io.IOException {
         if (x_ != 0F) {
@@ -5443,10 +5302,8 @@ public final class Svga {
         if (cornerRadius_ != 0F) {
           output.writeFloat(5, cornerRadius_);
         }
-        unknownFields.writeTo(output);
       }
 
-      @java.lang.Override
       public int getSerializedSize() {
         int size = memoizedSize;
         if (size != -1) return size;
@@ -5472,11 +5329,11 @@ public final class Svga {
           size += com.google.protobuf.CodedOutputStream
             .computeFloatSize(5, cornerRadius_);
         }
-        size += unknownFields.getSerializedSize();
         memoizedSize = size;
         return size;
       }
 
+      private static final long serialVersionUID = 0L;
       @java.lang.Override
       public boolean equals(final java.lang.Object obj) {
         if (obj == this) {
@@ -5508,7 +5365,6 @@ public final class Svga {
             java.lang.Float.floatToIntBits(getCornerRadius())
             == java.lang.Float.floatToIntBits(
                 other.getCornerRadius()));
-        result = result && unknownFields.equals(other.unknownFields);
         return result;
       }
 
@@ -5518,7 +5374,7 @@ public final class Svga {
           return memoizedHashCode;
         }
         int hash = 41;
-        hash = (19 * hash) + getDescriptor().hashCode();
+        hash = (19 * hash) + getDescriptorForType().hashCode();
         hash = (37 * hash) + X_FIELD_NUMBER;
         hash = (53 * hash) + java.lang.Float.floatToIntBits(
             getX());
@@ -5539,17 +5395,6 @@ public final class Svga {
         return hash;
       }
 
-      public static com.opensource.svgaplayer.proto.Svga.ShapeEntity.RectArgs parseFrom(
-          java.nio.ByteBuffer data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static com.opensource.svgaplayer.proto.Svga.ShapeEntity.RectArgs parseFrom(
-          java.nio.ByteBuffer data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
       public static com.opensource.svgaplayer.proto.Svga.ShapeEntity.RectArgs parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
@@ -5609,7 +5454,6 @@ public final class Svga {
             .parseWithIOException(PARSER, input, extensionRegistry);
       }
 
-      @java.lang.Override
       public Builder newBuilderForType() { return newBuilder(); }
       public static Builder newBuilder() {
         return DEFAULT_INSTANCE.toBuilder();
@@ -5617,7 +5461,6 @@ public final class Svga {
       public static Builder newBuilder(com.opensource.svgaplayer.proto.Svga.ShapeEntity.RectArgs prototype) {
         return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
       }
-      @java.lang.Override
       public Builder toBuilder() {
         return this == DEFAULT_INSTANCE
             ? new Builder() : new Builder().mergeFrom(this);
@@ -5641,7 +5484,6 @@ public final class Svga {
           return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_ShapeEntity_RectArgs_descriptor;
         }
 
-        @java.lang.Override
         protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
           return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_ShapeEntity_RectArgs_fieldAccessorTable
@@ -5664,7 +5506,6 @@ public final class Svga {
                   .alwaysUseFieldBuilders) {
           }
         }
-        @java.lang.Override
         public Builder clear() {
           super.clear();
           x_ = 0F;
@@ -5680,18 +5521,15 @@ public final class Svga {
           return this;
         }
 
-        @java.lang.Override
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
           return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_ShapeEntity_RectArgs_descriptor;
         }
 
-        @java.lang.Override
         public com.opensource.svgaplayer.proto.Svga.ShapeEntity.RectArgs getDefaultInstanceForType() {
           return com.opensource.svgaplayer.proto.Svga.ShapeEntity.RectArgs.getDefaultInstance();
         }
 
-        @java.lang.Override
         public com.opensource.svgaplayer.proto.Svga.ShapeEntity.RectArgs build() {
           com.opensource.svgaplayer.proto.Svga.ShapeEntity.RectArgs result = buildPartial();
           if (!result.isInitialized()) {
@@ -5700,7 +5538,6 @@ public final class Svga {
           return result;
         }
 
-        @java.lang.Override
         public com.opensource.svgaplayer.proto.Svga.ShapeEntity.RectArgs buildPartial() {
           com.opensource.svgaplayer.proto.Svga.ShapeEntity.RectArgs result = new com.opensource.svgaplayer.proto.Svga.ShapeEntity.RectArgs(this);
           result.x_ = x_;
@@ -5712,39 +5549,32 @@ public final class Svga {
           return result;
         }
 
-        @java.lang.Override
         public Builder clone() {
           return (Builder) super.clone();
         }
-        @java.lang.Override
         public Builder setField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
+            Object value) {
           return (Builder) super.setField(field, value);
         }
-        @java.lang.Override
         public Builder clearField(
             com.google.protobuf.Descriptors.FieldDescriptor field) {
           return (Builder) super.clearField(field);
         }
-        @java.lang.Override
         public Builder clearOneof(
             com.google.protobuf.Descriptors.OneofDescriptor oneof) {
           return (Builder) super.clearOneof(oneof);
         }
-        @java.lang.Override
         public Builder setRepeatedField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
-            int index, java.lang.Object value) {
+            int index, Object value) {
           return (Builder) super.setRepeatedField(field, index, value);
         }
-        @java.lang.Override
         public Builder addRepeatedField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
+            Object value) {
           return (Builder) super.addRepeatedField(field, value);
         }
-        @java.lang.Override
         public Builder mergeFrom(com.google.protobuf.Message other) {
           if (other instanceof com.opensource.svgaplayer.proto.Svga.ShapeEntity.RectArgs) {
             return mergeFrom((com.opensource.svgaplayer.proto.Svga.ShapeEntity.RectArgs)other);
@@ -5771,17 +5601,14 @@ public final class Svga {
           if (other.getCornerRadius() != 0F) {
             setCornerRadius(other.getCornerRadius());
           }
-          this.mergeUnknownFields(other.unknownFields);
           onChanged();
           return this;
         }
 
-        @java.lang.Override
         public final boolean isInitialized() {
           return true;
         }
 
-        @java.lang.Override
         public Builder mergeFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -5802,13 +5629,13 @@ public final class Svga {
 
         private float x_ ;
         /**
-         * <code>float x = 1;</code>
+         * <code>optional float x = 1;</code>
          */
         public float getX() {
           return x_;
         }
         /**
-         * <code>float x = 1;</code>
+         * <code>optional float x = 1;</code>
          */
         public Builder setX(float value) {
           
@@ -5817,7 +5644,7 @@ public final class Svga {
           return this;
         }
         /**
-         * <code>float x = 1;</code>
+         * <code>optional float x = 1;</code>
          */
         public Builder clearX() {
           
@@ -5828,13 +5655,13 @@ public final class Svga {
 
         private float y_ ;
         /**
-         * <code>float y = 2;</code>
+         * <code>optional float y = 2;</code>
          */
         public float getY() {
           return y_;
         }
         /**
-         * <code>float y = 2;</code>
+         * <code>optional float y = 2;</code>
          */
         public Builder setY(float value) {
           
@@ -5843,7 +5670,7 @@ public final class Svga {
           return this;
         }
         /**
-         * <code>float y = 2;</code>
+         * <code>optional float y = 2;</code>
          */
         public Builder clearY() {
           
@@ -5854,13 +5681,13 @@ public final class Svga {
 
         private float width_ ;
         /**
-         * <code>float width = 3;</code>
+         * <code>optional float width = 3;</code>
          */
         public float getWidth() {
           return width_;
         }
         /**
-         * <code>float width = 3;</code>
+         * <code>optional float width = 3;</code>
          */
         public Builder setWidth(float value) {
           
@@ -5869,7 +5696,7 @@ public final class Svga {
           return this;
         }
         /**
-         * <code>float width = 3;</code>
+         * <code>optional float width = 3;</code>
          */
         public Builder clearWidth() {
           
@@ -5880,13 +5707,13 @@ public final class Svga {
 
         private float height_ ;
         /**
-         * <code>float height = 4;</code>
+         * <code>optional float height = 4;</code>
          */
         public float getHeight() {
           return height_;
         }
         /**
-         * <code>float height = 4;</code>
+         * <code>optional float height = 4;</code>
          */
         public Builder setHeight(float value) {
           
@@ -5895,7 +5722,7 @@ public final class Svga {
           return this;
         }
         /**
-         * <code>float height = 4;</code>
+         * <code>optional float height = 4;</code>
          */
         public Builder clearHeight() {
           
@@ -5910,7 +5737,7 @@ public final class Svga {
          * 圆角半径
          * </pre>
          *
-         * <code>float cornerRadius = 5;</code>
+         * <code>optional float cornerRadius = 5;</code>
          */
         public float getCornerRadius() {
           return cornerRadius_;
@@ -5920,7 +5747,7 @@ public final class Svga {
          * 圆角半径
          * </pre>
          *
-         * <code>float cornerRadius = 5;</code>
+         * <code>optional float cornerRadius = 5;</code>
          */
         public Builder setCornerRadius(float value) {
           
@@ -5933,7 +5760,7 @@ public final class Svga {
          * 圆角半径
          * </pre>
          *
-         * <code>float cornerRadius = 5;</code>
+         * <code>optional float cornerRadius = 5;</code>
          */
         public Builder clearCornerRadius() {
           
@@ -5941,16 +5768,14 @@ public final class Svga {
           onChanged();
           return this;
         }
-        @java.lang.Override
         public final Builder setUnknownFields(
             final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.setUnknownFieldsProto3(unknownFields);
+          return this;
         }
 
-        @java.lang.Override
         public final Builder mergeUnknownFields(
             final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.mergeUnknownFields(unknownFields);
+          return this;
         }
 
 
@@ -5969,12 +5794,11 @@ public final class Svga {
 
       private static final com.google.protobuf.Parser<RectArgs>
           PARSER = new com.google.protobuf.AbstractParser<RectArgs>() {
-        @java.lang.Override
         public RectArgs parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new RectArgs(input, extensionRegistry);
+            return new RectArgs(input, extensionRegistry);
         }
       };
 
@@ -5987,7 +5811,6 @@ public final class Svga {
         return PARSER;
       }
 
-      @java.lang.Override
       public com.opensource.svgaplayer.proto.Svga.ShapeEntity.RectArgs getDefaultInstanceForType() {
         return DEFAULT_INSTANCE;
       }
@@ -6003,7 +5826,7 @@ public final class Svga {
        * 圆中心点 X
        * </pre>
        *
-       * <code>float x = 1;</code>
+       * <code>optional float x = 1;</code>
        */
       float getX();
 
@@ -6012,7 +5835,7 @@ public final class Svga {
        * 圆中心点 Y
        * </pre>
        *
-       * <code>float y = 2;</code>
+       * <code>optional float y = 2;</code>
        */
       float getY();
 
@@ -6021,7 +5844,7 @@ public final class Svga {
        * 横向半径
        * </pre>
        *
-       * <code>float radiusX = 3;</code>
+       * <code>optional float radiusX = 3;</code>
        */
       float getRadiusX();
 
@@ -6030,7 +5853,7 @@ public final class Svga {
        * 纵向半径
        * </pre>
        *
-       * <code>float radiusY = 4;</code>
+       * <code>optional float radiusY = 4;</code>
        */
       float getRadiusY();
     }
@@ -6041,7 +5864,6 @@ public final class Svga {
         com.google.protobuf.GeneratedMessageV3 implements
         // @@protoc_insertion_point(message_implements:com.opensource.svga.ShapeEntity.EllipseArgs)
         EllipseArgsOrBuilder {
-    private static final long serialVersionUID = 0L;
       // Use EllipseArgs.newBuilder() to construct.
       private EllipseArgs(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
         super(builder);
@@ -6056,19 +5878,14 @@ public final class Svga {
       @java.lang.Override
       public final com.google.protobuf.UnknownFieldSet
       getUnknownFields() {
-        return this.unknownFields;
+        return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
       }
       private EllipseArgs(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
         int mutable_bitField0_ = 0;
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
         try {
           boolean done = false;
           while (!done) {
@@ -6077,6 +5894,12 @@ public final class Svga {
               case 0:
                 done = true;
                 break;
+              default: {
+                if (!input.skipField(tag)) {
+                  done = true;
+                }
+                break;
+              }
               case 13: {
 
                 x_ = input.readFloat();
@@ -6097,13 +5920,6 @@ public final class Svga {
                 radiusY_ = input.readFloat();
                 break;
               }
-              default: {
-                if (!parseUnknownFieldProto3(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
             }
           }
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -6112,7 +5928,6 @@ public final class Svga {
           throw new com.google.protobuf.InvalidProtocolBufferException(
               e).setUnfinishedMessage(this);
         } finally {
-          this.unknownFields = unknownFields.build();
           makeExtensionsImmutable();
         }
       }
@@ -6121,7 +5936,6 @@ public final class Svga {
         return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_ShapeEntity_EllipseArgs_descriptor;
       }
 
-      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_ShapeEntity_EllipseArgs_fieldAccessorTable
@@ -6136,7 +5950,7 @@ public final class Svga {
        * 圆中心点 X
        * </pre>
        *
-       * <code>float x = 1;</code>
+       * <code>optional float x = 1;</code>
        */
       public float getX() {
         return x_;
@@ -6149,7 +5963,7 @@ public final class Svga {
        * 圆中心点 Y
        * </pre>
        *
-       * <code>float y = 2;</code>
+       * <code>optional float y = 2;</code>
        */
       public float getY() {
         return y_;
@@ -6162,7 +5976,7 @@ public final class Svga {
        * 横向半径
        * </pre>
        *
-       * <code>float radiusX = 3;</code>
+       * <code>optional float radiusX = 3;</code>
        */
       public float getRadiusX() {
         return radiusX_;
@@ -6175,14 +5989,13 @@ public final class Svga {
        * 纵向半径
        * </pre>
        *
-       * <code>float radiusY = 4;</code>
+       * <code>optional float radiusY = 4;</code>
        */
       public float getRadiusY() {
         return radiusY_;
       }
 
       private byte memoizedIsInitialized = -1;
-      @java.lang.Override
       public final boolean isInitialized() {
         byte isInitialized = memoizedIsInitialized;
         if (isInitialized == 1) return true;
@@ -6192,7 +6005,6 @@ public final class Svga {
         return true;
       }
 
-      @java.lang.Override
       public void writeTo(com.google.protobuf.CodedOutputStream output)
                           throws java.io.IOException {
         if (x_ != 0F) {
@@ -6207,10 +6019,8 @@ public final class Svga {
         if (radiusY_ != 0F) {
           output.writeFloat(4, radiusY_);
         }
-        unknownFields.writeTo(output);
       }
 
-      @java.lang.Override
       public int getSerializedSize() {
         int size = memoizedSize;
         if (size != -1) return size;
@@ -6232,11 +6042,11 @@ public final class Svga {
           size += com.google.protobuf.CodedOutputStream
             .computeFloatSize(4, radiusY_);
         }
-        size += unknownFields.getSerializedSize();
         memoizedSize = size;
         return size;
       }
 
+      private static final long serialVersionUID = 0L;
       @java.lang.Override
       public boolean equals(final java.lang.Object obj) {
         if (obj == this) {
@@ -6264,7 +6074,6 @@ public final class Svga {
             java.lang.Float.floatToIntBits(getRadiusY())
             == java.lang.Float.floatToIntBits(
                 other.getRadiusY()));
-        result = result && unknownFields.equals(other.unknownFields);
         return result;
       }
 
@@ -6274,7 +6083,7 @@ public final class Svga {
           return memoizedHashCode;
         }
         int hash = 41;
-        hash = (19 * hash) + getDescriptor().hashCode();
+        hash = (19 * hash) + getDescriptorForType().hashCode();
         hash = (37 * hash) + X_FIELD_NUMBER;
         hash = (53 * hash) + java.lang.Float.floatToIntBits(
             getX());
@@ -6292,17 +6101,6 @@ public final class Svga {
         return hash;
       }
 
-      public static com.opensource.svgaplayer.proto.Svga.ShapeEntity.EllipseArgs parseFrom(
-          java.nio.ByteBuffer data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static com.opensource.svgaplayer.proto.Svga.ShapeEntity.EllipseArgs parseFrom(
-          java.nio.ByteBuffer data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
       public static com.opensource.svgaplayer.proto.Svga.ShapeEntity.EllipseArgs parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
@@ -6362,7 +6160,6 @@ public final class Svga {
             .parseWithIOException(PARSER, input, extensionRegistry);
       }
 
-      @java.lang.Override
       public Builder newBuilderForType() { return newBuilder(); }
       public static Builder newBuilder() {
         return DEFAULT_INSTANCE.toBuilder();
@@ -6370,7 +6167,6 @@ public final class Svga {
       public static Builder newBuilder(com.opensource.svgaplayer.proto.Svga.ShapeEntity.EllipseArgs prototype) {
         return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
       }
-      @java.lang.Override
       public Builder toBuilder() {
         return this == DEFAULT_INSTANCE
             ? new Builder() : new Builder().mergeFrom(this);
@@ -6394,7 +6190,6 @@ public final class Svga {
           return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_ShapeEntity_EllipseArgs_descriptor;
         }
 
-        @java.lang.Override
         protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
           return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_ShapeEntity_EllipseArgs_fieldAccessorTable
@@ -6417,7 +6212,6 @@ public final class Svga {
                   .alwaysUseFieldBuilders) {
           }
         }
-        @java.lang.Override
         public Builder clear() {
           super.clear();
           x_ = 0F;
@@ -6431,18 +6225,15 @@ public final class Svga {
           return this;
         }
 
-        @java.lang.Override
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
           return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_ShapeEntity_EllipseArgs_descriptor;
         }
 
-        @java.lang.Override
         public com.opensource.svgaplayer.proto.Svga.ShapeEntity.EllipseArgs getDefaultInstanceForType() {
           return com.opensource.svgaplayer.proto.Svga.ShapeEntity.EllipseArgs.getDefaultInstance();
         }
 
-        @java.lang.Override
         public com.opensource.svgaplayer.proto.Svga.ShapeEntity.EllipseArgs build() {
           com.opensource.svgaplayer.proto.Svga.ShapeEntity.EllipseArgs result = buildPartial();
           if (!result.isInitialized()) {
@@ -6451,7 +6242,6 @@ public final class Svga {
           return result;
         }
 
-        @java.lang.Override
         public com.opensource.svgaplayer.proto.Svga.ShapeEntity.EllipseArgs buildPartial() {
           com.opensource.svgaplayer.proto.Svga.ShapeEntity.EllipseArgs result = new com.opensource.svgaplayer.proto.Svga.ShapeEntity.EllipseArgs(this);
           result.x_ = x_;
@@ -6462,39 +6252,32 @@ public final class Svga {
           return result;
         }
 
-        @java.lang.Override
         public Builder clone() {
           return (Builder) super.clone();
         }
-        @java.lang.Override
         public Builder setField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
+            Object value) {
           return (Builder) super.setField(field, value);
         }
-        @java.lang.Override
         public Builder clearField(
             com.google.protobuf.Descriptors.FieldDescriptor field) {
           return (Builder) super.clearField(field);
         }
-        @java.lang.Override
         public Builder clearOneof(
             com.google.protobuf.Descriptors.OneofDescriptor oneof) {
           return (Builder) super.clearOneof(oneof);
         }
-        @java.lang.Override
         public Builder setRepeatedField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
-            int index, java.lang.Object value) {
+            int index, Object value) {
           return (Builder) super.setRepeatedField(field, index, value);
         }
-        @java.lang.Override
         public Builder addRepeatedField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
+            Object value) {
           return (Builder) super.addRepeatedField(field, value);
         }
-        @java.lang.Override
         public Builder mergeFrom(com.google.protobuf.Message other) {
           if (other instanceof com.opensource.svgaplayer.proto.Svga.ShapeEntity.EllipseArgs) {
             return mergeFrom((com.opensource.svgaplayer.proto.Svga.ShapeEntity.EllipseArgs)other);
@@ -6518,17 +6301,14 @@ public final class Svga {
           if (other.getRadiusY() != 0F) {
             setRadiusY(other.getRadiusY());
           }
-          this.mergeUnknownFields(other.unknownFields);
           onChanged();
           return this;
         }
 
-        @java.lang.Override
         public final boolean isInitialized() {
           return true;
         }
 
-        @java.lang.Override
         public Builder mergeFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -6553,7 +6333,7 @@ public final class Svga {
          * 圆中心点 X
          * </pre>
          *
-         * <code>float x = 1;</code>
+         * <code>optional float x = 1;</code>
          */
         public float getX() {
           return x_;
@@ -6563,7 +6343,7 @@ public final class Svga {
          * 圆中心点 X
          * </pre>
          *
-         * <code>float x = 1;</code>
+         * <code>optional float x = 1;</code>
          */
         public Builder setX(float value) {
           
@@ -6576,7 +6356,7 @@ public final class Svga {
          * 圆中心点 X
          * </pre>
          *
-         * <code>float x = 1;</code>
+         * <code>optional float x = 1;</code>
          */
         public Builder clearX() {
           
@@ -6591,7 +6371,7 @@ public final class Svga {
          * 圆中心点 Y
          * </pre>
          *
-         * <code>float y = 2;</code>
+         * <code>optional float y = 2;</code>
          */
         public float getY() {
           return y_;
@@ -6601,7 +6381,7 @@ public final class Svga {
          * 圆中心点 Y
          * </pre>
          *
-         * <code>float y = 2;</code>
+         * <code>optional float y = 2;</code>
          */
         public Builder setY(float value) {
           
@@ -6614,7 +6394,7 @@ public final class Svga {
          * 圆中心点 Y
          * </pre>
          *
-         * <code>float y = 2;</code>
+         * <code>optional float y = 2;</code>
          */
         public Builder clearY() {
           
@@ -6629,7 +6409,7 @@ public final class Svga {
          * 横向半径
          * </pre>
          *
-         * <code>float radiusX = 3;</code>
+         * <code>optional float radiusX = 3;</code>
          */
         public float getRadiusX() {
           return radiusX_;
@@ -6639,7 +6419,7 @@ public final class Svga {
          * 横向半径
          * </pre>
          *
-         * <code>float radiusX = 3;</code>
+         * <code>optional float radiusX = 3;</code>
          */
         public Builder setRadiusX(float value) {
           
@@ -6652,7 +6432,7 @@ public final class Svga {
          * 横向半径
          * </pre>
          *
-         * <code>float radiusX = 3;</code>
+         * <code>optional float radiusX = 3;</code>
          */
         public Builder clearRadiusX() {
           
@@ -6667,7 +6447,7 @@ public final class Svga {
          * 纵向半径
          * </pre>
          *
-         * <code>float radiusY = 4;</code>
+         * <code>optional float radiusY = 4;</code>
          */
         public float getRadiusY() {
           return radiusY_;
@@ -6677,7 +6457,7 @@ public final class Svga {
          * 纵向半径
          * </pre>
          *
-         * <code>float radiusY = 4;</code>
+         * <code>optional float radiusY = 4;</code>
          */
         public Builder setRadiusY(float value) {
           
@@ -6690,7 +6470,7 @@ public final class Svga {
          * 纵向半径
          * </pre>
          *
-         * <code>float radiusY = 4;</code>
+         * <code>optional float radiusY = 4;</code>
          */
         public Builder clearRadiusY() {
           
@@ -6698,16 +6478,14 @@ public final class Svga {
           onChanged();
           return this;
         }
-        @java.lang.Override
         public final Builder setUnknownFields(
             final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.setUnknownFieldsProto3(unknownFields);
+          return this;
         }
 
-        @java.lang.Override
         public final Builder mergeUnknownFields(
             final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.mergeUnknownFields(unknownFields);
+          return this;
         }
 
 
@@ -6726,12 +6504,11 @@ public final class Svga {
 
       private static final com.google.protobuf.Parser<EllipseArgs>
           PARSER = new com.google.protobuf.AbstractParser<EllipseArgs>() {
-        @java.lang.Override
         public EllipseArgs parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new EllipseArgs(input, extensionRegistry);
+            return new EllipseArgs(input, extensionRegistry);
         }
       };
 
@@ -6744,7 +6521,6 @@ public final class Svga {
         return PARSER;
       }
 
-      @java.lang.Override
       public com.opensource.svgaplayer.proto.Svga.ShapeEntity.EllipseArgs getDefaultInstanceForType() {
         return DEFAULT_INSTANCE;
       }
@@ -6760,7 +6536,7 @@ public final class Svga {
        * 填充色
        * </pre>
        *
-       * <code>.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor fill = 1;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor fill = 1;</code>
        */
       boolean hasFill();
       /**
@@ -6768,7 +6544,7 @@ public final class Svga {
        * 填充色
        * </pre>
        *
-       * <code>.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor fill = 1;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor fill = 1;</code>
        */
       com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.RGBAColor getFill();
       /**
@@ -6776,7 +6552,7 @@ public final class Svga {
        * 填充色
        * </pre>
        *
-       * <code>.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor fill = 1;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor fill = 1;</code>
        */
       com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.RGBAColorOrBuilder getFillOrBuilder();
 
@@ -6785,7 +6561,7 @@ public final class Svga {
        * 描边色
        * </pre>
        *
-       * <code>.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor stroke = 2;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor stroke = 2;</code>
        */
       boolean hasStroke();
       /**
@@ -6793,7 +6569,7 @@ public final class Svga {
        * 描边色
        * </pre>
        *
-       * <code>.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor stroke = 2;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor stroke = 2;</code>
        */
       com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.RGBAColor getStroke();
       /**
@@ -6801,7 +6577,7 @@ public final class Svga {
        * 描边色
        * </pre>
        *
-       * <code>.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor stroke = 2;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor stroke = 2;</code>
        */
       com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.RGBAColorOrBuilder getStrokeOrBuilder();
 
@@ -6810,7 +6586,7 @@ public final class Svga {
        * 描边宽
        * </pre>
        *
-       * <code>float strokeWidth = 3;</code>
+       * <code>optional float strokeWidth = 3;</code>
        */
       float getStrokeWidth();
 
@@ -6819,7 +6595,7 @@ public final class Svga {
        * 线段端点样式
        * </pre>
        *
-       * <code>.com.opensource.svga.ShapeEntity.ShapeStyle.LineCap lineCap = 4;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle.LineCap lineCap = 4;</code>
        */
       int getLineCapValue();
       /**
@@ -6827,7 +6603,7 @@ public final class Svga {
        * 线段端点样式
        * </pre>
        *
-       * <code>.com.opensource.svga.ShapeEntity.ShapeStyle.LineCap lineCap = 4;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle.LineCap lineCap = 4;</code>
        */
       com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.LineCap getLineCap();
 
@@ -6836,7 +6612,7 @@ public final class Svga {
        * 线段连接样式
        * </pre>
        *
-       * <code>.com.opensource.svga.ShapeEntity.ShapeStyle.LineJoin lineJoin = 5;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle.LineJoin lineJoin = 5;</code>
        */
       int getLineJoinValue();
       /**
@@ -6844,7 +6620,7 @@ public final class Svga {
        * 线段连接样式
        * </pre>
        *
-       * <code>.com.opensource.svga.ShapeEntity.ShapeStyle.LineJoin lineJoin = 5;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle.LineJoin lineJoin = 5;</code>
        */
       com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.LineJoin getLineJoin();
 
@@ -6853,7 +6629,7 @@ public final class Svga {
        * 尖角限制
        * </pre>
        *
-       * <code>float miterLimit = 6;</code>
+       * <code>optional float miterLimit = 6;</code>
        */
       float getMiterLimit();
 
@@ -6862,7 +6638,7 @@ public final class Svga {
        * 虚线参数 Dash
        * </pre>
        *
-       * <code>float lineDashI = 7;</code>
+       * <code>optional float lineDashI = 7;</code>
        */
       float getLineDashI();
 
@@ -6871,7 +6647,7 @@ public final class Svga {
        * 虚线参数 Gap
        * </pre>
        *
-       * <code>float lineDashII = 8;</code>
+       * <code>optional float lineDashII = 8;</code>
        */
       float getLineDashII();
 
@@ -6880,7 +6656,7 @@ public final class Svga {
        * 虚线参数 Offset
        * </pre>
        *
-       * <code>float lineDashIII = 9;</code>
+       * <code>optional float lineDashIII = 9;</code>
        */
       float getLineDashIII();
     }
@@ -6891,7 +6667,6 @@ public final class Svga {
         com.google.protobuf.GeneratedMessageV3 implements
         // @@protoc_insertion_point(message_implements:com.opensource.svga.ShapeEntity.ShapeStyle)
         ShapeStyleOrBuilder {
-    private static final long serialVersionUID = 0L;
       // Use ShapeStyle.newBuilder() to construct.
       private ShapeStyle(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
         super(builder);
@@ -6909,19 +6684,14 @@ public final class Svga {
       @java.lang.Override
       public final com.google.protobuf.UnknownFieldSet
       getUnknownFields() {
-        return this.unknownFields;
+        return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
       }
       private ShapeStyle(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
         int mutable_bitField0_ = 0;
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
         try {
           boolean done = false;
           while (!done) {
@@ -6930,6 +6700,12 @@ public final class Svga {
               case 0:
                 done = true;
                 break;
+              default: {
+                if (!input.skipField(tag)) {
+                  done = true;
+                }
+                break;
+              }
               case 10: {
                 com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.RGBAColor.Builder subBuilder = null;
                 if (fill_ != null) {
@@ -6993,13 +6769,6 @@ public final class Svga {
                 lineDashIII_ = input.readFloat();
                 break;
               }
-              default: {
-                if (!parseUnknownFieldProto3(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
             }
           }
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -7008,7 +6777,6 @@ public final class Svga {
           throw new com.google.protobuf.InvalidProtocolBufferException(
               e).setUnfinishedMessage(this);
         } finally {
-          this.unknownFields = unknownFields.build();
           makeExtensionsImmutable();
         }
       }
@@ -7017,7 +6785,6 @@ public final class Svga {
         return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_ShapeEntity_ShapeStyle_descriptor;
       }
 
-      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_ShapeEntity_ShapeStyle_fieldAccessorTable
@@ -7244,22 +7011,22 @@ public final class Svga {
           com.google.protobuf.MessageOrBuilder {
 
         /**
-         * <code>float r = 1;</code>
+         * <code>optional float r = 1;</code>
          */
         float getR();
 
         /**
-         * <code>float g = 2;</code>
+         * <code>optional float g = 2;</code>
          */
         float getG();
 
         /**
-         * <code>float b = 3;</code>
+         * <code>optional float b = 3;</code>
          */
         float getB();
 
         /**
-         * <code>float a = 4;</code>
+         * <code>optional float a = 4;</code>
          */
         float getA();
       }
@@ -7270,7 +7037,6 @@ public final class Svga {
           com.google.protobuf.GeneratedMessageV3 implements
           // @@protoc_insertion_point(message_implements:com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor)
           RGBAColorOrBuilder {
-      private static final long serialVersionUID = 0L;
         // Use RGBAColor.newBuilder() to construct.
         private RGBAColor(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
           super(builder);
@@ -7285,19 +7051,14 @@ public final class Svga {
         @java.lang.Override
         public final com.google.protobuf.UnknownFieldSet
         getUnknownFields() {
-          return this.unknownFields;
+          return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
         }
         private RGBAColor(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
           this();
-          if (extensionRegistry == null) {
-            throw new java.lang.NullPointerException();
-          }
           int mutable_bitField0_ = 0;
-          com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-              com.google.protobuf.UnknownFieldSet.newBuilder();
           try {
             boolean done = false;
             while (!done) {
@@ -7306,6 +7067,12 @@ public final class Svga {
                 case 0:
                   done = true;
                   break;
+                default: {
+                  if (!input.skipField(tag)) {
+                    done = true;
+                  }
+                  break;
+                }
                 case 13: {
 
                   r_ = input.readFloat();
@@ -7326,13 +7093,6 @@ public final class Svga {
                   a_ = input.readFloat();
                   break;
                 }
-                default: {
-                  if (!parseUnknownFieldProto3(
-                      input, unknownFields, extensionRegistry, tag)) {
-                    done = true;
-                  }
-                  break;
-                }
               }
             }
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -7341,7 +7101,6 @@ public final class Svga {
             throw new com.google.protobuf.InvalidProtocolBufferException(
                 e).setUnfinishedMessage(this);
           } finally {
-            this.unknownFields = unknownFields.build();
             makeExtensionsImmutable();
           }
         }
@@ -7350,7 +7109,6 @@ public final class Svga {
           return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_ShapeEntity_ShapeStyle_RGBAColor_descriptor;
         }
 
-        @java.lang.Override
         protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
           return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_ShapeEntity_ShapeStyle_RGBAColor_fieldAccessorTable
@@ -7361,7 +7119,7 @@ public final class Svga {
         public static final int R_FIELD_NUMBER = 1;
         private float r_;
         /**
-         * <code>float r = 1;</code>
+         * <code>optional float r = 1;</code>
          */
         public float getR() {
           return r_;
@@ -7370,7 +7128,7 @@ public final class Svga {
         public static final int G_FIELD_NUMBER = 2;
         private float g_;
         /**
-         * <code>float g = 2;</code>
+         * <code>optional float g = 2;</code>
          */
         public float getG() {
           return g_;
@@ -7379,7 +7137,7 @@ public final class Svga {
         public static final int B_FIELD_NUMBER = 3;
         private float b_;
         /**
-         * <code>float b = 3;</code>
+         * <code>optional float b = 3;</code>
          */
         public float getB() {
           return b_;
@@ -7388,14 +7146,13 @@ public final class Svga {
         public static final int A_FIELD_NUMBER = 4;
         private float a_;
         /**
-         * <code>float a = 4;</code>
+         * <code>optional float a = 4;</code>
          */
         public float getA() {
           return a_;
         }
 
         private byte memoizedIsInitialized = -1;
-        @java.lang.Override
         public final boolean isInitialized() {
           byte isInitialized = memoizedIsInitialized;
           if (isInitialized == 1) return true;
@@ -7405,7 +7162,6 @@ public final class Svga {
           return true;
         }
 
-        @java.lang.Override
         public void writeTo(com.google.protobuf.CodedOutputStream output)
                             throws java.io.IOException {
           if (r_ != 0F) {
@@ -7420,10 +7176,8 @@ public final class Svga {
           if (a_ != 0F) {
             output.writeFloat(4, a_);
           }
-          unknownFields.writeTo(output);
         }
 
-        @java.lang.Override
         public int getSerializedSize() {
           int size = memoizedSize;
           if (size != -1) return size;
@@ -7445,11 +7199,11 @@ public final class Svga {
             size += com.google.protobuf.CodedOutputStream
               .computeFloatSize(4, a_);
           }
-          size += unknownFields.getSerializedSize();
           memoizedSize = size;
           return size;
         }
 
+        private static final long serialVersionUID = 0L;
         @java.lang.Override
         public boolean equals(final java.lang.Object obj) {
           if (obj == this) {
@@ -7477,7 +7231,6 @@ public final class Svga {
               java.lang.Float.floatToIntBits(getA())
               == java.lang.Float.floatToIntBits(
                   other.getA()));
-          result = result && unknownFields.equals(other.unknownFields);
           return result;
         }
 
@@ -7487,7 +7240,7 @@ public final class Svga {
             return memoizedHashCode;
           }
           int hash = 41;
-          hash = (19 * hash) + getDescriptor().hashCode();
+          hash = (19 * hash) + getDescriptorForType().hashCode();
           hash = (37 * hash) + R_FIELD_NUMBER;
           hash = (53 * hash) + java.lang.Float.floatToIntBits(
               getR());
@@ -7505,17 +7258,6 @@ public final class Svga {
           return hash;
         }
 
-        public static com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.RGBAColor parseFrom(
-            java.nio.ByteBuffer data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return PARSER.parseFrom(data);
-        }
-        public static com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.RGBAColor parseFrom(
-            java.nio.ByteBuffer data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return PARSER.parseFrom(data, extensionRegistry);
-        }
         public static com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.RGBAColor parseFrom(
             com.google.protobuf.ByteString data)
             throws com.google.protobuf.InvalidProtocolBufferException {
@@ -7575,7 +7317,6 @@ public final class Svga {
               .parseWithIOException(PARSER, input, extensionRegistry);
         }
 
-        @java.lang.Override
         public Builder newBuilderForType() { return newBuilder(); }
         public static Builder newBuilder() {
           return DEFAULT_INSTANCE.toBuilder();
@@ -7583,7 +7324,6 @@ public final class Svga {
         public static Builder newBuilder(com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.RGBAColor prototype) {
           return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
         }
-        @java.lang.Override
         public Builder toBuilder() {
           return this == DEFAULT_INSTANCE
               ? new Builder() : new Builder().mergeFrom(this);
@@ -7607,7 +7347,6 @@ public final class Svga {
             return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_ShapeEntity_ShapeStyle_RGBAColor_descriptor;
           }
 
-          @java.lang.Override
           protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
               internalGetFieldAccessorTable() {
             return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_ShapeEntity_ShapeStyle_RGBAColor_fieldAccessorTable
@@ -7630,7 +7369,6 @@ public final class Svga {
                     .alwaysUseFieldBuilders) {
             }
           }
-          @java.lang.Override
           public Builder clear() {
             super.clear();
             r_ = 0F;
@@ -7644,18 +7382,15 @@ public final class Svga {
             return this;
           }
 
-          @java.lang.Override
           public com.google.protobuf.Descriptors.Descriptor
               getDescriptorForType() {
             return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_ShapeEntity_ShapeStyle_RGBAColor_descriptor;
           }
 
-          @java.lang.Override
           public com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.RGBAColor getDefaultInstanceForType() {
             return com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.RGBAColor.getDefaultInstance();
           }
 
-          @java.lang.Override
           public com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.RGBAColor build() {
             com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.RGBAColor result = buildPartial();
             if (!result.isInitialized()) {
@@ -7664,7 +7399,6 @@ public final class Svga {
             return result;
           }
 
-          @java.lang.Override
           public com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.RGBAColor buildPartial() {
             com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.RGBAColor result = new com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.RGBAColor(this);
             result.r_ = r_;
@@ -7675,39 +7409,32 @@ public final class Svga {
             return result;
           }
 
-          @java.lang.Override
           public Builder clone() {
             return (Builder) super.clone();
           }
-          @java.lang.Override
           public Builder setField(
               com.google.protobuf.Descriptors.FieldDescriptor field,
-              java.lang.Object value) {
+              Object value) {
             return (Builder) super.setField(field, value);
           }
-          @java.lang.Override
           public Builder clearField(
               com.google.protobuf.Descriptors.FieldDescriptor field) {
             return (Builder) super.clearField(field);
           }
-          @java.lang.Override
           public Builder clearOneof(
               com.google.protobuf.Descriptors.OneofDescriptor oneof) {
             return (Builder) super.clearOneof(oneof);
           }
-          @java.lang.Override
           public Builder setRepeatedField(
               com.google.protobuf.Descriptors.FieldDescriptor field,
-              int index, java.lang.Object value) {
+              int index, Object value) {
             return (Builder) super.setRepeatedField(field, index, value);
           }
-          @java.lang.Override
           public Builder addRepeatedField(
               com.google.protobuf.Descriptors.FieldDescriptor field,
-              java.lang.Object value) {
+              Object value) {
             return (Builder) super.addRepeatedField(field, value);
           }
-          @java.lang.Override
           public Builder mergeFrom(com.google.protobuf.Message other) {
             if (other instanceof com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.RGBAColor) {
               return mergeFrom((com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.RGBAColor)other);
@@ -7731,17 +7458,14 @@ public final class Svga {
             if (other.getA() != 0F) {
               setA(other.getA());
             }
-            this.mergeUnknownFields(other.unknownFields);
             onChanged();
             return this;
           }
 
-          @java.lang.Override
           public final boolean isInitialized() {
             return true;
           }
 
-          @java.lang.Override
           public Builder mergeFrom(
               com.google.protobuf.CodedInputStream input,
               com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -7762,13 +7486,13 @@ public final class Svga {
 
           private float r_ ;
           /**
-           * <code>float r = 1;</code>
+           * <code>optional float r = 1;</code>
            */
           public float getR() {
             return r_;
           }
           /**
-           * <code>float r = 1;</code>
+           * <code>optional float r = 1;</code>
            */
           public Builder setR(float value) {
             
@@ -7777,7 +7501,7 @@ public final class Svga {
             return this;
           }
           /**
-           * <code>float r = 1;</code>
+           * <code>optional float r = 1;</code>
            */
           public Builder clearR() {
             
@@ -7788,13 +7512,13 @@ public final class Svga {
 
           private float g_ ;
           /**
-           * <code>float g = 2;</code>
+           * <code>optional float g = 2;</code>
            */
           public float getG() {
             return g_;
           }
           /**
-           * <code>float g = 2;</code>
+           * <code>optional float g = 2;</code>
            */
           public Builder setG(float value) {
             
@@ -7803,7 +7527,7 @@ public final class Svga {
             return this;
           }
           /**
-           * <code>float g = 2;</code>
+           * <code>optional float g = 2;</code>
            */
           public Builder clearG() {
             
@@ -7814,13 +7538,13 @@ public final class Svga {
 
           private float b_ ;
           /**
-           * <code>float b = 3;</code>
+           * <code>optional float b = 3;</code>
            */
           public float getB() {
             return b_;
           }
           /**
-           * <code>float b = 3;</code>
+           * <code>optional float b = 3;</code>
            */
           public Builder setB(float value) {
             
@@ -7829,7 +7553,7 @@ public final class Svga {
             return this;
           }
           /**
-           * <code>float b = 3;</code>
+           * <code>optional float b = 3;</code>
            */
           public Builder clearB() {
             
@@ -7840,13 +7564,13 @@ public final class Svga {
 
           private float a_ ;
           /**
-           * <code>float a = 4;</code>
+           * <code>optional float a = 4;</code>
            */
           public float getA() {
             return a_;
           }
           /**
-           * <code>float a = 4;</code>
+           * <code>optional float a = 4;</code>
            */
           public Builder setA(float value) {
             
@@ -7855,7 +7579,7 @@ public final class Svga {
             return this;
           }
           /**
-           * <code>float a = 4;</code>
+           * <code>optional float a = 4;</code>
            */
           public Builder clearA() {
             
@@ -7863,16 +7587,14 @@ public final class Svga {
             onChanged();
             return this;
           }
-          @java.lang.Override
           public final Builder setUnknownFields(
               final com.google.protobuf.UnknownFieldSet unknownFields) {
-            return super.setUnknownFieldsProto3(unknownFields);
+            return this;
           }
 
-          @java.lang.Override
           public final Builder mergeUnknownFields(
               final com.google.protobuf.UnknownFieldSet unknownFields) {
-            return super.mergeUnknownFields(unknownFields);
+            return this;
           }
 
 
@@ -7891,12 +7613,11 @@ public final class Svga {
 
         private static final com.google.protobuf.Parser<RGBAColor>
             PARSER = new com.google.protobuf.AbstractParser<RGBAColor>() {
-          @java.lang.Override
           public RGBAColor parsePartialFrom(
               com.google.protobuf.CodedInputStream input,
               com.google.protobuf.ExtensionRegistryLite extensionRegistry)
               throws com.google.protobuf.InvalidProtocolBufferException {
-            return new RGBAColor(input, extensionRegistry);
+              return new RGBAColor(input, extensionRegistry);
           }
         };
 
@@ -7909,7 +7630,6 @@ public final class Svga {
           return PARSER;
         }
 
-        @java.lang.Override
         public com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.RGBAColor getDefaultInstanceForType() {
           return DEFAULT_INSTANCE;
         }
@@ -7923,7 +7643,7 @@ public final class Svga {
        * 填充色
        * </pre>
        *
-       * <code>.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor fill = 1;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor fill = 1;</code>
        */
       public boolean hasFill() {
         return fill_ != null;
@@ -7933,7 +7653,7 @@ public final class Svga {
        * 填充色
        * </pre>
        *
-       * <code>.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor fill = 1;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor fill = 1;</code>
        */
       public com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.RGBAColor getFill() {
         return fill_ == null ? com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.RGBAColor.getDefaultInstance() : fill_;
@@ -7943,7 +7663,7 @@ public final class Svga {
        * 填充色
        * </pre>
        *
-       * <code>.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor fill = 1;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor fill = 1;</code>
        */
       public com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.RGBAColorOrBuilder getFillOrBuilder() {
         return getFill();
@@ -7956,7 +7676,7 @@ public final class Svga {
        * 描边色
        * </pre>
        *
-       * <code>.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor stroke = 2;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor stroke = 2;</code>
        */
       public boolean hasStroke() {
         return stroke_ != null;
@@ -7966,7 +7686,7 @@ public final class Svga {
        * 描边色
        * </pre>
        *
-       * <code>.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor stroke = 2;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor stroke = 2;</code>
        */
       public com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.RGBAColor getStroke() {
         return stroke_ == null ? com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.RGBAColor.getDefaultInstance() : stroke_;
@@ -7976,7 +7696,7 @@ public final class Svga {
        * 描边色
        * </pre>
        *
-       * <code>.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor stroke = 2;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor stroke = 2;</code>
        */
       public com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.RGBAColorOrBuilder getStrokeOrBuilder() {
         return getStroke();
@@ -7989,7 +7709,7 @@ public final class Svga {
        * 描边宽
        * </pre>
        *
-       * <code>float strokeWidth = 3;</code>
+       * <code>optional float strokeWidth = 3;</code>
        */
       public float getStrokeWidth() {
         return strokeWidth_;
@@ -8002,7 +7722,7 @@ public final class Svga {
        * 线段端点样式
        * </pre>
        *
-       * <code>.com.opensource.svga.ShapeEntity.ShapeStyle.LineCap lineCap = 4;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle.LineCap lineCap = 4;</code>
        */
       public int getLineCapValue() {
         return lineCap_;
@@ -8012,10 +7732,9 @@ public final class Svga {
        * 线段端点样式
        * </pre>
        *
-       * <code>.com.opensource.svga.ShapeEntity.ShapeStyle.LineCap lineCap = 4;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle.LineCap lineCap = 4;</code>
        */
       public com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.LineCap getLineCap() {
-        @SuppressWarnings("deprecation")
         com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.LineCap result = com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.LineCap.valueOf(lineCap_);
         return result == null ? com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.LineCap.UNRECOGNIZED : result;
       }
@@ -8027,7 +7746,7 @@ public final class Svga {
        * 线段连接样式
        * </pre>
        *
-       * <code>.com.opensource.svga.ShapeEntity.ShapeStyle.LineJoin lineJoin = 5;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle.LineJoin lineJoin = 5;</code>
        */
       public int getLineJoinValue() {
         return lineJoin_;
@@ -8037,10 +7756,9 @@ public final class Svga {
        * 线段连接样式
        * </pre>
        *
-       * <code>.com.opensource.svga.ShapeEntity.ShapeStyle.LineJoin lineJoin = 5;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle.LineJoin lineJoin = 5;</code>
        */
       public com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.LineJoin getLineJoin() {
-        @SuppressWarnings("deprecation")
         com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.LineJoin result = com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.LineJoin.valueOf(lineJoin_);
         return result == null ? com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.LineJoin.UNRECOGNIZED : result;
       }
@@ -8052,7 +7770,7 @@ public final class Svga {
        * 尖角限制
        * </pre>
        *
-       * <code>float miterLimit = 6;</code>
+       * <code>optional float miterLimit = 6;</code>
        */
       public float getMiterLimit() {
         return miterLimit_;
@@ -8065,7 +7783,7 @@ public final class Svga {
        * 虚线参数 Dash
        * </pre>
        *
-       * <code>float lineDashI = 7;</code>
+       * <code>optional float lineDashI = 7;</code>
        */
       public float getLineDashI() {
         return lineDashI_;
@@ -8078,7 +7796,7 @@ public final class Svga {
        * 虚线参数 Gap
        * </pre>
        *
-       * <code>float lineDashII = 8;</code>
+       * <code>optional float lineDashII = 8;</code>
        */
       public float getLineDashII() {
         return lineDashII_;
@@ -8091,14 +7809,13 @@ public final class Svga {
        * 虚线参数 Offset
        * </pre>
        *
-       * <code>float lineDashIII = 9;</code>
+       * <code>optional float lineDashIII = 9;</code>
        */
       public float getLineDashIII() {
         return lineDashIII_;
       }
 
       private byte memoizedIsInitialized = -1;
-      @java.lang.Override
       public final boolean isInitialized() {
         byte isInitialized = memoizedIsInitialized;
         if (isInitialized == 1) return true;
@@ -8108,7 +7825,6 @@ public final class Svga {
         return true;
       }
 
-      @java.lang.Override
       public void writeTo(com.google.protobuf.CodedOutputStream output)
                           throws java.io.IOException {
         if (fill_ != null) {
@@ -8138,10 +7854,8 @@ public final class Svga {
         if (lineDashIII_ != 0F) {
           output.writeFloat(9, lineDashIII_);
         }
-        unknownFields.writeTo(output);
       }
 
-      @java.lang.Override
       public int getSerializedSize() {
         int size = memoizedSize;
         if (size != -1) return size;
@@ -8183,11 +7897,11 @@ public final class Svga {
           size += com.google.protobuf.CodedOutputStream
             .computeFloatSize(9, lineDashIII_);
         }
-        size += unknownFields.getSerializedSize();
         memoizedSize = size;
         return size;
       }
 
+      private static final long serialVersionUID = 0L;
       @java.lang.Override
       public boolean equals(final java.lang.Object obj) {
         if (obj == this) {
@@ -8231,7 +7945,6 @@ public final class Svga {
             java.lang.Float.floatToIntBits(getLineDashIII())
             == java.lang.Float.floatToIntBits(
                 other.getLineDashIII()));
-        result = result && unknownFields.equals(other.unknownFields);
         return result;
       }
 
@@ -8241,7 +7954,7 @@ public final class Svga {
           return memoizedHashCode;
         }
         int hash = 41;
-        hash = (19 * hash) + getDescriptor().hashCode();
+        hash = (19 * hash) + getDescriptorForType().hashCode();
         if (hasFill()) {
           hash = (37 * hash) + FILL_FIELD_NUMBER;
           hash = (53 * hash) + getFill().hashCode();
@@ -8274,17 +7987,6 @@ public final class Svga {
         return hash;
       }
 
-      public static com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle parseFrom(
-          java.nio.ByteBuffer data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle parseFrom(
-          java.nio.ByteBuffer data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
       public static com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
@@ -8344,7 +8046,6 @@ public final class Svga {
             .parseWithIOException(PARSER, input, extensionRegistry);
       }
 
-      @java.lang.Override
       public Builder newBuilderForType() { return newBuilder(); }
       public static Builder newBuilder() {
         return DEFAULT_INSTANCE.toBuilder();
@@ -8352,7 +8053,6 @@ public final class Svga {
       public static Builder newBuilder(com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle prototype) {
         return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
       }
-      @java.lang.Override
       public Builder toBuilder() {
         return this == DEFAULT_INSTANCE
             ? new Builder() : new Builder().mergeFrom(this);
@@ -8376,7 +8076,6 @@ public final class Svga {
           return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_ShapeEntity_ShapeStyle_descriptor;
         }
 
-        @java.lang.Override
         protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
           return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_ShapeEntity_ShapeStyle_fieldAccessorTable
@@ -8399,7 +8098,6 @@ public final class Svga {
                   .alwaysUseFieldBuilders) {
           }
         }
-        @java.lang.Override
         public Builder clear() {
           super.clear();
           if (fillBuilder_ == null) {
@@ -8431,18 +8129,15 @@ public final class Svga {
           return this;
         }
 
-        @java.lang.Override
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
           return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_ShapeEntity_ShapeStyle_descriptor;
         }
 
-        @java.lang.Override
         public com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle getDefaultInstanceForType() {
           return com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.getDefaultInstance();
         }
 
-        @java.lang.Override
         public com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle build() {
           com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle result = buildPartial();
           if (!result.isInitialized()) {
@@ -8451,7 +8146,6 @@ public final class Svga {
           return result;
         }
 
-        @java.lang.Override
         public com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle buildPartial() {
           com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle result = new com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle(this);
           if (fillBuilder_ == null) {
@@ -8475,39 +8169,32 @@ public final class Svga {
           return result;
         }
 
-        @java.lang.Override
         public Builder clone() {
           return (Builder) super.clone();
         }
-        @java.lang.Override
         public Builder setField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
+            Object value) {
           return (Builder) super.setField(field, value);
         }
-        @java.lang.Override
         public Builder clearField(
             com.google.protobuf.Descriptors.FieldDescriptor field) {
           return (Builder) super.clearField(field);
         }
-        @java.lang.Override
         public Builder clearOneof(
             com.google.protobuf.Descriptors.OneofDescriptor oneof) {
           return (Builder) super.clearOneof(oneof);
         }
-        @java.lang.Override
         public Builder setRepeatedField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
-            int index, java.lang.Object value) {
+            int index, Object value) {
           return (Builder) super.setRepeatedField(field, index, value);
         }
-        @java.lang.Override
         public Builder addRepeatedField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
+            Object value) {
           return (Builder) super.addRepeatedField(field, value);
         }
-        @java.lang.Override
         public Builder mergeFrom(com.google.protobuf.Message other) {
           if (other instanceof com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle) {
             return mergeFrom((com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle)other);
@@ -8546,17 +8233,14 @@ public final class Svga {
           if (other.getLineDashIII() != 0F) {
             setLineDashIII(other.getLineDashIII());
           }
-          this.mergeUnknownFields(other.unknownFields);
           onChanged();
           return this;
         }
 
-        @java.lang.Override
         public final boolean isInitialized() {
           return true;
         }
 
-        @java.lang.Override
         public Builder mergeFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -8583,7 +8267,7 @@ public final class Svga {
          * 填充色
          * </pre>
          *
-         * <code>.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor fill = 1;</code>
+         * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor fill = 1;</code>
          */
         public boolean hasFill() {
           return fillBuilder_ != null || fill_ != null;
@@ -8593,7 +8277,7 @@ public final class Svga {
          * 填充色
          * </pre>
          *
-         * <code>.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor fill = 1;</code>
+         * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor fill = 1;</code>
          */
         public com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.RGBAColor getFill() {
           if (fillBuilder_ == null) {
@@ -8607,7 +8291,7 @@ public final class Svga {
          * 填充色
          * </pre>
          *
-         * <code>.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor fill = 1;</code>
+         * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor fill = 1;</code>
          */
         public Builder setFill(com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.RGBAColor value) {
           if (fillBuilder_ == null) {
@@ -8627,7 +8311,7 @@ public final class Svga {
          * 填充色
          * </pre>
          *
-         * <code>.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor fill = 1;</code>
+         * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor fill = 1;</code>
          */
         public Builder setFill(
             com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.RGBAColor.Builder builderForValue) {
@@ -8645,7 +8329,7 @@ public final class Svga {
          * 填充色
          * </pre>
          *
-         * <code>.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor fill = 1;</code>
+         * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor fill = 1;</code>
          */
         public Builder mergeFill(com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.RGBAColor value) {
           if (fillBuilder_ == null) {
@@ -8667,7 +8351,7 @@ public final class Svga {
          * 填充色
          * </pre>
          *
-         * <code>.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor fill = 1;</code>
+         * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor fill = 1;</code>
          */
         public Builder clearFill() {
           if (fillBuilder_ == null) {
@@ -8685,7 +8369,7 @@ public final class Svga {
          * 填充色
          * </pre>
          *
-         * <code>.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor fill = 1;</code>
+         * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor fill = 1;</code>
          */
         public com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.RGBAColor.Builder getFillBuilder() {
           
@@ -8697,7 +8381,7 @@ public final class Svga {
          * 填充色
          * </pre>
          *
-         * <code>.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor fill = 1;</code>
+         * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor fill = 1;</code>
          */
         public com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.RGBAColorOrBuilder getFillOrBuilder() {
           if (fillBuilder_ != null) {
@@ -8712,7 +8396,7 @@ public final class Svga {
          * 填充色
          * </pre>
          *
-         * <code>.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor fill = 1;</code>
+         * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor fill = 1;</code>
          */
         private com.google.protobuf.SingleFieldBuilderV3<
             com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.RGBAColor, com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.RGBAColor.Builder, com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.RGBAColorOrBuilder> 
@@ -8736,7 +8420,7 @@ public final class Svga {
          * 描边色
          * </pre>
          *
-         * <code>.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor stroke = 2;</code>
+         * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor stroke = 2;</code>
          */
         public boolean hasStroke() {
           return strokeBuilder_ != null || stroke_ != null;
@@ -8746,7 +8430,7 @@ public final class Svga {
          * 描边色
          * </pre>
          *
-         * <code>.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor stroke = 2;</code>
+         * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor stroke = 2;</code>
          */
         public com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.RGBAColor getStroke() {
           if (strokeBuilder_ == null) {
@@ -8760,7 +8444,7 @@ public final class Svga {
          * 描边色
          * </pre>
          *
-         * <code>.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor stroke = 2;</code>
+         * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor stroke = 2;</code>
          */
         public Builder setStroke(com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.RGBAColor value) {
           if (strokeBuilder_ == null) {
@@ -8780,7 +8464,7 @@ public final class Svga {
          * 描边色
          * </pre>
          *
-         * <code>.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor stroke = 2;</code>
+         * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor stroke = 2;</code>
          */
         public Builder setStroke(
             com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.RGBAColor.Builder builderForValue) {
@@ -8798,7 +8482,7 @@ public final class Svga {
          * 描边色
          * </pre>
          *
-         * <code>.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor stroke = 2;</code>
+         * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor stroke = 2;</code>
          */
         public Builder mergeStroke(com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.RGBAColor value) {
           if (strokeBuilder_ == null) {
@@ -8820,7 +8504,7 @@ public final class Svga {
          * 描边色
          * </pre>
          *
-         * <code>.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor stroke = 2;</code>
+         * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor stroke = 2;</code>
          */
         public Builder clearStroke() {
           if (strokeBuilder_ == null) {
@@ -8838,7 +8522,7 @@ public final class Svga {
          * 描边色
          * </pre>
          *
-         * <code>.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor stroke = 2;</code>
+         * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor stroke = 2;</code>
          */
         public com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.RGBAColor.Builder getStrokeBuilder() {
           
@@ -8850,7 +8534,7 @@ public final class Svga {
          * 描边色
          * </pre>
          *
-         * <code>.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor stroke = 2;</code>
+         * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor stroke = 2;</code>
          */
         public com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.RGBAColorOrBuilder getStrokeOrBuilder() {
           if (strokeBuilder_ != null) {
@@ -8865,7 +8549,7 @@ public final class Svga {
          * 描边色
          * </pre>
          *
-         * <code>.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor stroke = 2;</code>
+         * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor stroke = 2;</code>
          */
         private com.google.protobuf.SingleFieldBuilderV3<
             com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.RGBAColor, com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.RGBAColor.Builder, com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.RGBAColorOrBuilder> 
@@ -8887,7 +8571,7 @@ public final class Svga {
          * 描边宽
          * </pre>
          *
-         * <code>float strokeWidth = 3;</code>
+         * <code>optional float strokeWidth = 3;</code>
          */
         public float getStrokeWidth() {
           return strokeWidth_;
@@ -8897,7 +8581,7 @@ public final class Svga {
          * 描边宽
          * </pre>
          *
-         * <code>float strokeWidth = 3;</code>
+         * <code>optional float strokeWidth = 3;</code>
          */
         public Builder setStrokeWidth(float value) {
           
@@ -8910,7 +8594,7 @@ public final class Svga {
          * 描边宽
          * </pre>
          *
-         * <code>float strokeWidth = 3;</code>
+         * <code>optional float strokeWidth = 3;</code>
          */
         public Builder clearStrokeWidth() {
           
@@ -8925,7 +8609,7 @@ public final class Svga {
          * 线段端点样式
          * </pre>
          *
-         * <code>.com.opensource.svga.ShapeEntity.ShapeStyle.LineCap lineCap = 4;</code>
+         * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle.LineCap lineCap = 4;</code>
          */
         public int getLineCapValue() {
           return lineCap_;
@@ -8935,7 +8619,7 @@ public final class Svga {
          * 线段端点样式
          * </pre>
          *
-         * <code>.com.opensource.svga.ShapeEntity.ShapeStyle.LineCap lineCap = 4;</code>
+         * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle.LineCap lineCap = 4;</code>
          */
         public Builder setLineCapValue(int value) {
           lineCap_ = value;
@@ -8947,10 +8631,9 @@ public final class Svga {
          * 线段端点样式
          * </pre>
          *
-         * <code>.com.opensource.svga.ShapeEntity.ShapeStyle.LineCap lineCap = 4;</code>
+         * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle.LineCap lineCap = 4;</code>
          */
         public com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.LineCap getLineCap() {
-          @SuppressWarnings("deprecation")
           com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.LineCap result = com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.LineCap.valueOf(lineCap_);
           return result == null ? com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.LineCap.UNRECOGNIZED : result;
         }
@@ -8959,7 +8642,7 @@ public final class Svga {
          * 线段端点样式
          * </pre>
          *
-         * <code>.com.opensource.svga.ShapeEntity.ShapeStyle.LineCap lineCap = 4;</code>
+         * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle.LineCap lineCap = 4;</code>
          */
         public Builder setLineCap(com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.LineCap value) {
           if (value == null) {
@@ -8975,7 +8658,7 @@ public final class Svga {
          * 线段端点样式
          * </pre>
          *
-         * <code>.com.opensource.svga.ShapeEntity.ShapeStyle.LineCap lineCap = 4;</code>
+         * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle.LineCap lineCap = 4;</code>
          */
         public Builder clearLineCap() {
           
@@ -8990,7 +8673,7 @@ public final class Svga {
          * 线段连接样式
          * </pre>
          *
-         * <code>.com.opensource.svga.ShapeEntity.ShapeStyle.LineJoin lineJoin = 5;</code>
+         * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle.LineJoin lineJoin = 5;</code>
          */
         public int getLineJoinValue() {
           return lineJoin_;
@@ -9000,7 +8683,7 @@ public final class Svga {
          * 线段连接样式
          * </pre>
          *
-         * <code>.com.opensource.svga.ShapeEntity.ShapeStyle.LineJoin lineJoin = 5;</code>
+         * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle.LineJoin lineJoin = 5;</code>
          */
         public Builder setLineJoinValue(int value) {
           lineJoin_ = value;
@@ -9012,10 +8695,9 @@ public final class Svga {
          * 线段连接样式
          * </pre>
          *
-         * <code>.com.opensource.svga.ShapeEntity.ShapeStyle.LineJoin lineJoin = 5;</code>
+         * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle.LineJoin lineJoin = 5;</code>
          */
         public com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.LineJoin getLineJoin() {
-          @SuppressWarnings("deprecation")
           com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.LineJoin result = com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.LineJoin.valueOf(lineJoin_);
           return result == null ? com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.LineJoin.UNRECOGNIZED : result;
         }
@@ -9024,7 +8706,7 @@ public final class Svga {
          * 线段连接样式
          * </pre>
          *
-         * <code>.com.opensource.svga.ShapeEntity.ShapeStyle.LineJoin lineJoin = 5;</code>
+         * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle.LineJoin lineJoin = 5;</code>
          */
         public Builder setLineJoin(com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.LineJoin value) {
           if (value == null) {
@@ -9040,7 +8722,7 @@ public final class Svga {
          * 线段连接样式
          * </pre>
          *
-         * <code>.com.opensource.svga.ShapeEntity.ShapeStyle.LineJoin lineJoin = 5;</code>
+         * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle.LineJoin lineJoin = 5;</code>
          */
         public Builder clearLineJoin() {
           
@@ -9055,7 +8737,7 @@ public final class Svga {
          * 尖角限制
          * </pre>
          *
-         * <code>float miterLimit = 6;</code>
+         * <code>optional float miterLimit = 6;</code>
          */
         public float getMiterLimit() {
           return miterLimit_;
@@ -9065,7 +8747,7 @@ public final class Svga {
          * 尖角限制
          * </pre>
          *
-         * <code>float miterLimit = 6;</code>
+         * <code>optional float miterLimit = 6;</code>
          */
         public Builder setMiterLimit(float value) {
           
@@ -9078,7 +8760,7 @@ public final class Svga {
          * 尖角限制
          * </pre>
          *
-         * <code>float miterLimit = 6;</code>
+         * <code>optional float miterLimit = 6;</code>
          */
         public Builder clearMiterLimit() {
           
@@ -9093,7 +8775,7 @@ public final class Svga {
          * 虚线参数 Dash
          * </pre>
          *
-         * <code>float lineDashI = 7;</code>
+         * <code>optional float lineDashI = 7;</code>
          */
         public float getLineDashI() {
           return lineDashI_;
@@ -9103,7 +8785,7 @@ public final class Svga {
          * 虚线参数 Dash
          * </pre>
          *
-         * <code>float lineDashI = 7;</code>
+         * <code>optional float lineDashI = 7;</code>
          */
         public Builder setLineDashI(float value) {
           
@@ -9116,7 +8798,7 @@ public final class Svga {
          * 虚线参数 Dash
          * </pre>
          *
-         * <code>float lineDashI = 7;</code>
+         * <code>optional float lineDashI = 7;</code>
          */
         public Builder clearLineDashI() {
           
@@ -9131,7 +8813,7 @@ public final class Svga {
          * 虚线参数 Gap
          * </pre>
          *
-         * <code>float lineDashII = 8;</code>
+         * <code>optional float lineDashII = 8;</code>
          */
         public float getLineDashII() {
           return lineDashII_;
@@ -9141,7 +8823,7 @@ public final class Svga {
          * 虚线参数 Gap
          * </pre>
          *
-         * <code>float lineDashII = 8;</code>
+         * <code>optional float lineDashII = 8;</code>
          */
         public Builder setLineDashII(float value) {
           
@@ -9154,7 +8836,7 @@ public final class Svga {
          * 虚线参数 Gap
          * </pre>
          *
-         * <code>float lineDashII = 8;</code>
+         * <code>optional float lineDashII = 8;</code>
          */
         public Builder clearLineDashII() {
           
@@ -9169,7 +8851,7 @@ public final class Svga {
          * 虚线参数 Offset
          * </pre>
          *
-         * <code>float lineDashIII = 9;</code>
+         * <code>optional float lineDashIII = 9;</code>
          */
         public float getLineDashIII() {
           return lineDashIII_;
@@ -9179,7 +8861,7 @@ public final class Svga {
          * 虚线参数 Offset
          * </pre>
          *
-         * <code>float lineDashIII = 9;</code>
+         * <code>optional float lineDashIII = 9;</code>
          */
         public Builder setLineDashIII(float value) {
           
@@ -9192,7 +8874,7 @@ public final class Svga {
          * 虚线参数 Offset
          * </pre>
          *
-         * <code>float lineDashIII = 9;</code>
+         * <code>optional float lineDashIII = 9;</code>
          */
         public Builder clearLineDashIII() {
           
@@ -9200,16 +8882,14 @@ public final class Svga {
           onChanged();
           return this;
         }
-        @java.lang.Override
         public final Builder setUnknownFields(
             final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.setUnknownFieldsProto3(unknownFields);
+          return this;
         }
 
-        @java.lang.Override
         public final Builder mergeUnknownFields(
             final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.mergeUnknownFields(unknownFields);
+          return this;
         }
 
 
@@ -9228,12 +8908,11 @@ public final class Svga {
 
       private static final com.google.protobuf.Parser<ShapeStyle>
           PARSER = new com.google.protobuf.AbstractParser<ShapeStyle>() {
-        @java.lang.Override
         public ShapeStyle parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new ShapeStyle(input, extensionRegistry);
+            return new ShapeStyle(input, extensionRegistry);
         }
       };
 
@@ -9246,7 +8925,6 @@ public final class Svga {
         return PARSER;
       }
 
-      @java.lang.Override
       public com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle getDefaultInstanceForType() {
         return DEFAULT_INSTANCE;
       }
@@ -9300,7 +8978,7 @@ public final class Svga {
      * 矢量类型
      * </pre>
      *
-     * <code>.com.opensource.svga.ShapeEntity.ShapeType type = 1;</code>
+     * <code>optional .com.opensource.svga.ShapeEntity.ShapeType type = 1;</code>
      */
     public int getTypeValue() {
       return type_;
@@ -9310,23 +8988,16 @@ public final class Svga {
      * 矢量类型
      * </pre>
      *
-     * <code>.com.opensource.svga.ShapeEntity.ShapeType type = 1;</code>
+     * <code>optional .com.opensource.svga.ShapeEntity.ShapeType type = 1;</code>
      */
     public com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeType getType() {
-      @SuppressWarnings("deprecation")
       com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeType result = com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeType.valueOf(type_);
       return result == null ? com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeType.UNRECOGNIZED : result;
     }
 
     public static final int SHAPE_FIELD_NUMBER = 2;
     /**
-     * <code>.com.opensource.svga.ShapeEntity.ShapeArgs shape = 2;</code>
-     */
-    public boolean hasShape() {
-      return argsCase_ == 2;
-    }
-    /**
-     * <code>.com.opensource.svga.ShapeEntity.ShapeArgs shape = 2;</code>
+     * <code>optional .com.opensource.svga.ShapeEntity.ShapeArgs shape = 2;</code>
      */
     public com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeArgs getShape() {
       if (argsCase_ == 2) {
@@ -9335,7 +9006,7 @@ public final class Svga {
       return com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeArgs.getDefaultInstance();
     }
     /**
-     * <code>.com.opensource.svga.ShapeEntity.ShapeArgs shape = 2;</code>
+     * <code>optional .com.opensource.svga.ShapeEntity.ShapeArgs shape = 2;</code>
      */
     public com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeArgsOrBuilder getShapeOrBuilder() {
       if (argsCase_ == 2) {
@@ -9346,13 +9017,7 @@ public final class Svga {
 
     public static final int RECT_FIELD_NUMBER = 3;
     /**
-     * <code>.com.opensource.svga.ShapeEntity.RectArgs rect = 3;</code>
-     */
-    public boolean hasRect() {
-      return argsCase_ == 3;
-    }
-    /**
-     * <code>.com.opensource.svga.ShapeEntity.RectArgs rect = 3;</code>
+     * <code>optional .com.opensource.svga.ShapeEntity.RectArgs rect = 3;</code>
      */
     public com.opensource.svgaplayer.proto.Svga.ShapeEntity.RectArgs getRect() {
       if (argsCase_ == 3) {
@@ -9361,7 +9026,7 @@ public final class Svga {
       return com.opensource.svgaplayer.proto.Svga.ShapeEntity.RectArgs.getDefaultInstance();
     }
     /**
-     * <code>.com.opensource.svga.ShapeEntity.RectArgs rect = 3;</code>
+     * <code>optional .com.opensource.svga.ShapeEntity.RectArgs rect = 3;</code>
      */
     public com.opensource.svgaplayer.proto.Svga.ShapeEntity.RectArgsOrBuilder getRectOrBuilder() {
       if (argsCase_ == 3) {
@@ -9372,13 +9037,7 @@ public final class Svga {
 
     public static final int ELLIPSE_FIELD_NUMBER = 4;
     /**
-     * <code>.com.opensource.svga.ShapeEntity.EllipseArgs ellipse = 4;</code>
-     */
-    public boolean hasEllipse() {
-      return argsCase_ == 4;
-    }
-    /**
-     * <code>.com.opensource.svga.ShapeEntity.EllipseArgs ellipse = 4;</code>
+     * <code>optional .com.opensource.svga.ShapeEntity.EllipseArgs ellipse = 4;</code>
      */
     public com.opensource.svgaplayer.proto.Svga.ShapeEntity.EllipseArgs getEllipse() {
       if (argsCase_ == 4) {
@@ -9387,7 +9046,7 @@ public final class Svga {
       return com.opensource.svgaplayer.proto.Svga.ShapeEntity.EllipseArgs.getDefaultInstance();
     }
     /**
-     * <code>.com.opensource.svga.ShapeEntity.EllipseArgs ellipse = 4;</code>
+     * <code>optional .com.opensource.svga.ShapeEntity.EllipseArgs ellipse = 4;</code>
      */
     public com.opensource.svgaplayer.proto.Svga.ShapeEntity.EllipseArgsOrBuilder getEllipseOrBuilder() {
       if (argsCase_ == 4) {
@@ -9403,7 +9062,7 @@ public final class Svga {
      * 渲染参数
      * </pre>
      *
-     * <code>.com.opensource.svga.ShapeEntity.ShapeStyle styles = 10;</code>
+     * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle styles = 10;</code>
      */
     public boolean hasStyles() {
       return styles_ != null;
@@ -9413,7 +9072,7 @@ public final class Svga {
      * 渲染参数
      * </pre>
      *
-     * <code>.com.opensource.svga.ShapeEntity.ShapeStyle styles = 10;</code>
+     * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle styles = 10;</code>
      */
     public com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle getStyles() {
       return styles_ == null ? com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.getDefaultInstance() : styles_;
@@ -9423,7 +9082,7 @@ public final class Svga {
      * 渲染参数
      * </pre>
      *
-     * <code>.com.opensource.svga.ShapeEntity.ShapeStyle styles = 10;</code>
+     * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle styles = 10;</code>
      */
     public com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyleOrBuilder getStylesOrBuilder() {
       return getStyles();
@@ -9436,7 +9095,7 @@ public final class Svga {
      * 矢量图层 2D 变换矩阵
      * </pre>
      *
-     * <code>.com.opensource.svga.Transform transform = 11;</code>
+     * <code>optional .com.opensource.svga.Transform transform = 11;</code>
      */
     public boolean hasTransform() {
       return transform_ != null;
@@ -9446,7 +9105,7 @@ public final class Svga {
      * 矢量图层 2D 变换矩阵
      * </pre>
      *
-     * <code>.com.opensource.svga.Transform transform = 11;</code>
+     * <code>optional .com.opensource.svga.Transform transform = 11;</code>
      */
     public com.opensource.svgaplayer.proto.Svga.Transform getTransform() {
       return transform_ == null ? com.opensource.svgaplayer.proto.Svga.Transform.getDefaultInstance() : transform_;
@@ -9456,14 +9115,13 @@ public final class Svga {
      * 矢量图层 2D 变换矩阵
      * </pre>
      *
-     * <code>.com.opensource.svga.Transform transform = 11;</code>
+     * <code>optional .com.opensource.svga.Transform transform = 11;</code>
      */
     public com.opensource.svgaplayer.proto.Svga.TransformOrBuilder getTransformOrBuilder() {
       return getTransform();
     }
 
     private byte memoizedIsInitialized = -1;
-    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -9473,7 +9131,6 @@ public final class Svga {
       return true;
     }
 
-    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (type_ != com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeType.SHAPE.getNumber()) {
@@ -9494,10 +9151,8 @@ public final class Svga {
       if (transform_ != null) {
         output.writeMessage(11, getTransform());
       }
-      unknownFields.writeTo(output);
     }
 
-    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -9527,11 +9182,11 @@ public final class Svga {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(11, getTransform());
       }
-      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
+    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -9573,7 +9228,6 @@ public final class Svga {
         case 0:
         default:
       }
-      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -9583,7 +9237,7 @@ public final class Svga {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (19 * hash) + getDescriptorForType().hashCode();
       hash = (37 * hash) + TYPE_FIELD_NUMBER;
       hash = (53 * hash) + type_;
       if (hasStyles()) {
@@ -9615,17 +9269,6 @@ public final class Svga {
       return hash;
     }
 
-    public static com.opensource.svgaplayer.proto.Svga.ShapeEntity parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.opensource.svgaplayer.proto.Svga.ShapeEntity parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
     public static com.opensource.svgaplayer.proto.Svga.ShapeEntity parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -9685,7 +9328,6 @@ public final class Svga {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -9693,7 +9335,6 @@ public final class Svga {
     public static Builder newBuilder(com.opensource.svgaplayer.proto.Svga.ShapeEntity prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -9717,7 +9358,6 @@ public final class Svga {
         return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_ShapeEntity_descriptor;
       }
 
-      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_ShapeEntity_fieldAccessorTable
@@ -9740,7 +9380,6 @@ public final class Svga {
                 .alwaysUseFieldBuilders) {
         }
       }
-      @java.lang.Override
       public Builder clear() {
         super.clear();
         type_ = 0;
@@ -9762,18 +9401,15 @@ public final class Svga {
         return this;
       }
 
-      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_ShapeEntity_descriptor;
       }
 
-      @java.lang.Override
       public com.opensource.svgaplayer.proto.Svga.ShapeEntity getDefaultInstanceForType() {
         return com.opensource.svgaplayer.proto.Svga.ShapeEntity.getDefaultInstance();
       }
 
-      @java.lang.Override
       public com.opensource.svgaplayer.proto.Svga.ShapeEntity build() {
         com.opensource.svgaplayer.proto.Svga.ShapeEntity result = buildPartial();
         if (!result.isInitialized()) {
@@ -9782,7 +9418,6 @@ public final class Svga {
         return result;
       }
 
-      @java.lang.Override
       public com.opensource.svgaplayer.proto.Svga.ShapeEntity buildPartial() {
         com.opensource.svgaplayer.proto.Svga.ShapeEntity result = new com.opensource.svgaplayer.proto.Svga.ShapeEntity(this);
         result.type_ = type_;
@@ -9822,39 +9457,32 @@ public final class Svga {
         return result;
       }
 
-      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
-      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
-      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
-      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
-      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
-      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.opensource.svgaplayer.proto.Svga.ShapeEntity) {
           return mergeFrom((com.opensource.svgaplayer.proto.Svga.ShapeEntity)other);
@@ -9892,17 +9520,14 @@ public final class Svga {
             break;
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
-      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -9942,7 +9567,7 @@ public final class Svga {
        * 矢量类型
        * </pre>
        *
-       * <code>.com.opensource.svga.ShapeEntity.ShapeType type = 1;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.ShapeType type = 1;</code>
        */
       public int getTypeValue() {
         return type_;
@@ -9952,7 +9577,7 @@ public final class Svga {
        * 矢量类型
        * </pre>
        *
-       * <code>.com.opensource.svga.ShapeEntity.ShapeType type = 1;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.ShapeType type = 1;</code>
        */
       public Builder setTypeValue(int value) {
         type_ = value;
@@ -9964,10 +9589,9 @@ public final class Svga {
        * 矢量类型
        * </pre>
        *
-       * <code>.com.opensource.svga.ShapeEntity.ShapeType type = 1;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.ShapeType type = 1;</code>
        */
       public com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeType getType() {
-        @SuppressWarnings("deprecation")
         com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeType result = com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeType.valueOf(type_);
         return result == null ? com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeType.UNRECOGNIZED : result;
       }
@@ -9976,7 +9600,7 @@ public final class Svga {
        * 矢量类型
        * </pre>
        *
-       * <code>.com.opensource.svga.ShapeEntity.ShapeType type = 1;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.ShapeType type = 1;</code>
        */
       public Builder setType(com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeType value) {
         if (value == null) {
@@ -9992,7 +9616,7 @@ public final class Svga {
        * 矢量类型
        * </pre>
        *
-       * <code>.com.opensource.svga.ShapeEntity.ShapeType type = 1;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.ShapeType type = 1;</code>
        */
       public Builder clearType() {
         
@@ -10004,13 +9628,7 @@ public final class Svga {
       private com.google.protobuf.SingleFieldBuilderV3<
           com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeArgs, com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeArgs.Builder, com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeArgsOrBuilder> shapeBuilder_;
       /**
-       * <code>.com.opensource.svga.ShapeEntity.ShapeArgs shape = 2;</code>
-       */
-      public boolean hasShape() {
-        return argsCase_ == 2;
-      }
-      /**
-       * <code>.com.opensource.svga.ShapeEntity.ShapeArgs shape = 2;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.ShapeArgs shape = 2;</code>
        */
       public com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeArgs getShape() {
         if (shapeBuilder_ == null) {
@@ -10026,7 +9644,7 @@ public final class Svga {
         }
       }
       /**
-       * <code>.com.opensource.svga.ShapeEntity.ShapeArgs shape = 2;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.ShapeArgs shape = 2;</code>
        */
       public Builder setShape(com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeArgs value) {
         if (shapeBuilder_ == null) {
@@ -10042,7 +9660,7 @@ public final class Svga {
         return this;
       }
       /**
-       * <code>.com.opensource.svga.ShapeEntity.ShapeArgs shape = 2;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.ShapeArgs shape = 2;</code>
        */
       public Builder setShape(
           com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeArgs.Builder builderForValue) {
@@ -10056,7 +9674,7 @@ public final class Svga {
         return this;
       }
       /**
-       * <code>.com.opensource.svga.ShapeEntity.ShapeArgs shape = 2;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.ShapeArgs shape = 2;</code>
        */
       public Builder mergeShape(com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeArgs value) {
         if (shapeBuilder_ == null) {
@@ -10078,7 +9696,7 @@ public final class Svga {
         return this;
       }
       /**
-       * <code>.com.opensource.svga.ShapeEntity.ShapeArgs shape = 2;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.ShapeArgs shape = 2;</code>
        */
       public Builder clearShape() {
         if (shapeBuilder_ == null) {
@@ -10097,13 +9715,13 @@ public final class Svga {
         return this;
       }
       /**
-       * <code>.com.opensource.svga.ShapeEntity.ShapeArgs shape = 2;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.ShapeArgs shape = 2;</code>
        */
       public com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeArgs.Builder getShapeBuilder() {
         return getShapeFieldBuilder().getBuilder();
       }
       /**
-       * <code>.com.opensource.svga.ShapeEntity.ShapeArgs shape = 2;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.ShapeArgs shape = 2;</code>
        */
       public com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeArgsOrBuilder getShapeOrBuilder() {
         if ((argsCase_ == 2) && (shapeBuilder_ != null)) {
@@ -10116,7 +9734,7 @@ public final class Svga {
         }
       }
       /**
-       * <code>.com.opensource.svga.ShapeEntity.ShapeArgs shape = 2;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.ShapeArgs shape = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeArgs, com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeArgs.Builder, com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeArgsOrBuilder> 
@@ -10140,13 +9758,7 @@ public final class Svga {
       private com.google.protobuf.SingleFieldBuilderV3<
           com.opensource.svgaplayer.proto.Svga.ShapeEntity.RectArgs, com.opensource.svgaplayer.proto.Svga.ShapeEntity.RectArgs.Builder, com.opensource.svgaplayer.proto.Svga.ShapeEntity.RectArgsOrBuilder> rectBuilder_;
       /**
-       * <code>.com.opensource.svga.ShapeEntity.RectArgs rect = 3;</code>
-       */
-      public boolean hasRect() {
-        return argsCase_ == 3;
-      }
-      /**
-       * <code>.com.opensource.svga.ShapeEntity.RectArgs rect = 3;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.RectArgs rect = 3;</code>
        */
       public com.opensource.svgaplayer.proto.Svga.ShapeEntity.RectArgs getRect() {
         if (rectBuilder_ == null) {
@@ -10162,7 +9774,7 @@ public final class Svga {
         }
       }
       /**
-       * <code>.com.opensource.svga.ShapeEntity.RectArgs rect = 3;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.RectArgs rect = 3;</code>
        */
       public Builder setRect(com.opensource.svgaplayer.proto.Svga.ShapeEntity.RectArgs value) {
         if (rectBuilder_ == null) {
@@ -10178,7 +9790,7 @@ public final class Svga {
         return this;
       }
       /**
-       * <code>.com.opensource.svga.ShapeEntity.RectArgs rect = 3;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.RectArgs rect = 3;</code>
        */
       public Builder setRect(
           com.opensource.svgaplayer.proto.Svga.ShapeEntity.RectArgs.Builder builderForValue) {
@@ -10192,7 +9804,7 @@ public final class Svga {
         return this;
       }
       /**
-       * <code>.com.opensource.svga.ShapeEntity.RectArgs rect = 3;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.RectArgs rect = 3;</code>
        */
       public Builder mergeRect(com.opensource.svgaplayer.proto.Svga.ShapeEntity.RectArgs value) {
         if (rectBuilder_ == null) {
@@ -10214,7 +9826,7 @@ public final class Svga {
         return this;
       }
       /**
-       * <code>.com.opensource.svga.ShapeEntity.RectArgs rect = 3;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.RectArgs rect = 3;</code>
        */
       public Builder clearRect() {
         if (rectBuilder_ == null) {
@@ -10233,13 +9845,13 @@ public final class Svga {
         return this;
       }
       /**
-       * <code>.com.opensource.svga.ShapeEntity.RectArgs rect = 3;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.RectArgs rect = 3;</code>
        */
       public com.opensource.svgaplayer.proto.Svga.ShapeEntity.RectArgs.Builder getRectBuilder() {
         return getRectFieldBuilder().getBuilder();
       }
       /**
-       * <code>.com.opensource.svga.ShapeEntity.RectArgs rect = 3;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.RectArgs rect = 3;</code>
        */
       public com.opensource.svgaplayer.proto.Svga.ShapeEntity.RectArgsOrBuilder getRectOrBuilder() {
         if ((argsCase_ == 3) && (rectBuilder_ != null)) {
@@ -10252,7 +9864,7 @@ public final class Svga {
         }
       }
       /**
-       * <code>.com.opensource.svga.ShapeEntity.RectArgs rect = 3;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.RectArgs rect = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.opensource.svgaplayer.proto.Svga.ShapeEntity.RectArgs, com.opensource.svgaplayer.proto.Svga.ShapeEntity.RectArgs.Builder, com.opensource.svgaplayer.proto.Svga.ShapeEntity.RectArgsOrBuilder> 
@@ -10276,13 +9888,7 @@ public final class Svga {
       private com.google.protobuf.SingleFieldBuilderV3<
           com.opensource.svgaplayer.proto.Svga.ShapeEntity.EllipseArgs, com.opensource.svgaplayer.proto.Svga.ShapeEntity.EllipseArgs.Builder, com.opensource.svgaplayer.proto.Svga.ShapeEntity.EllipseArgsOrBuilder> ellipseBuilder_;
       /**
-       * <code>.com.opensource.svga.ShapeEntity.EllipseArgs ellipse = 4;</code>
-       */
-      public boolean hasEllipse() {
-        return argsCase_ == 4;
-      }
-      /**
-       * <code>.com.opensource.svga.ShapeEntity.EllipseArgs ellipse = 4;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.EllipseArgs ellipse = 4;</code>
        */
       public com.opensource.svgaplayer.proto.Svga.ShapeEntity.EllipseArgs getEllipse() {
         if (ellipseBuilder_ == null) {
@@ -10298,7 +9904,7 @@ public final class Svga {
         }
       }
       /**
-       * <code>.com.opensource.svga.ShapeEntity.EllipseArgs ellipse = 4;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.EllipseArgs ellipse = 4;</code>
        */
       public Builder setEllipse(com.opensource.svgaplayer.proto.Svga.ShapeEntity.EllipseArgs value) {
         if (ellipseBuilder_ == null) {
@@ -10314,7 +9920,7 @@ public final class Svga {
         return this;
       }
       /**
-       * <code>.com.opensource.svga.ShapeEntity.EllipseArgs ellipse = 4;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.EllipseArgs ellipse = 4;</code>
        */
       public Builder setEllipse(
           com.opensource.svgaplayer.proto.Svga.ShapeEntity.EllipseArgs.Builder builderForValue) {
@@ -10328,7 +9934,7 @@ public final class Svga {
         return this;
       }
       /**
-       * <code>.com.opensource.svga.ShapeEntity.EllipseArgs ellipse = 4;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.EllipseArgs ellipse = 4;</code>
        */
       public Builder mergeEllipse(com.opensource.svgaplayer.proto.Svga.ShapeEntity.EllipseArgs value) {
         if (ellipseBuilder_ == null) {
@@ -10350,7 +9956,7 @@ public final class Svga {
         return this;
       }
       /**
-       * <code>.com.opensource.svga.ShapeEntity.EllipseArgs ellipse = 4;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.EllipseArgs ellipse = 4;</code>
        */
       public Builder clearEllipse() {
         if (ellipseBuilder_ == null) {
@@ -10369,13 +9975,13 @@ public final class Svga {
         return this;
       }
       /**
-       * <code>.com.opensource.svga.ShapeEntity.EllipseArgs ellipse = 4;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.EllipseArgs ellipse = 4;</code>
        */
       public com.opensource.svgaplayer.proto.Svga.ShapeEntity.EllipseArgs.Builder getEllipseBuilder() {
         return getEllipseFieldBuilder().getBuilder();
       }
       /**
-       * <code>.com.opensource.svga.ShapeEntity.EllipseArgs ellipse = 4;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.EllipseArgs ellipse = 4;</code>
        */
       public com.opensource.svgaplayer.proto.Svga.ShapeEntity.EllipseArgsOrBuilder getEllipseOrBuilder() {
         if ((argsCase_ == 4) && (ellipseBuilder_ != null)) {
@@ -10388,7 +9994,7 @@ public final class Svga {
         }
       }
       /**
-       * <code>.com.opensource.svga.ShapeEntity.EllipseArgs ellipse = 4;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.EllipseArgs ellipse = 4;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.opensource.svgaplayer.proto.Svga.ShapeEntity.EllipseArgs, com.opensource.svgaplayer.proto.Svga.ShapeEntity.EllipseArgs.Builder, com.opensource.svgaplayer.proto.Svga.ShapeEntity.EllipseArgsOrBuilder> 
@@ -10417,7 +10023,7 @@ public final class Svga {
        * 渲染参数
        * </pre>
        *
-       * <code>.com.opensource.svga.ShapeEntity.ShapeStyle styles = 10;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle styles = 10;</code>
        */
       public boolean hasStyles() {
         return stylesBuilder_ != null || styles_ != null;
@@ -10427,7 +10033,7 @@ public final class Svga {
        * 渲染参数
        * </pre>
        *
-       * <code>.com.opensource.svga.ShapeEntity.ShapeStyle styles = 10;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle styles = 10;</code>
        */
       public com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle getStyles() {
         if (stylesBuilder_ == null) {
@@ -10441,7 +10047,7 @@ public final class Svga {
        * 渲染参数
        * </pre>
        *
-       * <code>.com.opensource.svga.ShapeEntity.ShapeStyle styles = 10;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle styles = 10;</code>
        */
       public Builder setStyles(com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle value) {
         if (stylesBuilder_ == null) {
@@ -10461,7 +10067,7 @@ public final class Svga {
        * 渲染参数
        * </pre>
        *
-       * <code>.com.opensource.svga.ShapeEntity.ShapeStyle styles = 10;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle styles = 10;</code>
        */
       public Builder setStyles(
           com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.Builder builderForValue) {
@@ -10479,7 +10085,7 @@ public final class Svga {
        * 渲染参数
        * </pre>
        *
-       * <code>.com.opensource.svga.ShapeEntity.ShapeStyle styles = 10;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle styles = 10;</code>
        */
       public Builder mergeStyles(com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle value) {
         if (stylesBuilder_ == null) {
@@ -10501,7 +10107,7 @@ public final class Svga {
        * 渲染参数
        * </pre>
        *
-       * <code>.com.opensource.svga.ShapeEntity.ShapeStyle styles = 10;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle styles = 10;</code>
        */
       public Builder clearStyles() {
         if (stylesBuilder_ == null) {
@@ -10519,7 +10125,7 @@ public final class Svga {
        * 渲染参数
        * </pre>
        *
-       * <code>.com.opensource.svga.ShapeEntity.ShapeStyle styles = 10;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle styles = 10;</code>
        */
       public com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.Builder getStylesBuilder() {
         
@@ -10531,7 +10137,7 @@ public final class Svga {
        * 渲染参数
        * </pre>
        *
-       * <code>.com.opensource.svga.ShapeEntity.ShapeStyle styles = 10;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle styles = 10;</code>
        */
       public com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyleOrBuilder getStylesOrBuilder() {
         if (stylesBuilder_ != null) {
@@ -10546,7 +10152,7 @@ public final class Svga {
        * 渲染参数
        * </pre>
        *
-       * <code>.com.opensource.svga.ShapeEntity.ShapeStyle styles = 10;</code>
+       * <code>optional .com.opensource.svga.ShapeEntity.ShapeStyle styles = 10;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle, com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyle.Builder, com.opensource.svgaplayer.proto.Svga.ShapeEntity.ShapeStyleOrBuilder> 
@@ -10570,7 +10176,7 @@ public final class Svga {
        * 矢量图层 2D 变换矩阵
        * </pre>
        *
-       * <code>.com.opensource.svga.Transform transform = 11;</code>
+       * <code>optional .com.opensource.svga.Transform transform = 11;</code>
        */
       public boolean hasTransform() {
         return transformBuilder_ != null || transform_ != null;
@@ -10580,7 +10186,7 @@ public final class Svga {
        * 矢量图层 2D 变换矩阵
        * </pre>
        *
-       * <code>.com.opensource.svga.Transform transform = 11;</code>
+       * <code>optional .com.opensource.svga.Transform transform = 11;</code>
        */
       public com.opensource.svgaplayer.proto.Svga.Transform getTransform() {
         if (transformBuilder_ == null) {
@@ -10594,7 +10200,7 @@ public final class Svga {
        * 矢量图层 2D 变换矩阵
        * </pre>
        *
-       * <code>.com.opensource.svga.Transform transform = 11;</code>
+       * <code>optional .com.opensource.svga.Transform transform = 11;</code>
        */
       public Builder setTransform(com.opensource.svgaplayer.proto.Svga.Transform value) {
         if (transformBuilder_ == null) {
@@ -10614,7 +10220,7 @@ public final class Svga {
        * 矢量图层 2D 变换矩阵
        * </pre>
        *
-       * <code>.com.opensource.svga.Transform transform = 11;</code>
+       * <code>optional .com.opensource.svga.Transform transform = 11;</code>
        */
       public Builder setTransform(
           com.opensource.svgaplayer.proto.Svga.Transform.Builder builderForValue) {
@@ -10632,7 +10238,7 @@ public final class Svga {
        * 矢量图层 2D 变换矩阵
        * </pre>
        *
-       * <code>.com.opensource.svga.Transform transform = 11;</code>
+       * <code>optional .com.opensource.svga.Transform transform = 11;</code>
        */
       public Builder mergeTransform(com.opensource.svgaplayer.proto.Svga.Transform value) {
         if (transformBuilder_ == null) {
@@ -10654,7 +10260,7 @@ public final class Svga {
        * 矢量图层 2D 变换矩阵
        * </pre>
        *
-       * <code>.com.opensource.svga.Transform transform = 11;</code>
+       * <code>optional .com.opensource.svga.Transform transform = 11;</code>
        */
       public Builder clearTransform() {
         if (transformBuilder_ == null) {
@@ -10672,7 +10278,7 @@ public final class Svga {
        * 矢量图层 2D 变换矩阵
        * </pre>
        *
-       * <code>.com.opensource.svga.Transform transform = 11;</code>
+       * <code>optional .com.opensource.svga.Transform transform = 11;</code>
        */
       public com.opensource.svgaplayer.proto.Svga.Transform.Builder getTransformBuilder() {
         
@@ -10684,7 +10290,7 @@ public final class Svga {
        * 矢量图层 2D 变换矩阵
        * </pre>
        *
-       * <code>.com.opensource.svga.Transform transform = 11;</code>
+       * <code>optional .com.opensource.svga.Transform transform = 11;</code>
        */
       public com.opensource.svgaplayer.proto.Svga.TransformOrBuilder getTransformOrBuilder() {
         if (transformBuilder_ != null) {
@@ -10699,7 +10305,7 @@ public final class Svga {
        * 矢量图层 2D 变换矩阵
        * </pre>
        *
-       * <code>.com.opensource.svga.Transform transform = 11;</code>
+       * <code>optional .com.opensource.svga.Transform transform = 11;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.opensource.svgaplayer.proto.Svga.Transform, com.opensource.svgaplayer.proto.Svga.Transform.Builder, com.opensource.svgaplayer.proto.Svga.TransformOrBuilder> 
@@ -10714,16 +10320,14 @@ public final class Svga {
         }
         return transformBuilder_;
       }
-      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return this;
       }
 
-      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
+        return this;
       }
 
 
@@ -10742,12 +10346,11 @@ public final class Svga {
 
     private static final com.google.protobuf.Parser<ShapeEntity>
         PARSER = new com.google.protobuf.AbstractParser<ShapeEntity>() {
-      @java.lang.Override
       public ShapeEntity parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ShapeEntity(input, extensionRegistry);
+          return new ShapeEntity(input, extensionRegistry);
       }
     };
 
@@ -10760,7 +10363,6 @@ public final class Svga {
       return PARSER;
     }
 
-    @java.lang.Override
     public com.opensource.svgaplayer.proto.Svga.ShapeEntity getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -10776,7 +10378,7 @@ public final class Svga {
      * 透明度
      * </pre>
      *
-     * <code>float alpha = 1;</code>
+     * <code>optional float alpha = 1;</code>
      */
     float getAlpha();
 
@@ -10785,7 +10387,7 @@ public final class Svga {
      * 初始约束大小
      * </pre>
      *
-     * <code>.com.opensource.svga.Layout layout = 2;</code>
+     * <code>optional .com.opensource.svga.Layout layout = 2;</code>
      */
     boolean hasLayout();
     /**
@@ -10793,7 +10395,7 @@ public final class Svga {
      * 初始约束大小
      * </pre>
      *
-     * <code>.com.opensource.svga.Layout layout = 2;</code>
+     * <code>optional .com.opensource.svga.Layout layout = 2;</code>
      */
     com.opensource.svgaplayer.proto.Svga.Layout getLayout();
     /**
@@ -10801,7 +10403,7 @@ public final class Svga {
      * 初始约束大小
      * </pre>
      *
-     * <code>.com.opensource.svga.Layout layout = 2;</code>
+     * <code>optional .com.opensource.svga.Layout layout = 2;</code>
      */
     com.opensource.svgaplayer.proto.Svga.LayoutOrBuilder getLayoutOrBuilder();
 
@@ -10810,7 +10412,7 @@ public final class Svga {
      * 2D 变换矩阵
      * </pre>
      *
-     * <code>.com.opensource.svga.Transform transform = 3;</code>
+     * <code>optional .com.opensource.svga.Transform transform = 3;</code>
      */
     boolean hasTransform();
     /**
@@ -10818,7 +10420,7 @@ public final class Svga {
      * 2D 变换矩阵
      * </pre>
      *
-     * <code>.com.opensource.svga.Transform transform = 3;</code>
+     * <code>optional .com.opensource.svga.Transform transform = 3;</code>
      */
     com.opensource.svgaplayer.proto.Svga.Transform getTransform();
     /**
@@ -10826,7 +10428,7 @@ public final class Svga {
      * 2D 变换矩阵
      * </pre>
      *
-     * <code>.com.opensource.svga.Transform transform = 3;</code>
+     * <code>optional .com.opensource.svga.Transform transform = 3;</code>
      */
     com.opensource.svgaplayer.proto.Svga.TransformOrBuilder getTransformOrBuilder();
 
@@ -10835,7 +10437,7 @@ public final class Svga {
      * 遮罩路径，使用 SVG 标准 Path 绘制图案进行 Mask 遮罩。
      * </pre>
      *
-     * <code>string clipPath = 4;</code>
+     * <code>optional string clipPath = 4;</code>
      */
     java.lang.String getClipPath();
     /**
@@ -10843,7 +10445,7 @@ public final class Svga {
      * 遮罩路径，使用 SVG 标准 Path 绘制图案进行 Mask 遮罩。
      * </pre>
      *
-     * <code>string clipPath = 4;</code>
+     * <code>optional string clipPath = 4;</code>
      */
     com.google.protobuf.ByteString
         getClipPathBytes();
@@ -10899,7 +10501,6 @@ public final class Svga {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.opensource.svga.FrameEntity)
       FrameEntityOrBuilder {
-  private static final long serialVersionUID = 0L;
     // Use FrameEntity.newBuilder() to construct.
     private FrameEntity(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -10913,19 +10514,14 @@ public final class Svga {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return this.unknownFields;
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
     }
     private FrameEntity(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -10934,6 +10530,12 @@ public final class Svga {
             case 0:
               done = true;
               break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
             case 13: {
 
               alpha_ = input.readFloat();
@@ -10980,13 +10582,6 @@ public final class Svga {
                   input.readMessage(com.opensource.svgaplayer.proto.Svga.ShapeEntity.parser(), extensionRegistry));
               break;
             }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -10998,7 +10593,6 @@ public final class Svga {
         if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
           shapes_ = java.util.Collections.unmodifiableList(shapes_);
         }
-        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -11007,7 +10601,6 @@ public final class Svga {
       return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_FrameEntity_descriptor;
     }
 
-    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_FrameEntity_fieldAccessorTable
@@ -11023,7 +10616,7 @@ public final class Svga {
      * 透明度
      * </pre>
      *
-     * <code>float alpha = 1;</code>
+     * <code>optional float alpha = 1;</code>
      */
     public float getAlpha() {
       return alpha_;
@@ -11036,7 +10629,7 @@ public final class Svga {
      * 初始约束大小
      * </pre>
      *
-     * <code>.com.opensource.svga.Layout layout = 2;</code>
+     * <code>optional .com.opensource.svga.Layout layout = 2;</code>
      */
     public boolean hasLayout() {
       return layout_ != null;
@@ -11046,7 +10639,7 @@ public final class Svga {
      * 初始约束大小
      * </pre>
      *
-     * <code>.com.opensource.svga.Layout layout = 2;</code>
+     * <code>optional .com.opensource.svga.Layout layout = 2;</code>
      */
     public com.opensource.svgaplayer.proto.Svga.Layout getLayout() {
       return layout_ == null ? com.opensource.svgaplayer.proto.Svga.Layout.getDefaultInstance() : layout_;
@@ -11056,7 +10649,7 @@ public final class Svga {
      * 初始约束大小
      * </pre>
      *
-     * <code>.com.opensource.svga.Layout layout = 2;</code>
+     * <code>optional .com.opensource.svga.Layout layout = 2;</code>
      */
     public com.opensource.svgaplayer.proto.Svga.LayoutOrBuilder getLayoutOrBuilder() {
       return getLayout();
@@ -11069,7 +10662,7 @@ public final class Svga {
      * 2D 变换矩阵
      * </pre>
      *
-     * <code>.com.opensource.svga.Transform transform = 3;</code>
+     * <code>optional .com.opensource.svga.Transform transform = 3;</code>
      */
     public boolean hasTransform() {
       return transform_ != null;
@@ -11079,7 +10672,7 @@ public final class Svga {
      * 2D 变换矩阵
      * </pre>
      *
-     * <code>.com.opensource.svga.Transform transform = 3;</code>
+     * <code>optional .com.opensource.svga.Transform transform = 3;</code>
      */
     public com.opensource.svgaplayer.proto.Svga.Transform getTransform() {
       return transform_ == null ? com.opensource.svgaplayer.proto.Svga.Transform.getDefaultInstance() : transform_;
@@ -11089,7 +10682,7 @@ public final class Svga {
      * 2D 变换矩阵
      * </pre>
      *
-     * <code>.com.opensource.svga.Transform transform = 3;</code>
+     * <code>optional .com.opensource.svga.Transform transform = 3;</code>
      */
     public com.opensource.svgaplayer.proto.Svga.TransformOrBuilder getTransformOrBuilder() {
       return getTransform();
@@ -11102,7 +10695,7 @@ public final class Svga {
      * 遮罩路径，使用 SVG 标准 Path 绘制图案进行 Mask 遮罩。
      * </pre>
      *
-     * <code>string clipPath = 4;</code>
+     * <code>optional string clipPath = 4;</code>
      */
     public java.lang.String getClipPath() {
       java.lang.Object ref = clipPath_;
@@ -11121,7 +10714,7 @@ public final class Svga {
      * 遮罩路径，使用 SVG 标准 Path 绘制图案进行 Mask 遮罩。
      * </pre>
      *
-     * <code>string clipPath = 4;</code>
+     * <code>optional string clipPath = 4;</code>
      */
     public com.google.protobuf.ByteString
         getClipPathBytes() {
@@ -11193,7 +10786,6 @@ public final class Svga {
     }
 
     private byte memoizedIsInitialized = -1;
-    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -11203,7 +10795,6 @@ public final class Svga {
       return true;
     }
 
-    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (alpha_ != 0F) {
@@ -11221,10 +10812,8 @@ public final class Svga {
       for (int i = 0; i < shapes_.size(); i++) {
         output.writeMessage(5, shapes_.get(i));
       }
-      unknownFields.writeTo(output);
     }
 
-    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -11249,11 +10838,11 @@ public final class Svga {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, shapes_.get(i));
       }
-      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
+    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -11283,7 +10872,6 @@ public final class Svga {
           .equals(other.getClipPath());
       result = result && getShapesList()
           .equals(other.getShapesList());
-      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -11293,7 +10881,7 @@ public final class Svga {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (19 * hash) + getDescriptorForType().hashCode();
       hash = (37 * hash) + ALPHA_FIELD_NUMBER;
       hash = (53 * hash) + java.lang.Float.floatToIntBits(
           getAlpha());
@@ -11316,17 +10904,6 @@ public final class Svga {
       return hash;
     }
 
-    public static com.opensource.svgaplayer.proto.Svga.FrameEntity parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.opensource.svgaplayer.proto.Svga.FrameEntity parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
     public static com.opensource.svgaplayer.proto.Svga.FrameEntity parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -11386,7 +10963,6 @@ public final class Svga {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -11394,7 +10970,6 @@ public final class Svga {
     public static Builder newBuilder(com.opensource.svgaplayer.proto.Svga.FrameEntity prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -11418,7 +10993,6 @@ public final class Svga {
         return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_FrameEntity_descriptor;
       }
 
-      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_FrameEntity_fieldAccessorTable
@@ -11442,7 +11016,6 @@ public final class Svga {
           getShapesFieldBuilder();
         }
       }
-      @java.lang.Override
       public Builder clear() {
         super.clear();
         alpha_ = 0F;
@@ -11470,18 +11043,15 @@ public final class Svga {
         return this;
       }
 
-      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_FrameEntity_descriptor;
       }
 
-      @java.lang.Override
       public com.opensource.svgaplayer.proto.Svga.FrameEntity getDefaultInstanceForType() {
         return com.opensource.svgaplayer.proto.Svga.FrameEntity.getDefaultInstance();
       }
 
-      @java.lang.Override
       public com.opensource.svgaplayer.proto.Svga.FrameEntity build() {
         com.opensource.svgaplayer.proto.Svga.FrameEntity result = buildPartial();
         if (!result.isInitialized()) {
@@ -11490,7 +11060,6 @@ public final class Svga {
         return result;
       }
 
-      @java.lang.Override
       public com.opensource.svgaplayer.proto.Svga.FrameEntity buildPartial() {
         com.opensource.svgaplayer.proto.Svga.FrameEntity result = new com.opensource.svgaplayer.proto.Svga.FrameEntity(this);
         int from_bitField0_ = bitField0_;
@@ -11521,39 +11090,32 @@ public final class Svga {
         return result;
       }
 
-      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
-      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
-      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
-      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
-      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
-      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.opensource.svgaplayer.proto.Svga.FrameEntity) {
           return mergeFrom((com.opensource.svgaplayer.proto.Svga.FrameEntity)other);
@@ -11604,17 +11166,14 @@ public final class Svga {
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
-      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -11640,7 +11199,7 @@ public final class Svga {
        * 透明度
        * </pre>
        *
-       * <code>float alpha = 1;</code>
+       * <code>optional float alpha = 1;</code>
        */
       public float getAlpha() {
         return alpha_;
@@ -11650,7 +11209,7 @@ public final class Svga {
        * 透明度
        * </pre>
        *
-       * <code>float alpha = 1;</code>
+       * <code>optional float alpha = 1;</code>
        */
       public Builder setAlpha(float value) {
         
@@ -11663,7 +11222,7 @@ public final class Svga {
        * 透明度
        * </pre>
        *
-       * <code>float alpha = 1;</code>
+       * <code>optional float alpha = 1;</code>
        */
       public Builder clearAlpha() {
         
@@ -11680,7 +11239,7 @@ public final class Svga {
        * 初始约束大小
        * </pre>
        *
-       * <code>.com.opensource.svga.Layout layout = 2;</code>
+       * <code>optional .com.opensource.svga.Layout layout = 2;</code>
        */
       public boolean hasLayout() {
         return layoutBuilder_ != null || layout_ != null;
@@ -11690,7 +11249,7 @@ public final class Svga {
        * 初始约束大小
        * </pre>
        *
-       * <code>.com.opensource.svga.Layout layout = 2;</code>
+       * <code>optional .com.opensource.svga.Layout layout = 2;</code>
        */
       public com.opensource.svgaplayer.proto.Svga.Layout getLayout() {
         if (layoutBuilder_ == null) {
@@ -11704,7 +11263,7 @@ public final class Svga {
        * 初始约束大小
        * </pre>
        *
-       * <code>.com.opensource.svga.Layout layout = 2;</code>
+       * <code>optional .com.opensource.svga.Layout layout = 2;</code>
        */
       public Builder setLayout(com.opensource.svgaplayer.proto.Svga.Layout value) {
         if (layoutBuilder_ == null) {
@@ -11724,7 +11283,7 @@ public final class Svga {
        * 初始约束大小
        * </pre>
        *
-       * <code>.com.opensource.svga.Layout layout = 2;</code>
+       * <code>optional .com.opensource.svga.Layout layout = 2;</code>
        */
       public Builder setLayout(
           com.opensource.svgaplayer.proto.Svga.Layout.Builder builderForValue) {
@@ -11742,7 +11301,7 @@ public final class Svga {
        * 初始约束大小
        * </pre>
        *
-       * <code>.com.opensource.svga.Layout layout = 2;</code>
+       * <code>optional .com.opensource.svga.Layout layout = 2;</code>
        */
       public Builder mergeLayout(com.opensource.svgaplayer.proto.Svga.Layout value) {
         if (layoutBuilder_ == null) {
@@ -11764,7 +11323,7 @@ public final class Svga {
        * 初始约束大小
        * </pre>
        *
-       * <code>.com.opensource.svga.Layout layout = 2;</code>
+       * <code>optional .com.opensource.svga.Layout layout = 2;</code>
        */
       public Builder clearLayout() {
         if (layoutBuilder_ == null) {
@@ -11782,7 +11341,7 @@ public final class Svga {
        * 初始约束大小
        * </pre>
        *
-       * <code>.com.opensource.svga.Layout layout = 2;</code>
+       * <code>optional .com.opensource.svga.Layout layout = 2;</code>
        */
       public com.opensource.svgaplayer.proto.Svga.Layout.Builder getLayoutBuilder() {
         
@@ -11794,7 +11353,7 @@ public final class Svga {
        * 初始约束大小
        * </pre>
        *
-       * <code>.com.opensource.svga.Layout layout = 2;</code>
+       * <code>optional .com.opensource.svga.Layout layout = 2;</code>
        */
       public com.opensource.svgaplayer.proto.Svga.LayoutOrBuilder getLayoutOrBuilder() {
         if (layoutBuilder_ != null) {
@@ -11809,7 +11368,7 @@ public final class Svga {
        * 初始约束大小
        * </pre>
        *
-       * <code>.com.opensource.svga.Layout layout = 2;</code>
+       * <code>optional .com.opensource.svga.Layout layout = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.opensource.svgaplayer.proto.Svga.Layout, com.opensource.svgaplayer.proto.Svga.Layout.Builder, com.opensource.svgaplayer.proto.Svga.LayoutOrBuilder> 
@@ -11833,7 +11392,7 @@ public final class Svga {
        * 2D 变换矩阵
        * </pre>
        *
-       * <code>.com.opensource.svga.Transform transform = 3;</code>
+       * <code>optional .com.opensource.svga.Transform transform = 3;</code>
        */
       public boolean hasTransform() {
         return transformBuilder_ != null || transform_ != null;
@@ -11843,7 +11402,7 @@ public final class Svga {
        * 2D 变换矩阵
        * </pre>
        *
-       * <code>.com.opensource.svga.Transform transform = 3;</code>
+       * <code>optional .com.opensource.svga.Transform transform = 3;</code>
        */
       public com.opensource.svgaplayer.proto.Svga.Transform getTransform() {
         if (transformBuilder_ == null) {
@@ -11857,7 +11416,7 @@ public final class Svga {
        * 2D 变换矩阵
        * </pre>
        *
-       * <code>.com.opensource.svga.Transform transform = 3;</code>
+       * <code>optional .com.opensource.svga.Transform transform = 3;</code>
        */
       public Builder setTransform(com.opensource.svgaplayer.proto.Svga.Transform value) {
         if (transformBuilder_ == null) {
@@ -11877,7 +11436,7 @@ public final class Svga {
        * 2D 变换矩阵
        * </pre>
        *
-       * <code>.com.opensource.svga.Transform transform = 3;</code>
+       * <code>optional .com.opensource.svga.Transform transform = 3;</code>
        */
       public Builder setTransform(
           com.opensource.svgaplayer.proto.Svga.Transform.Builder builderForValue) {
@@ -11895,7 +11454,7 @@ public final class Svga {
        * 2D 变换矩阵
        * </pre>
        *
-       * <code>.com.opensource.svga.Transform transform = 3;</code>
+       * <code>optional .com.opensource.svga.Transform transform = 3;</code>
        */
       public Builder mergeTransform(com.opensource.svgaplayer.proto.Svga.Transform value) {
         if (transformBuilder_ == null) {
@@ -11917,7 +11476,7 @@ public final class Svga {
        * 2D 变换矩阵
        * </pre>
        *
-       * <code>.com.opensource.svga.Transform transform = 3;</code>
+       * <code>optional .com.opensource.svga.Transform transform = 3;</code>
        */
       public Builder clearTransform() {
         if (transformBuilder_ == null) {
@@ -11935,7 +11494,7 @@ public final class Svga {
        * 2D 变换矩阵
        * </pre>
        *
-       * <code>.com.opensource.svga.Transform transform = 3;</code>
+       * <code>optional .com.opensource.svga.Transform transform = 3;</code>
        */
       public com.opensource.svgaplayer.proto.Svga.Transform.Builder getTransformBuilder() {
         
@@ -11947,7 +11506,7 @@ public final class Svga {
        * 2D 变换矩阵
        * </pre>
        *
-       * <code>.com.opensource.svga.Transform transform = 3;</code>
+       * <code>optional .com.opensource.svga.Transform transform = 3;</code>
        */
       public com.opensource.svgaplayer.proto.Svga.TransformOrBuilder getTransformOrBuilder() {
         if (transformBuilder_ != null) {
@@ -11962,7 +11521,7 @@ public final class Svga {
        * 2D 变换矩阵
        * </pre>
        *
-       * <code>.com.opensource.svga.Transform transform = 3;</code>
+       * <code>optional .com.opensource.svga.Transform transform = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.opensource.svgaplayer.proto.Svga.Transform, com.opensource.svgaplayer.proto.Svga.Transform.Builder, com.opensource.svgaplayer.proto.Svga.TransformOrBuilder> 
@@ -11984,7 +11543,7 @@ public final class Svga {
        * 遮罩路径，使用 SVG 标准 Path 绘制图案进行 Mask 遮罩。
        * </pre>
        *
-       * <code>string clipPath = 4;</code>
+       * <code>optional string clipPath = 4;</code>
        */
       public java.lang.String getClipPath() {
         java.lang.Object ref = clipPath_;
@@ -12003,7 +11562,7 @@ public final class Svga {
        * 遮罩路径，使用 SVG 标准 Path 绘制图案进行 Mask 遮罩。
        * </pre>
        *
-       * <code>string clipPath = 4;</code>
+       * <code>optional string clipPath = 4;</code>
        */
       public com.google.protobuf.ByteString
           getClipPathBytes() {
@@ -12023,7 +11582,7 @@ public final class Svga {
        * 遮罩路径，使用 SVG 标准 Path 绘制图案进行 Mask 遮罩。
        * </pre>
        *
-       * <code>string clipPath = 4;</code>
+       * <code>optional string clipPath = 4;</code>
        */
       public Builder setClipPath(
           java.lang.String value) {
@@ -12040,7 +11599,7 @@ public final class Svga {
        * 遮罩路径，使用 SVG 标准 Path 绘制图案进行 Mask 遮罩。
        * </pre>
        *
-       * <code>string clipPath = 4;</code>
+       * <code>optional string clipPath = 4;</code>
        */
       public Builder clearClipPath() {
         
@@ -12053,7 +11612,7 @@ public final class Svga {
        * 遮罩路径，使用 SVG 标准 Path 绘制图案进行 Mask 遮罩。
        * </pre>
        *
-       * <code>string clipPath = 4;</code>
+       * <code>optional string clipPath = 4;</code>
        */
       public Builder setClipPathBytes(
           com.google.protobuf.ByteString value) {
@@ -12378,16 +11937,14 @@ public final class Svga {
         }
         return shapesBuilder_;
       }
-      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return this;
       }
 
-      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
+        return this;
       }
 
 
@@ -12406,12 +11963,11 @@ public final class Svga {
 
     private static final com.google.protobuf.Parser<FrameEntity>
         PARSER = new com.google.protobuf.AbstractParser<FrameEntity>() {
-      @java.lang.Override
       public FrameEntity parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new FrameEntity(input, extensionRegistry);
+          return new FrameEntity(input, extensionRegistry);
       }
     };
 
@@ -12424,7 +11980,6 @@ public final class Svga {
       return PARSER;
     }
 
-    @java.lang.Override
     public com.opensource.svgaplayer.proto.Svga.FrameEntity getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -12440,7 +11995,7 @@ public final class Svga {
      * SVGA 格式版本号
      * </pre>
      *
-     * <code>string version = 1;</code>
+     * <code>optional string version = 1;</code>
      */
     java.lang.String getVersion();
     /**
@@ -12448,7 +12003,7 @@ public final class Svga {
      * SVGA 格式版本号
      * </pre>
      *
-     * <code>string version = 1;</code>
+     * <code>optional string version = 1;</code>
      */
     com.google.protobuf.ByteString
         getVersionBytes();
@@ -12458,7 +12013,7 @@ public final class Svga {
      * 动画参数
      * </pre>
      *
-     * <code>.com.opensource.svga.MovieParams params = 2;</code>
+     * <code>optional .com.opensource.svga.MovieParams params = 2;</code>
      */
     boolean hasParams();
     /**
@@ -12466,7 +12021,7 @@ public final class Svga {
      * 动画参数
      * </pre>
      *
-     * <code>.com.opensource.svga.MovieParams params = 2;</code>
+     * <code>optional .com.opensource.svga.MovieParams params = 2;</code>
      */
     com.opensource.svgaplayer.proto.Svga.MovieParams getParams();
     /**
@@ -12474,7 +12029,7 @@ public final class Svga {
      * 动画参数
      * </pre>
      *
-     * <code>.com.opensource.svga.MovieParams params = 2;</code>
+     * <code>optional .com.opensource.svga.MovieParams params = 2;</code>
      */
     com.opensource.svgaplayer.proto.Svga.MovieParamsOrBuilder getParamsOrBuilder();
 
@@ -12627,7 +12182,6 @@ public final class Svga {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.opensource.svga.MovieEntity)
       MovieEntityOrBuilder {
-  private static final long serialVersionUID = 0L;
     // Use MovieEntity.newBuilder() to construct.
     private MovieEntity(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -12641,19 +12195,14 @@ public final class Svga {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return this.unknownFields;
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
     }
     private MovieEntity(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -12662,6 +12211,12 @@ public final class Svga {
             case 0:
               done = true;
               break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
 
@@ -12712,13 +12267,6 @@ public final class Svga {
                   input.readMessage(com.opensource.svgaplayer.proto.Svga.AudioEntity.parser(), extensionRegistry));
               break;
             }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -12733,7 +12281,6 @@ public final class Svga {
         if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
           audios_ = java.util.Collections.unmodifiableList(audios_);
         }
-        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -12743,7 +12290,6 @@ public final class Svga {
     }
 
     @SuppressWarnings({"rawtypes"})
-    @java.lang.Override
     protected com.google.protobuf.MapField internalGetMapField(
         int number) {
       switch (number) {
@@ -12754,7 +12300,6 @@ public final class Svga {
               "Invalid map field number: " + number);
       }
     }
-    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_MovieEntity_fieldAccessorTable
@@ -12770,7 +12315,7 @@ public final class Svga {
      * SVGA 格式版本号
      * </pre>
      *
-     * <code>string version = 1;</code>
+     * <code>optional string version = 1;</code>
      */
     public java.lang.String getVersion() {
       java.lang.Object ref = version_;
@@ -12789,7 +12334,7 @@ public final class Svga {
      * SVGA 格式版本号
      * </pre>
      *
-     * <code>string version = 1;</code>
+     * <code>optional string version = 1;</code>
      */
     public com.google.protobuf.ByteString
         getVersionBytes() {
@@ -12812,7 +12357,7 @@ public final class Svga {
      * 动画参数
      * </pre>
      *
-     * <code>.com.opensource.svga.MovieParams params = 2;</code>
+     * <code>optional .com.opensource.svga.MovieParams params = 2;</code>
      */
     public boolean hasParams() {
       return params_ != null;
@@ -12822,7 +12367,7 @@ public final class Svga {
      * 动画参数
      * </pre>
      *
-     * <code>.com.opensource.svga.MovieParams params = 2;</code>
+     * <code>optional .com.opensource.svga.MovieParams params = 2;</code>
      */
     public com.opensource.svgaplayer.proto.Svga.MovieParams getParams() {
       return params_ == null ? com.opensource.svgaplayer.proto.Svga.MovieParams.getDefaultInstance() : params_;
@@ -12832,7 +12377,7 @@ public final class Svga {
      * 动画参数
      * </pre>
      *
-     * <code>.com.opensource.svga.MovieParams params = 2;</code>
+     * <code>optional .com.opensource.svga.MovieParams params = 2;</code>
      */
     public com.opensource.svgaplayer.proto.Svga.MovieParamsOrBuilder getParamsOrBuilder() {
       return getParams();
@@ -13041,7 +12586,6 @@ public final class Svga {
     }
 
     private byte memoizedIsInitialized = -1;
-    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -13051,7 +12595,6 @@ public final class Svga {
       return true;
     }
 
-    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (!getVersionBytes().isEmpty()) {
@@ -13072,10 +12615,8 @@ public final class Svga {
       for (int i = 0; i < audios_.size(); i++) {
         output.writeMessage(5, audios_.get(i));
       }
-      unknownFields.writeTo(output);
     }
 
-    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -13106,11 +12647,11 @@ public final class Svga {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, audios_.get(i));
       }
-      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
+    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -13135,7 +12676,6 @@ public final class Svga {
           .equals(other.getSpritesList());
       result = result && getAudiosList()
           .equals(other.getAudiosList());
-      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -13145,7 +12685,7 @@ public final class Svga {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (19 * hash) + getDescriptorForType().hashCode();
       hash = (37 * hash) + VERSION_FIELD_NUMBER;
       hash = (53 * hash) + getVersion().hashCode();
       if (hasParams()) {
@@ -13169,17 +12709,6 @@ public final class Svga {
       return hash;
     }
 
-    public static com.opensource.svgaplayer.proto.Svga.MovieEntity parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.opensource.svgaplayer.proto.Svga.MovieEntity parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
     public static com.opensource.svgaplayer.proto.Svga.MovieEntity parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -13239,7 +12768,6 @@ public final class Svga {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -13247,7 +12775,6 @@ public final class Svga {
     public static Builder newBuilder(com.opensource.svgaplayer.proto.Svga.MovieEntity prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -13293,7 +12820,6 @@ public final class Svga {
                 "Invalid map field number: " + number);
         }
       }
-      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_MovieEntity_fieldAccessorTable
@@ -13318,7 +12844,6 @@ public final class Svga {
           getAudiosFieldBuilder();
         }
       }
-      @java.lang.Override
       public Builder clear() {
         super.clear();
         version_ = "";
@@ -13345,18 +12870,15 @@ public final class Svga {
         return this;
       }
 
-      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return com.opensource.svgaplayer.proto.Svga.internal_static_com_opensource_svga_MovieEntity_descriptor;
       }
 
-      @java.lang.Override
       public com.opensource.svgaplayer.proto.Svga.MovieEntity getDefaultInstanceForType() {
         return com.opensource.svgaplayer.proto.Svga.MovieEntity.getDefaultInstance();
       }
 
-      @java.lang.Override
       public com.opensource.svgaplayer.proto.Svga.MovieEntity build() {
         com.opensource.svgaplayer.proto.Svga.MovieEntity result = buildPartial();
         if (!result.isInitialized()) {
@@ -13365,7 +12887,6 @@ public final class Svga {
         return result;
       }
 
-      @java.lang.Override
       public com.opensource.svgaplayer.proto.Svga.MovieEntity buildPartial() {
         com.opensource.svgaplayer.proto.Svga.MovieEntity result = new com.opensource.svgaplayer.proto.Svga.MovieEntity(this);
         int from_bitField0_ = bitField0_;
@@ -13401,39 +12922,32 @@ public final class Svga {
         return result;
       }
 
-      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
-      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
-      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
-      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
-      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
-      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.opensource.svgaplayer.proto.Svga.MovieEntity) {
           return mergeFrom((com.opensource.svgaplayer.proto.Svga.MovieEntity)other);
@@ -13506,17 +13020,14 @@ public final class Svga {
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
-      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -13542,7 +13053,7 @@ public final class Svga {
        * SVGA 格式版本号
        * </pre>
        *
-       * <code>string version = 1;</code>
+       * <code>optional string version = 1;</code>
        */
       public java.lang.String getVersion() {
         java.lang.Object ref = version_;
@@ -13561,7 +13072,7 @@ public final class Svga {
        * SVGA 格式版本号
        * </pre>
        *
-       * <code>string version = 1;</code>
+       * <code>optional string version = 1;</code>
        */
       public com.google.protobuf.ByteString
           getVersionBytes() {
@@ -13581,7 +13092,7 @@ public final class Svga {
        * SVGA 格式版本号
        * </pre>
        *
-       * <code>string version = 1;</code>
+       * <code>optional string version = 1;</code>
        */
       public Builder setVersion(
           java.lang.String value) {
@@ -13598,7 +13109,7 @@ public final class Svga {
        * SVGA 格式版本号
        * </pre>
        *
-       * <code>string version = 1;</code>
+       * <code>optional string version = 1;</code>
        */
       public Builder clearVersion() {
         
@@ -13611,7 +13122,7 @@ public final class Svga {
        * SVGA 格式版本号
        * </pre>
        *
-       * <code>string version = 1;</code>
+       * <code>optional string version = 1;</code>
        */
       public Builder setVersionBytes(
           com.google.protobuf.ByteString value) {
@@ -13633,7 +13144,7 @@ public final class Svga {
        * 动画参数
        * </pre>
        *
-       * <code>.com.opensource.svga.MovieParams params = 2;</code>
+       * <code>optional .com.opensource.svga.MovieParams params = 2;</code>
        */
       public boolean hasParams() {
         return paramsBuilder_ != null || params_ != null;
@@ -13643,7 +13154,7 @@ public final class Svga {
        * 动画参数
        * </pre>
        *
-       * <code>.com.opensource.svga.MovieParams params = 2;</code>
+       * <code>optional .com.opensource.svga.MovieParams params = 2;</code>
        */
       public com.opensource.svgaplayer.proto.Svga.MovieParams getParams() {
         if (paramsBuilder_ == null) {
@@ -13657,7 +13168,7 @@ public final class Svga {
        * 动画参数
        * </pre>
        *
-       * <code>.com.opensource.svga.MovieParams params = 2;</code>
+       * <code>optional .com.opensource.svga.MovieParams params = 2;</code>
        */
       public Builder setParams(com.opensource.svgaplayer.proto.Svga.MovieParams value) {
         if (paramsBuilder_ == null) {
@@ -13677,7 +13188,7 @@ public final class Svga {
        * 动画参数
        * </pre>
        *
-       * <code>.com.opensource.svga.MovieParams params = 2;</code>
+       * <code>optional .com.opensource.svga.MovieParams params = 2;</code>
        */
       public Builder setParams(
           com.opensource.svgaplayer.proto.Svga.MovieParams.Builder builderForValue) {
@@ -13695,7 +13206,7 @@ public final class Svga {
        * 动画参数
        * </pre>
        *
-       * <code>.com.opensource.svga.MovieParams params = 2;</code>
+       * <code>optional .com.opensource.svga.MovieParams params = 2;</code>
        */
       public Builder mergeParams(com.opensource.svgaplayer.proto.Svga.MovieParams value) {
         if (paramsBuilder_ == null) {
@@ -13717,7 +13228,7 @@ public final class Svga {
        * 动画参数
        * </pre>
        *
-       * <code>.com.opensource.svga.MovieParams params = 2;</code>
+       * <code>optional .com.opensource.svga.MovieParams params = 2;</code>
        */
       public Builder clearParams() {
         if (paramsBuilder_ == null) {
@@ -13735,7 +13246,7 @@ public final class Svga {
        * 动画参数
        * </pre>
        *
-       * <code>.com.opensource.svga.MovieParams params = 2;</code>
+       * <code>optional .com.opensource.svga.MovieParams params = 2;</code>
        */
       public com.opensource.svgaplayer.proto.Svga.MovieParams.Builder getParamsBuilder() {
         
@@ -13747,7 +13258,7 @@ public final class Svga {
        * 动画参数
        * </pre>
        *
-       * <code>.com.opensource.svga.MovieParams params = 2;</code>
+       * <code>optional .com.opensource.svga.MovieParams params = 2;</code>
        */
       public com.opensource.svgaplayer.proto.Svga.MovieParamsOrBuilder getParamsOrBuilder() {
         if (paramsBuilder_ != null) {
@@ -13762,7 +13273,7 @@ public final class Svga {
        * 动画参数
        * </pre>
        *
-       * <code>.com.opensource.svga.MovieParams params = 2;</code>
+       * <code>optional .com.opensource.svga.MovieParams params = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.opensource.svgaplayer.proto.Svga.MovieParams, com.opensource.svgaplayer.proto.Svga.MovieParams.Builder, com.opensource.svgaplayer.proto.Svga.MovieParamsOrBuilder> 
@@ -13871,8 +13382,7 @@ public final class Svga {
       }
 
       public Builder clearImages() {
-        internalGetMutableImages().getMutableMap()
-            .clear();
+        getMutableImages().clear();
         return this;
       }
       /**
@@ -13886,8 +13396,7 @@ public final class Svga {
       public Builder removeImages(
           java.lang.String key) {
         if (key == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableImages().getMutableMap()
-            .remove(key);
+        getMutableImages().remove(key);
         return this;
       }
       /**
@@ -13910,8 +13419,7 @@ public final class Svga {
           com.google.protobuf.ByteString value) {
         if (key == null) { throw new java.lang.NullPointerException(); }
         if (value == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableImages().getMutableMap()
-            .put(key, value);
+        getMutableImages().put(key, value);
         return this;
       }
       /**
@@ -13924,8 +13432,7 @@ public final class Svga {
 
       public Builder putAllImages(
           java.util.Map<java.lang.String, com.google.protobuf.ByteString> values) {
-        internalGetMutableImages().getMutableMap()
-            .putAll(values);
+        getMutableImages().putAll(values);
         return this;
       }
 
@@ -14552,16 +14059,14 @@ public final class Svga {
         }
         return audiosBuilder_;
       }
-      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return this;
       }
 
-      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
+        return this;
       }
 
 
@@ -14580,12 +14085,11 @@ public final class Svga {
 
     private static final com.google.protobuf.Parser<MovieEntity>
         PARSER = new com.google.protobuf.AbstractParser<MovieEntity>() {
-      @java.lang.Override
       public MovieEntity parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new MovieEntity(input, extensionRegistry);
+          return new MovieEntity(input, extensionRegistry);
       }
     };
 
@@ -14598,7 +14102,6 @@ public final class Svga {
       return PARSER;
     }
 
-    @java.lang.Override
     public com.opensource.svgaplayer.proto.Svga.MovieEntity getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -14687,59 +14190,59 @@ public final class Svga {
       "\n\nsvga.proto\022\023com.opensource.svga\"W\n\013Mov" +
       "ieParams\022\024\n\014viewBoxWidth\030\001 \001(\002\022\025\n\rviewBo" +
       "xHeight\030\002 \001(\002\022\013\n\003fps\030\003 \001(\005\022\016\n\006frames\030\004 \001" +
-      "(\005\"R\n\014SpriteEntity\022\020\n\010imageKey\030\001 \001(\t\0220\n\006" +
+      "(\005\"d\n\014SpriteEntity\022\020\n\010imageKey\030\001 \001(\t\0220\n\006" +
       "frames\030\002 \003(\0132 .com.opensource.svga.Frame" +
-      "Entity\"k\n\013AudioEntity\022\020\n\010audioKey\030\001 \001(\t\022" +
-      "\022\n\nstartFrame\030\002 \001(\005\022\020\n\010endFrame\030\003 \001(\005\022\021\n" +
-      "\tstartTime\030\004 \001(\005\022\021\n\ttotalTime\030\005 \001(\005\"=\n\006L" +
-      "ayout\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\022\r\n\005width\030\003 \001" +
-      "(\002\022\016\n\006height\030\004 \001(\002\"O\n\tTransform\022\t\n\001a\030\001 \001" +
-      "(\002\022\t\n\001b\030\002 \001(\002\022\t\n\001c\030\003 \001(\002\022\t\n\001d\030\004 \001(\002\022\n\n\002t" +
-      "x\030\005 \001(\002\022\n\n\002ty\030\006 \001(\002\"\272\t\n\013ShapeEntity\0228\n\004t" +
-      "ype\030\001 \001(\0162*.com.opensource.svga.ShapeEnt" +
-      "ity.ShapeType\022;\n\005shape\030\002 \001(\0132*.com.opens" +
-      "ource.svga.ShapeEntity.ShapeArgsH\000\0229\n\004re" +
-      "ct\030\003 \001(\0132).com.opensource.svga.ShapeEnti" +
-      "ty.RectArgsH\000\022?\n\007ellipse\030\004 \001(\0132,.com.ope" +
-      "nsource.svga.ShapeEntity.EllipseArgsH\000\022;" +
-      "\n\006styles\030\n \001(\0132+.com.opensource.svga.Sha" +
-      "peEntity.ShapeStyle\0221\n\ttransform\030\013 \001(\0132\036" +
-      ".com.opensource.svga.Transform\032\026\n\tShapeA" +
-      "rgs\022\t\n\001d\030\001 \001(\t\032U\n\010RectArgs\022\t\n\001x\030\001 \001(\002\022\t\n" +
-      "\001y\030\002 \001(\002\022\r\n\005width\030\003 \001(\002\022\016\n\006height\030\004 \001(\002\022" +
-      "\024\n\014cornerRadius\030\005 \001(\002\032E\n\013EllipseArgs\022\t\n\001" +
-      "x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\022\017\n\007radiusX\030\003 \001(\002\022\017\n\007r" +
-      "adiusY\030\004 \001(\002\032\320\004\n\nShapeStyle\022C\n\004fill\030\001 \001(" +
-      "\01325.com.opensource.svga.ShapeEntity.Shap" +
-      "eStyle.RGBAColor\022E\n\006stroke\030\002 \001(\01325.com.o" +
-      "pensource.svga.ShapeEntity.ShapeStyle.RG" +
-      "BAColor\022\023\n\013strokeWidth\030\003 \001(\002\022D\n\007lineCap\030" +
-      "\004 \001(\01623.com.opensource.svga.ShapeEntity." +
-      "ShapeStyle.LineCap\022F\n\010lineJoin\030\005 \001(\01624.c" +
-      "om.opensource.svga.ShapeEntity.ShapeStyl" +
-      "e.LineJoin\022\022\n\nmiterLimit\030\006 \001(\002\022\021\n\tlineDa" +
-      "shI\030\007 \001(\002\022\022\n\nlineDashII\030\010 \001(\002\022\023\n\013lineDas" +
-      "hIII\030\t \001(\002\0327\n\tRGBAColor\022\t\n\001r\030\001 \001(\002\022\t\n\001g\030" +
-      "\002 \001(\002\022\t\n\001b\030\003 \001(\002\022\t\n\001a\030\004 \001(\002\"B\n\007LineCap\022\020" +
-      "\n\014LineCap_BUTT\020\000\022\021\n\rLineCap_ROUND\020\001\022\022\n\016L" +
-      "ineCap_SQUARE\020\002\"F\n\010LineJoin\022\022\n\016LineJoin_" +
-      "MITER\020\000\022\022\n\016LineJoin_ROUND\020\001\022\022\n\016LineJoin_" +
-      "BEVEL\020\002\"7\n\tShapeType\022\t\n\005SHAPE\020\000\022\010\n\004RECT\020" +
-      "\001\022\013\n\007ELLIPSE\020\002\022\010\n\004KEEP\020\003B\006\n\004args\"\300\001\n\013Fra" +
-      "meEntity\022\r\n\005alpha\030\001 \001(\002\022+\n\006layout\030\002 \001(\0132" +
-      "\033.com.opensource.svga.Layout\0221\n\ttransfor" +
-      "m\030\003 \001(\0132\036.com.opensource.svga.Transform\022" +
-      "\020\n\010clipPath\030\004 \001(\t\0220\n\006shapes\030\005 \003(\0132 .com." +
-      "opensource.svga.ShapeEntity\"\243\002\n\013MovieEnt" +
-      "ity\022\017\n\007version\030\001 \001(\t\0220\n\006params\030\002 \001(\0132 .c" +
-      "om.opensource.svga.MovieParams\022<\n\006images" +
-      "\030\003 \003(\0132,.com.opensource.svga.MovieEntity" +
-      ".ImagesEntry\0222\n\007sprites\030\004 \003(\0132!.com.open" +
-      "source.svga.SpriteEntity\0220\n\006audios\030\005 \003(\013" +
-      "2 .com.opensource.svga.AudioEntity\032-\n\013Im" +
-      "agesEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028" +
-      "\001B-\n\037com.opensource.svgaplayer.proto\242\002\tS" +
-      "VGAProtob\006proto3"
+      "Entity\022\020\n\010matteKey\030\003 \001(\t\"k\n\013AudioEntity\022" +
+      "\020\n\010audioKey\030\001 \001(\t\022\022\n\nstartFrame\030\002 \001(\005\022\020\n" +
+      "\010endFrame\030\003 \001(\005\022\021\n\tstartTime\030\004 \001(\005\022\021\n\tto" +
+      "talTime\030\005 \001(\005\"=\n\006Layout\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030" +
+      "\002 \001(\002\022\r\n\005width\030\003 \001(\002\022\016\n\006height\030\004 \001(\002\"O\n\t",
+      "Transform\022\t\n\001a\030\001 \001(\002\022\t\n\001b\030\002 \001(\002\022\t\n\001c\030\003 \001" +
+      "(\002\022\t\n\001d\030\004 \001(\002\022\n\n\002tx\030\005 \001(\002\022\n\n\002ty\030\006 \001(\002\"\272\t" +
+      "\n\013ShapeEntity\0228\n\004type\030\001 \001(\0162*.com.openso" +
+      "urce.svga.ShapeEntity.ShapeType\022;\n\005shape" +
+      "\030\002 \001(\0132*.com.opensource.svga.ShapeEntity" +
+      ".ShapeArgsH\000\0229\n\004rect\030\003 \001(\0132).com.opensou" +
+      "rce.svga.ShapeEntity.RectArgsH\000\022?\n\007ellip" +
+      "se\030\004 \001(\0132,.com.opensource.svga.ShapeEnti" +
+      "ty.EllipseArgsH\000\022;\n\006styles\030\n \001(\0132+.com.o" +
+      "pensource.svga.ShapeEntity.ShapeStyle\0221\n",
+      "\ttransform\030\013 \001(\0132\036.com.opensource.svga.T" +
+      "ransform\032\026\n\tShapeArgs\022\t\n\001d\030\001 \001(\t\032U\n\010Rect" +
+      "Args\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\022\r\n\005width\030\003 \001(" +
+      "\002\022\016\n\006height\030\004 \001(\002\022\024\n\014cornerRadius\030\005 \001(\002\032" +
+      "E\n\013EllipseArgs\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\022\017\n\007" +
+      "radiusX\030\003 \001(\002\022\017\n\007radiusY\030\004 \001(\002\032\320\004\n\nShape" +
+      "Style\022C\n\004fill\030\001 \001(\01325.com.opensource.svg" +
+      "a.ShapeEntity.ShapeStyle.RGBAColor\022E\n\006st" +
+      "roke\030\002 \001(\01325.com.opensource.svga.ShapeEn" +
+      "tity.ShapeStyle.RGBAColor\022\023\n\013strokeWidth",
+      "\030\003 \001(\002\022D\n\007lineCap\030\004 \001(\01623.com.opensource" +
+      ".svga.ShapeEntity.ShapeStyle.LineCap\022F\n\010" +
+      "lineJoin\030\005 \001(\01624.com.opensource.svga.Sha" +
+      "peEntity.ShapeStyle.LineJoin\022\022\n\nmiterLim" +
+      "it\030\006 \001(\002\022\021\n\tlineDashI\030\007 \001(\002\022\022\n\nlineDashI" +
+      "I\030\010 \001(\002\022\023\n\013lineDashIII\030\t \001(\002\0327\n\tRGBAColo" +
+      "r\022\t\n\001r\030\001 \001(\002\022\t\n\001g\030\002 \001(\002\022\t\n\001b\030\003 \001(\002\022\t\n\001a\030" +
+      "\004 \001(\002\"B\n\007LineCap\022\020\n\014LineCap_BUTT\020\000\022\021\n\rLi" +
+      "neCap_ROUND\020\001\022\022\n\016LineCap_SQUARE\020\002\"F\n\010Lin" +
+      "eJoin\022\022\n\016LineJoin_MITER\020\000\022\022\n\016LineJoin_RO",
+      "UND\020\001\022\022\n\016LineJoin_BEVEL\020\002\"7\n\tShapeType\022\t" +
+      "\n\005SHAPE\020\000\022\010\n\004RECT\020\001\022\013\n\007ELLIPSE\020\002\022\010\n\004KEEP" +
+      "\020\003B\006\n\004args\"\300\001\n\013FrameEntity\022\r\n\005alpha\030\001 \001(" +
+      "\002\022+\n\006layout\030\002 \001(\0132\033.com.opensource.svga." +
+      "Layout\0221\n\ttransform\030\003 \001(\0132\036.com.opensour" +
+      "ce.svga.Transform\022\020\n\010clipPath\030\004 \001(\t\0220\n\006s" +
+      "hapes\030\005 \003(\0132 .com.opensource.svga.ShapeE" +
+      "ntity\"\243\002\n\013MovieEntity\022\017\n\007version\030\001 \001(\t\0220" +
+      "\n\006params\030\002 \001(\0132 .com.opensource.svga.Mov" +
+      "ieParams\022<\n\006images\030\003 \003(\0132,.com.opensourc",
+      "e.svga.MovieEntity.ImagesEntry\0222\n\007sprite" +
+      "s\030\004 \003(\0132!.com.opensource.svga.SpriteEnti" +
+      "ty\0220\n\006audios\030\005 \003(\0132 .com.opensource.svga" +
+      ".AudioEntity\032-\n\013ImagesEntry\022\013\n\003key\030\001 \001(\t" +
+      "\022\r\n\005value\030\002 \001(\014:\0028\001B-\n\037com.opensource.sv" +
+      "gaplayer.proto\242\002\tSVGAProtob\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -14764,7 +14267,7 @@ public final class Svga {
     internal_static_com_opensource_svga_SpriteEntity_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_opensource_svga_SpriteEntity_descriptor,
-        new java.lang.String[] { "ImageKey", "Frames", });
+        new java.lang.String[] { "ImageKey", "Frames", "MatteKey", });
     internal_static_com_opensource_svga_AudioEntity_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_com_opensource_svga_AudioEntity_fieldAccessorTable = new

@@ -1,8 +1,6 @@
 /**
  * @fileoverview
  * @enhanceable
- * @suppress {messageConventions} JS Compiler reports an error if a variable or
- *     field starts with 'MSG_' and isn't a translatable message.
  * @public
  */
 // GENERATED CODE -- DO NOT EDIT!
@@ -70,7 +68,6 @@ proto.com.opensource.svga.MovieParams.prototype.toObject = function(opt_includeI
  *     http://goto/soy-param-migration
  * @param {!proto.com.opensource.svga.MovieParams} msg The msg instance to transform.
  * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.com.opensource.svga.MovieParams.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -140,47 +137,56 @@ proto.com.opensource.svga.MovieParams.deserializeBinaryFromReader = function(msg
 
 
 /**
+ * Class method variant: serializes the given message to binary data
+ * (in protobuf wire format), writing to the given BinaryWriter.
+ * @param {!proto.com.opensource.svga.MovieParams} message
+ * @param {!jspb.BinaryWriter} writer
+ */
+proto.com.opensource.svga.MovieParams.serializeBinaryToWriter = function(message, writer) {
+  message.serializeBinaryToWriter(writer);
+};
+
+
+/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.com.opensource.svga.MovieParams.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.com.opensource.svga.MovieParams.serializeBinaryToWriter(this, writer);
+  this.serializeBinaryToWriter(writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the given message to binary data (in protobuf wire
- * format), writing to the given BinaryWriter.
- * @param {!proto.com.opensource.svga.MovieParams} message
+ * Serializes the message to binary data (in protobuf wire format),
+ * writing to the given BinaryWriter.
  * @param {!jspb.BinaryWriter} writer
- * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.com.opensource.svga.MovieParams.serializeBinaryToWriter = function(message, writer) {
+proto.com.opensource.svga.MovieParams.prototype.serializeBinaryToWriter = function (writer) {
   var f = undefined;
-  f = message.getViewboxwidth();
+  f = this.getViewboxwidth();
   if (f !== 0.0) {
     writer.writeFloat(
       1,
       f
     );
   }
-  f = message.getViewboxheight();
+  f = this.getViewboxheight();
   if (f !== 0.0) {
     writer.writeFloat(
       2,
       f
     );
   }
-  f = message.getFps();
+  f = this.getFps();
   if (f !== 0) {
     writer.writeInt32(
       3,
       f
     );
   }
-  f = message.getFrames();
+  f = this.getFrames();
   if (f !== 0) {
     writer.writeInt32(
       4,
@@ -201,7 +207,7 @@ proto.com.opensource.svga.MovieParams.prototype.getViewboxwidth = function() {
 
 /** @param {number} value */
 proto.com.opensource.svga.MovieParams.prototype.setViewboxwidth = function(value) {
-  jspb.Message.setProto3FloatField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -216,7 +222,7 @@ proto.com.opensource.svga.MovieParams.prototype.getViewboxheight = function() {
 
 /** @param {number} value */
 proto.com.opensource.svga.MovieParams.prototype.setViewboxheight = function(value) {
-  jspb.Message.setProto3FloatField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -231,7 +237,7 @@ proto.com.opensource.svga.MovieParams.prototype.getFps = function() {
 
 /** @param {number} value */
 proto.com.opensource.svga.MovieParams.prototype.setFps = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -246,7 +252,7 @@ proto.com.opensource.svga.MovieParams.prototype.getFrames = function() {
 
 /** @param {number} value */
 proto.com.opensource.svga.MovieParams.prototype.setFrames = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
+  jspb.Message.setField(this, 4, value);
 };
 
 
@@ -300,13 +306,13 @@ proto.com.opensource.svga.SpriteEntity.prototype.toObject = function(opt_include
  *     http://goto/soy-param-migration
  * @param {!proto.com.opensource.svga.SpriteEntity} msg The msg instance to transform.
  * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.com.opensource.svga.SpriteEntity.toObject = function(includeInstance, msg) {
   var f, obj = {
     imagekey: jspb.Message.getFieldWithDefault(msg, 1, ""),
     framesList: jspb.Message.toObjectList(msg.getFramesList(),
-    proto.com.opensource.svga.FrameEntity.toObject, includeInstance)
+    proto.com.opensource.svga.FrameEntity.toObject, includeInstance),
+    mattekey: jspb.Message.getFieldWithDefault(msg, 3, "")
   };
 
   if (includeInstance) {
@@ -352,6 +358,10 @@ proto.com.opensource.svga.SpriteEntity.deserializeBinaryFromReader = function(ms
       reader.readMessage(value,proto.com.opensource.svga.FrameEntity.deserializeBinaryFromReader);
       msg.addFrames(value);
       break;
+    case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setMattekey(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -362,38 +372,54 @@ proto.com.opensource.svga.SpriteEntity.deserializeBinaryFromReader = function(ms
 
 
 /**
+ * Class method variant: serializes the given message to binary data
+ * (in protobuf wire format), writing to the given BinaryWriter.
+ * @param {!proto.com.opensource.svga.SpriteEntity} message
+ * @param {!jspb.BinaryWriter} writer
+ */
+proto.com.opensource.svga.SpriteEntity.serializeBinaryToWriter = function(message, writer) {
+  message.serializeBinaryToWriter(writer);
+};
+
+
+/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.com.opensource.svga.SpriteEntity.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.com.opensource.svga.SpriteEntity.serializeBinaryToWriter(this, writer);
+  this.serializeBinaryToWriter(writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the given message to binary data (in protobuf wire
- * format), writing to the given BinaryWriter.
- * @param {!proto.com.opensource.svga.SpriteEntity} message
+ * Serializes the message to binary data (in protobuf wire format),
+ * writing to the given BinaryWriter.
  * @param {!jspb.BinaryWriter} writer
- * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.com.opensource.svga.SpriteEntity.serializeBinaryToWriter = function(message, writer) {
+proto.com.opensource.svga.SpriteEntity.prototype.serializeBinaryToWriter = function (writer) {
   var f = undefined;
-  f = message.getImagekey();
+  f = this.getImagekey();
   if (f.length > 0) {
     writer.writeString(
       1,
       f
     );
   }
-  f = message.getFramesList();
+  f = this.getFramesList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       2,
       f,
       proto.com.opensource.svga.FrameEntity.serializeBinaryToWriter
+    );
+  }
+  f = this.getMattekey();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
+      f
     );
   }
 };
@@ -410,21 +436,23 @@ proto.com.opensource.svga.SpriteEntity.prototype.getImagekey = function() {
 
 /** @param {string} value */
 proto.com.opensource.svga.SpriteEntity.prototype.setImagekey = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
 /**
  * repeated FrameEntity frames = 2;
- * @return {!Array<!proto.com.opensource.svga.FrameEntity>}
+ * If you change this array by adding, removing or replacing elements, or if you
+ * replace the array itself, then you must call the setter to update it.
+ * @return {!Array.<!proto.com.opensource.svga.FrameEntity>}
  */
 proto.com.opensource.svga.SpriteEntity.prototype.getFramesList = function() {
-  return /** @type{!Array<!proto.com.opensource.svga.FrameEntity>} */ (
+  return /** @type{!Array.<!proto.com.opensource.svga.FrameEntity>} */ (
     jspb.Message.getRepeatedWrapperField(this, proto.com.opensource.svga.FrameEntity, 2));
 };
 
 
-/** @param {!Array<!proto.com.opensource.svga.FrameEntity>} value */
+/** @param {!Array.<!proto.com.opensource.svga.FrameEntity>} value */
 proto.com.opensource.svga.SpriteEntity.prototype.setFramesList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 2, value);
 };
@@ -442,6 +470,21 @@ proto.com.opensource.svga.SpriteEntity.prototype.addFrames = function(opt_value,
 
 proto.com.opensource.svga.SpriteEntity.prototype.clearFramesList = function() {
   this.setFramesList([]);
+};
+
+
+/**
+ * optional string matteKey = 3;
+ * @return {string}
+ */
+proto.com.opensource.svga.SpriteEntity.prototype.getMattekey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/** @param {string} value */
+proto.com.opensource.svga.SpriteEntity.prototype.setMattekey = function(value) {
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -488,7 +531,6 @@ proto.com.opensource.svga.AudioEntity.prototype.toObject = function(opt_includeI
  *     http://goto/soy-param-migration
  * @param {!proto.com.opensource.svga.AudioEntity} msg The msg instance to transform.
  * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.com.opensource.svga.AudioEntity.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -563,54 +605,63 @@ proto.com.opensource.svga.AudioEntity.deserializeBinaryFromReader = function(msg
 
 
 /**
+ * Class method variant: serializes the given message to binary data
+ * (in protobuf wire format), writing to the given BinaryWriter.
+ * @param {!proto.com.opensource.svga.AudioEntity} message
+ * @param {!jspb.BinaryWriter} writer
+ */
+proto.com.opensource.svga.AudioEntity.serializeBinaryToWriter = function(message, writer) {
+  message.serializeBinaryToWriter(writer);
+};
+
+
+/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.com.opensource.svga.AudioEntity.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.com.opensource.svga.AudioEntity.serializeBinaryToWriter(this, writer);
+  this.serializeBinaryToWriter(writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the given message to binary data (in protobuf wire
- * format), writing to the given BinaryWriter.
- * @param {!proto.com.opensource.svga.AudioEntity} message
+ * Serializes the message to binary data (in protobuf wire format),
+ * writing to the given BinaryWriter.
  * @param {!jspb.BinaryWriter} writer
- * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.com.opensource.svga.AudioEntity.serializeBinaryToWriter = function(message, writer) {
+proto.com.opensource.svga.AudioEntity.prototype.serializeBinaryToWriter = function (writer) {
   var f = undefined;
-  f = message.getAudiokey();
+  f = this.getAudiokey();
   if (f.length > 0) {
     writer.writeString(
       1,
       f
     );
   }
-  f = message.getStartframe();
+  f = this.getStartframe();
   if (f !== 0) {
     writer.writeInt32(
       2,
       f
     );
   }
-  f = message.getEndframe();
+  f = this.getEndframe();
   if (f !== 0) {
     writer.writeInt32(
       3,
       f
     );
   }
-  f = message.getStarttime();
+  f = this.getStarttime();
   if (f !== 0) {
     writer.writeInt32(
       4,
       f
     );
   }
-  f = message.getTotaltime();
+  f = this.getTotaltime();
   if (f !== 0) {
     writer.writeInt32(
       5,
@@ -631,7 +682,7 @@ proto.com.opensource.svga.AudioEntity.prototype.getAudiokey = function() {
 
 /** @param {string} value */
 proto.com.opensource.svga.AudioEntity.prototype.setAudiokey = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -646,7 +697,7 @@ proto.com.opensource.svga.AudioEntity.prototype.getStartframe = function() {
 
 /** @param {number} value */
 proto.com.opensource.svga.AudioEntity.prototype.setStartframe = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -661,7 +712,7 @@ proto.com.opensource.svga.AudioEntity.prototype.getEndframe = function() {
 
 /** @param {number} value */
 proto.com.opensource.svga.AudioEntity.prototype.setEndframe = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -676,7 +727,7 @@ proto.com.opensource.svga.AudioEntity.prototype.getStarttime = function() {
 
 /** @param {number} value */
 proto.com.opensource.svga.AudioEntity.prototype.setStarttime = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
+  jspb.Message.setField(this, 4, value);
 };
 
 
@@ -691,7 +742,7 @@ proto.com.opensource.svga.AudioEntity.prototype.getTotaltime = function() {
 
 /** @param {number} value */
 proto.com.opensource.svga.AudioEntity.prototype.setTotaltime = function(value) {
-  jspb.Message.setProto3IntField(this, 5, value);
+  jspb.Message.setField(this, 5, value);
 };
 
 
@@ -738,7 +789,6 @@ proto.com.opensource.svga.Layout.prototype.toObject = function(opt_includeInstan
  *     http://goto/soy-param-migration
  * @param {!proto.com.opensource.svga.Layout} msg The msg instance to transform.
  * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.com.opensource.svga.Layout.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -808,47 +858,56 @@ proto.com.opensource.svga.Layout.deserializeBinaryFromReader = function(msg, rea
 
 
 /**
+ * Class method variant: serializes the given message to binary data
+ * (in protobuf wire format), writing to the given BinaryWriter.
+ * @param {!proto.com.opensource.svga.Layout} message
+ * @param {!jspb.BinaryWriter} writer
+ */
+proto.com.opensource.svga.Layout.serializeBinaryToWriter = function(message, writer) {
+  message.serializeBinaryToWriter(writer);
+};
+
+
+/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.com.opensource.svga.Layout.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.com.opensource.svga.Layout.serializeBinaryToWriter(this, writer);
+  this.serializeBinaryToWriter(writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the given message to binary data (in protobuf wire
- * format), writing to the given BinaryWriter.
- * @param {!proto.com.opensource.svga.Layout} message
+ * Serializes the message to binary data (in protobuf wire format),
+ * writing to the given BinaryWriter.
  * @param {!jspb.BinaryWriter} writer
- * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.com.opensource.svga.Layout.serializeBinaryToWriter = function(message, writer) {
+proto.com.opensource.svga.Layout.prototype.serializeBinaryToWriter = function (writer) {
   var f = undefined;
-  f = message.getX();
+  f = this.getX();
   if (f !== 0.0) {
     writer.writeFloat(
       1,
       f
     );
   }
-  f = message.getY();
+  f = this.getY();
   if (f !== 0.0) {
     writer.writeFloat(
       2,
       f
     );
   }
-  f = message.getWidth();
+  f = this.getWidth();
   if (f !== 0.0) {
     writer.writeFloat(
       3,
       f
     );
   }
-  f = message.getHeight();
+  f = this.getHeight();
   if (f !== 0.0) {
     writer.writeFloat(
       4,
@@ -869,7 +928,7 @@ proto.com.opensource.svga.Layout.prototype.getX = function() {
 
 /** @param {number} value */
 proto.com.opensource.svga.Layout.prototype.setX = function(value) {
-  jspb.Message.setProto3FloatField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -884,7 +943,7 @@ proto.com.opensource.svga.Layout.prototype.getY = function() {
 
 /** @param {number} value */
 proto.com.opensource.svga.Layout.prototype.setY = function(value) {
-  jspb.Message.setProto3FloatField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -899,7 +958,7 @@ proto.com.opensource.svga.Layout.prototype.getWidth = function() {
 
 /** @param {number} value */
 proto.com.opensource.svga.Layout.prototype.setWidth = function(value) {
-  jspb.Message.setProto3FloatField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -914,7 +973,7 @@ proto.com.opensource.svga.Layout.prototype.getHeight = function() {
 
 /** @param {number} value */
 proto.com.opensource.svga.Layout.prototype.setHeight = function(value) {
-  jspb.Message.setProto3FloatField(this, 4, value);
+  jspb.Message.setField(this, 4, value);
 };
 
 
@@ -961,7 +1020,6 @@ proto.com.opensource.svga.Transform.prototype.toObject = function(opt_includeIns
  *     http://goto/soy-param-migration
  * @param {!proto.com.opensource.svga.Transform} msg The msg instance to transform.
  * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.com.opensource.svga.Transform.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -1041,61 +1099,70 @@ proto.com.opensource.svga.Transform.deserializeBinaryFromReader = function(msg, 
 
 
 /**
+ * Class method variant: serializes the given message to binary data
+ * (in protobuf wire format), writing to the given BinaryWriter.
+ * @param {!proto.com.opensource.svga.Transform} message
+ * @param {!jspb.BinaryWriter} writer
+ */
+proto.com.opensource.svga.Transform.serializeBinaryToWriter = function(message, writer) {
+  message.serializeBinaryToWriter(writer);
+};
+
+
+/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.com.opensource.svga.Transform.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.com.opensource.svga.Transform.serializeBinaryToWriter(this, writer);
+  this.serializeBinaryToWriter(writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the given message to binary data (in protobuf wire
- * format), writing to the given BinaryWriter.
- * @param {!proto.com.opensource.svga.Transform} message
+ * Serializes the message to binary data (in protobuf wire format),
+ * writing to the given BinaryWriter.
  * @param {!jspb.BinaryWriter} writer
- * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.com.opensource.svga.Transform.serializeBinaryToWriter = function(message, writer) {
+proto.com.opensource.svga.Transform.prototype.serializeBinaryToWriter = function (writer) {
   var f = undefined;
-  f = message.getA();
+  f = this.getA();
   if (f !== 0.0) {
     writer.writeFloat(
       1,
       f
     );
   }
-  f = message.getB();
+  f = this.getB();
   if (f !== 0.0) {
     writer.writeFloat(
       2,
       f
     );
   }
-  f = message.getC();
+  f = this.getC();
   if (f !== 0.0) {
     writer.writeFloat(
       3,
       f
     );
   }
-  f = message.getD();
+  f = this.getD();
   if (f !== 0.0) {
     writer.writeFloat(
       4,
       f
     );
   }
-  f = message.getTx();
+  f = this.getTx();
   if (f !== 0.0) {
     writer.writeFloat(
       5,
       f
     );
   }
-  f = message.getTy();
+  f = this.getTy();
   if (f !== 0.0) {
     writer.writeFloat(
       6,
@@ -1116,7 +1183,7 @@ proto.com.opensource.svga.Transform.prototype.getA = function() {
 
 /** @param {number} value */
 proto.com.opensource.svga.Transform.prototype.setA = function(value) {
-  jspb.Message.setProto3FloatField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -1131,7 +1198,7 @@ proto.com.opensource.svga.Transform.prototype.getB = function() {
 
 /** @param {number} value */
 proto.com.opensource.svga.Transform.prototype.setB = function(value) {
-  jspb.Message.setProto3FloatField(this, 2, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -1146,7 +1213,7 @@ proto.com.opensource.svga.Transform.prototype.getC = function() {
 
 /** @param {number} value */
 proto.com.opensource.svga.Transform.prototype.setC = function(value) {
-  jspb.Message.setProto3FloatField(this, 3, value);
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -1161,7 +1228,7 @@ proto.com.opensource.svga.Transform.prototype.getD = function() {
 
 /** @param {number} value */
 proto.com.opensource.svga.Transform.prototype.setD = function(value) {
-  jspb.Message.setProto3FloatField(this, 4, value);
+  jspb.Message.setField(this, 4, value);
 };
 
 
@@ -1176,7 +1243,7 @@ proto.com.opensource.svga.Transform.prototype.getTx = function() {
 
 /** @param {number} value */
 proto.com.opensource.svga.Transform.prototype.setTx = function(value) {
-  jspb.Message.setProto3FloatField(this, 5, value);
+  jspb.Message.setField(this, 5, value);
 };
 
 
@@ -1191,7 +1258,7 @@ proto.com.opensource.svga.Transform.prototype.getTy = function() {
 
 /** @param {number} value */
 proto.com.opensource.svga.Transform.prototype.setTy = function(value) {
-  jspb.Message.setProto3FloatField(this, 6, value);
+  jspb.Message.setField(this, 6, value);
 };
 
 
@@ -1265,7 +1332,6 @@ proto.com.opensource.svga.ShapeEntity.prototype.toObject = function(opt_includeI
  *     http://goto/soy-param-migration
  * @param {!proto.com.opensource.svga.ShapeEntity} msg The msg instance to transform.
  * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.com.opensource.svga.ShapeEntity.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -1350,33 +1416,42 @@ proto.com.opensource.svga.ShapeEntity.deserializeBinaryFromReader = function(msg
 
 
 /**
+ * Class method variant: serializes the given message to binary data
+ * (in protobuf wire format), writing to the given BinaryWriter.
+ * @param {!proto.com.opensource.svga.ShapeEntity} message
+ * @param {!jspb.BinaryWriter} writer
+ */
+proto.com.opensource.svga.ShapeEntity.serializeBinaryToWriter = function(message, writer) {
+  message.serializeBinaryToWriter(writer);
+};
+
+
+/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.com.opensource.svga.ShapeEntity.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.com.opensource.svga.ShapeEntity.serializeBinaryToWriter(this, writer);
+  this.serializeBinaryToWriter(writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the given message to binary data (in protobuf wire
- * format), writing to the given BinaryWriter.
- * @param {!proto.com.opensource.svga.ShapeEntity} message
+ * Serializes the message to binary data (in protobuf wire format),
+ * writing to the given BinaryWriter.
  * @param {!jspb.BinaryWriter} writer
- * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.com.opensource.svga.ShapeEntity.serializeBinaryToWriter = function(message, writer) {
+proto.com.opensource.svga.ShapeEntity.prototype.serializeBinaryToWriter = function (writer) {
   var f = undefined;
-  f = message.getType();
+  f = this.getType();
   if (f !== 0.0) {
     writer.writeEnum(
       1,
       f
     );
   }
-  f = message.getShape();
+  f = this.getShape();
   if (f != null) {
     writer.writeMessage(
       2,
@@ -1384,7 +1459,7 @@ proto.com.opensource.svga.ShapeEntity.serializeBinaryToWriter = function(message
       proto.com.opensource.svga.ShapeEntity.ShapeArgs.serializeBinaryToWriter
     );
   }
-  f = message.getRect();
+  f = this.getRect();
   if (f != null) {
     writer.writeMessage(
       3,
@@ -1392,7 +1467,7 @@ proto.com.opensource.svga.ShapeEntity.serializeBinaryToWriter = function(message
       proto.com.opensource.svga.ShapeEntity.RectArgs.serializeBinaryToWriter
     );
   }
-  f = message.getEllipse();
+  f = this.getEllipse();
   if (f != null) {
     writer.writeMessage(
       4,
@@ -1400,7 +1475,7 @@ proto.com.opensource.svga.ShapeEntity.serializeBinaryToWriter = function(message
       proto.com.opensource.svga.ShapeEntity.EllipseArgs.serializeBinaryToWriter
     );
   }
-  f = message.getStyles();
+  f = this.getStyles();
   if (f != null) {
     writer.writeMessage(
       10,
@@ -1408,7 +1483,7 @@ proto.com.opensource.svga.ShapeEntity.serializeBinaryToWriter = function(message
       proto.com.opensource.svga.ShapeEntity.ShapeStyle.serializeBinaryToWriter
     );
   }
-  f = message.getTransform();
+  f = this.getTransform();
   if (f != null) {
     writer.writeMessage(
       11,
@@ -1416,1264 +1491,6 @@ proto.com.opensource.svga.ShapeEntity.serializeBinaryToWriter = function(message
       proto.com.opensource.svga.Transform.serializeBinaryToWriter
     );
   }
-};
-
-
-/**
- * @enum {number}
- */
-proto.com.opensource.svga.ShapeEntity.ShapeType = {
-  SHAPE: 0,
-  RECT: 1,
-  ELLIPSE: 2,
-  KEEP: 3
-};
-
-
-/**
- * Generated by JsPbCodeGenerator.
- * @param {Array=} opt_data Optional initial data array, typically from a
- * server response, or constructed directly in Javascript. The array is used
- * in place and becomes part of the constructed object. It is not cloned.
- * If no data is provided, the constructed object will be empty, but still
- * valid.
- * @extends {jspb.Message}
- * @constructor
- */
-proto.com.opensource.svga.ShapeEntity.ShapeArgs = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
-};
-goog.inherits(proto.com.opensource.svga.ShapeEntity.ShapeArgs, jspb.Message);
-if (goog.DEBUG && !COMPILED) {
-  proto.com.opensource.svga.ShapeEntity.ShapeArgs.displayName = 'proto.com.opensource.svga.ShapeEntity.ShapeArgs';
-}
-
-
-if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto suitable for use in Soy templates.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
- * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
- *     for transitional soy proto support: http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.com.opensource.svga.ShapeEntity.ShapeArgs.prototype.toObject = function(opt_includeInstance) {
-  return proto.com.opensource.svga.ShapeEntity.ShapeArgs.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Whether to include the JSPB
- *     instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.com.opensource.svga.ShapeEntity.ShapeArgs} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.com.opensource.svga.ShapeEntity.ShapeArgs.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    d: jspb.Message.getFieldWithDefault(msg, 1, "")
-  };
-
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
-
-
-/**
- * Deserializes binary data (in protobuf wire format).
- * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.com.opensource.svga.ShapeEntity.ShapeArgs}
- */
-proto.com.opensource.svga.ShapeEntity.ShapeArgs.deserializeBinary = function(bytes) {
-  var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.com.opensource.svga.ShapeEntity.ShapeArgs;
-  return proto.com.opensource.svga.ShapeEntity.ShapeArgs.deserializeBinaryFromReader(msg, reader);
-};
-
-
-/**
- * Deserializes binary data (in protobuf wire format) from the
- * given reader into the given message object.
- * @param {!proto.com.opensource.svga.ShapeEntity.ShapeArgs} msg The message object to deserialize into.
- * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.com.opensource.svga.ShapeEntity.ShapeArgs}
- */
-proto.com.opensource.svga.ShapeEntity.ShapeArgs.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
-    }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    case 1:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setD(value);
-      break;
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
-};
-
-
-/**
- * Serializes the message to binary data (in protobuf wire format).
- * @return {!Uint8Array}
- */
-proto.com.opensource.svga.ShapeEntity.ShapeArgs.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.com.opensource.svga.ShapeEntity.ShapeArgs.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
-};
-
-
-/**
- * Serializes the given message to binary data (in protobuf wire
- * format), writing to the given BinaryWriter.
- * @param {!proto.com.opensource.svga.ShapeEntity.ShapeArgs} message
- * @param {!jspb.BinaryWriter} writer
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.com.opensource.svga.ShapeEntity.ShapeArgs.serializeBinaryToWriter = function(message, writer) {
-  var f = undefined;
-  f = message.getD();
-  if (f.length > 0) {
-    writer.writeString(
-      1,
-      f
-    );
-  }
-};
-
-
-/**
- * optional string d = 1;
- * @return {string}
- */
-proto.com.opensource.svga.ShapeEntity.ShapeArgs.prototype.getD = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
-};
-
-
-/** @param {string} value */
-proto.com.opensource.svga.ShapeEntity.ShapeArgs.prototype.setD = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
-};
-
-
-
-/**
- * Generated by JsPbCodeGenerator.
- * @param {Array=} opt_data Optional initial data array, typically from a
- * server response, or constructed directly in Javascript. The array is used
- * in place and becomes part of the constructed object. It is not cloned.
- * If no data is provided, the constructed object will be empty, but still
- * valid.
- * @extends {jspb.Message}
- * @constructor
- */
-proto.com.opensource.svga.ShapeEntity.RectArgs = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
-};
-goog.inherits(proto.com.opensource.svga.ShapeEntity.RectArgs, jspb.Message);
-if (goog.DEBUG && !COMPILED) {
-  proto.com.opensource.svga.ShapeEntity.RectArgs.displayName = 'proto.com.opensource.svga.ShapeEntity.RectArgs';
-}
-
-
-if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto suitable for use in Soy templates.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
- * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
- *     for transitional soy proto support: http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.com.opensource.svga.ShapeEntity.RectArgs.prototype.toObject = function(opt_includeInstance) {
-  return proto.com.opensource.svga.ShapeEntity.RectArgs.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Whether to include the JSPB
- *     instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.com.opensource.svga.ShapeEntity.RectArgs} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.com.opensource.svga.ShapeEntity.RectArgs.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    x: +jspb.Message.getFieldWithDefault(msg, 1, 0.0),
-    y: +jspb.Message.getFieldWithDefault(msg, 2, 0.0),
-    width: +jspb.Message.getFieldWithDefault(msg, 3, 0.0),
-    height: +jspb.Message.getFieldWithDefault(msg, 4, 0.0),
-    cornerradius: +jspb.Message.getFieldWithDefault(msg, 5, 0.0)
-  };
-
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
-
-
-/**
- * Deserializes binary data (in protobuf wire format).
- * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.com.opensource.svga.ShapeEntity.RectArgs}
- */
-proto.com.opensource.svga.ShapeEntity.RectArgs.deserializeBinary = function(bytes) {
-  var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.com.opensource.svga.ShapeEntity.RectArgs;
-  return proto.com.opensource.svga.ShapeEntity.RectArgs.deserializeBinaryFromReader(msg, reader);
-};
-
-
-/**
- * Deserializes binary data (in protobuf wire format) from the
- * given reader into the given message object.
- * @param {!proto.com.opensource.svga.ShapeEntity.RectArgs} msg The message object to deserialize into.
- * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.com.opensource.svga.ShapeEntity.RectArgs}
- */
-proto.com.opensource.svga.ShapeEntity.RectArgs.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
-    }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    case 1:
-      var value = /** @type {number} */ (reader.readFloat());
-      msg.setX(value);
-      break;
-    case 2:
-      var value = /** @type {number} */ (reader.readFloat());
-      msg.setY(value);
-      break;
-    case 3:
-      var value = /** @type {number} */ (reader.readFloat());
-      msg.setWidth(value);
-      break;
-    case 4:
-      var value = /** @type {number} */ (reader.readFloat());
-      msg.setHeight(value);
-      break;
-    case 5:
-      var value = /** @type {number} */ (reader.readFloat());
-      msg.setCornerradius(value);
-      break;
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
-};
-
-
-/**
- * Serializes the message to binary data (in protobuf wire format).
- * @return {!Uint8Array}
- */
-proto.com.opensource.svga.ShapeEntity.RectArgs.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.com.opensource.svga.ShapeEntity.RectArgs.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
-};
-
-
-/**
- * Serializes the given message to binary data (in protobuf wire
- * format), writing to the given BinaryWriter.
- * @param {!proto.com.opensource.svga.ShapeEntity.RectArgs} message
- * @param {!jspb.BinaryWriter} writer
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.com.opensource.svga.ShapeEntity.RectArgs.serializeBinaryToWriter = function(message, writer) {
-  var f = undefined;
-  f = message.getX();
-  if (f !== 0.0) {
-    writer.writeFloat(
-      1,
-      f
-    );
-  }
-  f = message.getY();
-  if (f !== 0.0) {
-    writer.writeFloat(
-      2,
-      f
-    );
-  }
-  f = message.getWidth();
-  if (f !== 0.0) {
-    writer.writeFloat(
-      3,
-      f
-    );
-  }
-  f = message.getHeight();
-  if (f !== 0.0) {
-    writer.writeFloat(
-      4,
-      f
-    );
-  }
-  f = message.getCornerradius();
-  if (f !== 0.0) {
-    writer.writeFloat(
-      5,
-      f
-    );
-  }
-};
-
-
-/**
- * optional float x = 1;
- * @return {number}
- */
-proto.com.opensource.svga.ShapeEntity.RectArgs.prototype.getX = function() {
-  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 1, 0.0));
-};
-
-
-/** @param {number} value */
-proto.com.opensource.svga.ShapeEntity.RectArgs.prototype.setX = function(value) {
-  jspb.Message.setProto3FloatField(this, 1, value);
-};
-
-
-/**
- * optional float y = 2;
- * @return {number}
- */
-proto.com.opensource.svga.ShapeEntity.RectArgs.prototype.getY = function() {
-  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 2, 0.0));
-};
-
-
-/** @param {number} value */
-proto.com.opensource.svga.ShapeEntity.RectArgs.prototype.setY = function(value) {
-  jspb.Message.setProto3FloatField(this, 2, value);
-};
-
-
-/**
- * optional float width = 3;
- * @return {number}
- */
-proto.com.opensource.svga.ShapeEntity.RectArgs.prototype.getWidth = function() {
-  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 3, 0.0));
-};
-
-
-/** @param {number} value */
-proto.com.opensource.svga.ShapeEntity.RectArgs.prototype.setWidth = function(value) {
-  jspb.Message.setProto3FloatField(this, 3, value);
-};
-
-
-/**
- * optional float height = 4;
- * @return {number}
- */
-proto.com.opensource.svga.ShapeEntity.RectArgs.prototype.getHeight = function() {
-  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 4, 0.0));
-};
-
-
-/** @param {number} value */
-proto.com.opensource.svga.ShapeEntity.RectArgs.prototype.setHeight = function(value) {
-  jspb.Message.setProto3FloatField(this, 4, value);
-};
-
-
-/**
- * optional float cornerRadius = 5;
- * @return {number}
- */
-proto.com.opensource.svga.ShapeEntity.RectArgs.prototype.getCornerradius = function() {
-  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 5, 0.0));
-};
-
-
-/** @param {number} value */
-proto.com.opensource.svga.ShapeEntity.RectArgs.prototype.setCornerradius = function(value) {
-  jspb.Message.setProto3FloatField(this, 5, value);
-};
-
-
-
-/**
- * Generated by JsPbCodeGenerator.
- * @param {Array=} opt_data Optional initial data array, typically from a
- * server response, or constructed directly in Javascript. The array is used
- * in place and becomes part of the constructed object. It is not cloned.
- * If no data is provided, the constructed object will be empty, but still
- * valid.
- * @extends {jspb.Message}
- * @constructor
- */
-proto.com.opensource.svga.ShapeEntity.EllipseArgs = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
-};
-goog.inherits(proto.com.opensource.svga.ShapeEntity.EllipseArgs, jspb.Message);
-if (goog.DEBUG && !COMPILED) {
-  proto.com.opensource.svga.ShapeEntity.EllipseArgs.displayName = 'proto.com.opensource.svga.ShapeEntity.EllipseArgs';
-}
-
-
-if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto suitable for use in Soy templates.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
- * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
- *     for transitional soy proto support: http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.com.opensource.svga.ShapeEntity.EllipseArgs.prototype.toObject = function(opt_includeInstance) {
-  return proto.com.opensource.svga.ShapeEntity.EllipseArgs.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Whether to include the JSPB
- *     instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.com.opensource.svga.ShapeEntity.EllipseArgs} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.com.opensource.svga.ShapeEntity.EllipseArgs.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    x: +jspb.Message.getFieldWithDefault(msg, 1, 0.0),
-    y: +jspb.Message.getFieldWithDefault(msg, 2, 0.0),
-    radiusx: +jspb.Message.getFieldWithDefault(msg, 3, 0.0),
-    radiusy: +jspb.Message.getFieldWithDefault(msg, 4, 0.0)
-  };
-
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
-
-
-/**
- * Deserializes binary data (in protobuf wire format).
- * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.com.opensource.svga.ShapeEntity.EllipseArgs}
- */
-proto.com.opensource.svga.ShapeEntity.EllipseArgs.deserializeBinary = function(bytes) {
-  var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.com.opensource.svga.ShapeEntity.EllipseArgs;
-  return proto.com.opensource.svga.ShapeEntity.EllipseArgs.deserializeBinaryFromReader(msg, reader);
-};
-
-
-/**
- * Deserializes binary data (in protobuf wire format) from the
- * given reader into the given message object.
- * @param {!proto.com.opensource.svga.ShapeEntity.EllipseArgs} msg The message object to deserialize into.
- * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.com.opensource.svga.ShapeEntity.EllipseArgs}
- */
-proto.com.opensource.svga.ShapeEntity.EllipseArgs.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
-    }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    case 1:
-      var value = /** @type {number} */ (reader.readFloat());
-      msg.setX(value);
-      break;
-    case 2:
-      var value = /** @type {number} */ (reader.readFloat());
-      msg.setY(value);
-      break;
-    case 3:
-      var value = /** @type {number} */ (reader.readFloat());
-      msg.setRadiusx(value);
-      break;
-    case 4:
-      var value = /** @type {number} */ (reader.readFloat());
-      msg.setRadiusy(value);
-      break;
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
-};
-
-
-/**
- * Serializes the message to binary data (in protobuf wire format).
- * @return {!Uint8Array}
- */
-proto.com.opensource.svga.ShapeEntity.EllipseArgs.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.com.opensource.svga.ShapeEntity.EllipseArgs.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
-};
-
-
-/**
- * Serializes the given message to binary data (in protobuf wire
- * format), writing to the given BinaryWriter.
- * @param {!proto.com.opensource.svga.ShapeEntity.EllipseArgs} message
- * @param {!jspb.BinaryWriter} writer
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.com.opensource.svga.ShapeEntity.EllipseArgs.serializeBinaryToWriter = function(message, writer) {
-  var f = undefined;
-  f = message.getX();
-  if (f !== 0.0) {
-    writer.writeFloat(
-      1,
-      f
-    );
-  }
-  f = message.getY();
-  if (f !== 0.0) {
-    writer.writeFloat(
-      2,
-      f
-    );
-  }
-  f = message.getRadiusx();
-  if (f !== 0.0) {
-    writer.writeFloat(
-      3,
-      f
-    );
-  }
-  f = message.getRadiusy();
-  if (f !== 0.0) {
-    writer.writeFloat(
-      4,
-      f
-    );
-  }
-};
-
-
-/**
- * optional float x = 1;
- * @return {number}
- */
-proto.com.opensource.svga.ShapeEntity.EllipseArgs.prototype.getX = function() {
-  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 1, 0.0));
-};
-
-
-/** @param {number} value */
-proto.com.opensource.svga.ShapeEntity.EllipseArgs.prototype.setX = function(value) {
-  jspb.Message.setProto3FloatField(this, 1, value);
-};
-
-
-/**
- * optional float y = 2;
- * @return {number}
- */
-proto.com.opensource.svga.ShapeEntity.EllipseArgs.prototype.getY = function() {
-  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 2, 0.0));
-};
-
-
-/** @param {number} value */
-proto.com.opensource.svga.ShapeEntity.EllipseArgs.prototype.setY = function(value) {
-  jspb.Message.setProto3FloatField(this, 2, value);
-};
-
-
-/**
- * optional float radiusX = 3;
- * @return {number}
- */
-proto.com.opensource.svga.ShapeEntity.EllipseArgs.prototype.getRadiusx = function() {
-  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 3, 0.0));
-};
-
-
-/** @param {number} value */
-proto.com.opensource.svga.ShapeEntity.EllipseArgs.prototype.setRadiusx = function(value) {
-  jspb.Message.setProto3FloatField(this, 3, value);
-};
-
-
-/**
- * optional float radiusY = 4;
- * @return {number}
- */
-proto.com.opensource.svga.ShapeEntity.EllipseArgs.prototype.getRadiusy = function() {
-  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 4, 0.0));
-};
-
-
-/** @param {number} value */
-proto.com.opensource.svga.ShapeEntity.EllipseArgs.prototype.setRadiusy = function(value) {
-  jspb.Message.setProto3FloatField(this, 4, value);
-};
-
-
-
-/**
- * Generated by JsPbCodeGenerator.
- * @param {Array=} opt_data Optional initial data array, typically from a
- * server response, or constructed directly in Javascript. The array is used
- * in place and becomes part of the constructed object. It is not cloned.
- * If no data is provided, the constructed object will be empty, but still
- * valid.
- * @extends {jspb.Message}
- * @constructor
- */
-proto.com.opensource.svga.ShapeEntity.ShapeStyle = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
-};
-goog.inherits(proto.com.opensource.svga.ShapeEntity.ShapeStyle, jspb.Message);
-if (goog.DEBUG && !COMPILED) {
-  proto.com.opensource.svga.ShapeEntity.ShapeStyle.displayName = 'proto.com.opensource.svga.ShapeEntity.ShapeStyle';
-}
-
-
-if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto suitable for use in Soy templates.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
- * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
- *     for transitional soy proto support: http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.com.opensource.svga.ShapeEntity.ShapeStyle.prototype.toObject = function(opt_includeInstance) {
-  return proto.com.opensource.svga.ShapeEntity.ShapeStyle.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Whether to include the JSPB
- *     instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.com.opensource.svga.ShapeEntity.ShapeStyle} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.com.opensource.svga.ShapeEntity.ShapeStyle.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    fill: (f = msg.getFill()) && proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor.toObject(includeInstance, f),
-    stroke: (f = msg.getStroke()) && proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor.toObject(includeInstance, f),
-    strokewidth: +jspb.Message.getFieldWithDefault(msg, 3, 0.0),
-    linecap: jspb.Message.getFieldWithDefault(msg, 4, 0),
-    linejoin: jspb.Message.getFieldWithDefault(msg, 5, 0),
-    miterlimit: +jspb.Message.getFieldWithDefault(msg, 6, 0.0),
-    linedashi: +jspb.Message.getFieldWithDefault(msg, 7, 0.0),
-    linedashii: +jspb.Message.getFieldWithDefault(msg, 8, 0.0),
-    linedashiii: +jspb.Message.getFieldWithDefault(msg, 9, 0.0)
-  };
-
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
-
-
-/**
- * Deserializes binary data (in protobuf wire format).
- * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.com.opensource.svga.ShapeEntity.ShapeStyle}
- */
-proto.com.opensource.svga.ShapeEntity.ShapeStyle.deserializeBinary = function(bytes) {
-  var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.com.opensource.svga.ShapeEntity.ShapeStyle;
-  return proto.com.opensource.svga.ShapeEntity.ShapeStyle.deserializeBinaryFromReader(msg, reader);
-};
-
-
-/**
- * Deserializes binary data (in protobuf wire format) from the
- * given reader into the given message object.
- * @param {!proto.com.opensource.svga.ShapeEntity.ShapeStyle} msg The message object to deserialize into.
- * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.com.opensource.svga.ShapeEntity.ShapeStyle}
- */
-proto.com.opensource.svga.ShapeEntity.ShapeStyle.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
-    }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    case 1:
-      var value = new proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor;
-      reader.readMessage(value,proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor.deserializeBinaryFromReader);
-      msg.setFill(value);
-      break;
-    case 2:
-      var value = new proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor;
-      reader.readMessage(value,proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor.deserializeBinaryFromReader);
-      msg.setStroke(value);
-      break;
-    case 3:
-      var value = /** @type {number} */ (reader.readFloat());
-      msg.setStrokewidth(value);
-      break;
-    case 4:
-      var value = /** @type {!proto.com.opensource.svga.ShapeEntity.ShapeStyle.LineCap} */ (reader.readEnum());
-      msg.setLinecap(value);
-      break;
-    case 5:
-      var value = /** @type {!proto.com.opensource.svga.ShapeEntity.ShapeStyle.LineJoin} */ (reader.readEnum());
-      msg.setLinejoin(value);
-      break;
-    case 6:
-      var value = /** @type {number} */ (reader.readFloat());
-      msg.setMiterlimit(value);
-      break;
-    case 7:
-      var value = /** @type {number} */ (reader.readFloat());
-      msg.setLinedashi(value);
-      break;
-    case 8:
-      var value = /** @type {number} */ (reader.readFloat());
-      msg.setLinedashii(value);
-      break;
-    case 9:
-      var value = /** @type {number} */ (reader.readFloat());
-      msg.setLinedashiii(value);
-      break;
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
-};
-
-
-/**
- * Serializes the message to binary data (in protobuf wire format).
- * @return {!Uint8Array}
- */
-proto.com.opensource.svga.ShapeEntity.ShapeStyle.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.com.opensource.svga.ShapeEntity.ShapeStyle.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
-};
-
-
-/**
- * Serializes the given message to binary data (in protobuf wire
- * format), writing to the given BinaryWriter.
- * @param {!proto.com.opensource.svga.ShapeEntity.ShapeStyle} message
- * @param {!jspb.BinaryWriter} writer
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.com.opensource.svga.ShapeEntity.ShapeStyle.serializeBinaryToWriter = function(message, writer) {
-  var f = undefined;
-  f = message.getFill();
-  if (f != null) {
-    writer.writeMessage(
-      1,
-      f,
-      proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor.serializeBinaryToWriter
-    );
-  }
-  f = message.getStroke();
-  if (f != null) {
-    writer.writeMessage(
-      2,
-      f,
-      proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor.serializeBinaryToWriter
-    );
-  }
-  f = message.getStrokewidth();
-  if (f !== 0.0) {
-    writer.writeFloat(
-      3,
-      f
-    );
-  }
-  f = message.getLinecap();
-  if (f !== 0.0) {
-    writer.writeEnum(
-      4,
-      f
-    );
-  }
-  f = message.getLinejoin();
-  if (f !== 0.0) {
-    writer.writeEnum(
-      5,
-      f
-    );
-  }
-  f = message.getMiterlimit();
-  if (f !== 0.0) {
-    writer.writeFloat(
-      6,
-      f
-    );
-  }
-  f = message.getLinedashi();
-  if (f !== 0.0) {
-    writer.writeFloat(
-      7,
-      f
-    );
-  }
-  f = message.getLinedashii();
-  if (f !== 0.0) {
-    writer.writeFloat(
-      8,
-      f
-    );
-  }
-  f = message.getLinedashiii();
-  if (f !== 0.0) {
-    writer.writeFloat(
-      9,
-      f
-    );
-  }
-};
-
-
-/**
- * @enum {number}
- */
-proto.com.opensource.svga.ShapeEntity.ShapeStyle.LineCap = {
-  LINECAP_BUTT: 0,
-  LINECAP_ROUND: 1,
-  LINECAP_SQUARE: 2
-};
-
-/**
- * @enum {number}
- */
-proto.com.opensource.svga.ShapeEntity.ShapeStyle.LineJoin = {
-  LINEJOIN_MITER: 0,
-  LINEJOIN_ROUND: 1,
-  LINEJOIN_BEVEL: 2
-};
-
-
-/**
- * Generated by JsPbCodeGenerator.
- * @param {Array=} opt_data Optional initial data array, typically from a
- * server response, or constructed directly in Javascript. The array is used
- * in place and becomes part of the constructed object. It is not cloned.
- * If no data is provided, the constructed object will be empty, but still
- * valid.
- * @extends {jspb.Message}
- * @constructor
- */
-proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
-};
-goog.inherits(proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor, jspb.Message);
-if (goog.DEBUG && !COMPILED) {
-  proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor.displayName = 'proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor';
-}
-
-
-if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto suitable for use in Soy templates.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
- * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
- *     for transitional soy proto support: http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor.prototype.toObject = function(opt_includeInstance) {
-  return proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Whether to include the JSPB
- *     instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    r: +jspb.Message.getFieldWithDefault(msg, 1, 0.0),
-    g: +jspb.Message.getFieldWithDefault(msg, 2, 0.0),
-    b: +jspb.Message.getFieldWithDefault(msg, 3, 0.0),
-    a: +jspb.Message.getFieldWithDefault(msg, 4, 0.0)
-  };
-
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
-
-
-/**
- * Deserializes binary data (in protobuf wire format).
- * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor}
- */
-proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor.deserializeBinary = function(bytes) {
-  var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor;
-  return proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor.deserializeBinaryFromReader(msg, reader);
-};
-
-
-/**
- * Deserializes binary data (in protobuf wire format) from the
- * given reader into the given message object.
- * @param {!proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor} msg The message object to deserialize into.
- * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor}
- */
-proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
-    }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    case 1:
-      var value = /** @type {number} */ (reader.readFloat());
-      msg.setR(value);
-      break;
-    case 2:
-      var value = /** @type {number} */ (reader.readFloat());
-      msg.setG(value);
-      break;
-    case 3:
-      var value = /** @type {number} */ (reader.readFloat());
-      msg.setB(value);
-      break;
-    case 4:
-      var value = /** @type {number} */ (reader.readFloat());
-      msg.setA(value);
-      break;
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
-};
-
-
-/**
- * Serializes the message to binary data (in protobuf wire format).
- * @return {!Uint8Array}
- */
-proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
-};
-
-
-/**
- * Serializes the given message to binary data (in protobuf wire
- * format), writing to the given BinaryWriter.
- * @param {!proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor} message
- * @param {!jspb.BinaryWriter} writer
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor.serializeBinaryToWriter = function(message, writer) {
-  var f = undefined;
-  f = message.getR();
-  if (f !== 0.0) {
-    writer.writeFloat(
-      1,
-      f
-    );
-  }
-  f = message.getG();
-  if (f !== 0.0) {
-    writer.writeFloat(
-      2,
-      f
-    );
-  }
-  f = message.getB();
-  if (f !== 0.0) {
-    writer.writeFloat(
-      3,
-      f
-    );
-  }
-  f = message.getA();
-  if (f !== 0.0) {
-    writer.writeFloat(
-      4,
-      f
-    );
-  }
-};
-
-
-/**
- * optional float r = 1;
- * @return {number}
- */
-proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor.prototype.getR = function() {
-  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 1, 0.0));
-};
-
-
-/** @param {number} value */
-proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor.prototype.setR = function(value) {
-  jspb.Message.setProto3FloatField(this, 1, value);
-};
-
-
-/**
- * optional float g = 2;
- * @return {number}
- */
-proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor.prototype.getG = function() {
-  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 2, 0.0));
-};
-
-
-/** @param {number} value */
-proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor.prototype.setG = function(value) {
-  jspb.Message.setProto3FloatField(this, 2, value);
-};
-
-
-/**
- * optional float b = 3;
- * @return {number}
- */
-proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor.prototype.getB = function() {
-  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 3, 0.0));
-};
-
-
-/** @param {number} value */
-proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor.prototype.setB = function(value) {
-  jspb.Message.setProto3FloatField(this, 3, value);
-};
-
-
-/**
- * optional float a = 4;
- * @return {number}
- */
-proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor.prototype.getA = function() {
-  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 4, 0.0));
-};
-
-
-/** @param {number} value */
-proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor.prototype.setA = function(value) {
-  jspb.Message.setProto3FloatField(this, 4, value);
-};
-
-
-/**
- * optional RGBAColor fill = 1;
- * @return {?proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor}
- */
-proto.com.opensource.svga.ShapeEntity.ShapeStyle.prototype.getFill = function() {
-  return /** @type{?proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor} */ (
-    jspb.Message.getWrapperField(this, proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor, 1));
-};
-
-
-/** @param {?proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor|undefined} value */
-proto.com.opensource.svga.ShapeEntity.ShapeStyle.prototype.setFill = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
-};
-
-
-proto.com.opensource.svga.ShapeEntity.ShapeStyle.prototype.clearFill = function() {
-  this.setFill(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {!boolean}
- */
-proto.com.opensource.svga.ShapeEntity.ShapeStyle.prototype.hasFill = function() {
-  return jspb.Message.getField(this, 1) != null;
-};
-
-
-/**
- * optional RGBAColor stroke = 2;
- * @return {?proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor}
- */
-proto.com.opensource.svga.ShapeEntity.ShapeStyle.prototype.getStroke = function() {
-  return /** @type{?proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor} */ (
-    jspb.Message.getWrapperField(this, proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor, 2));
-};
-
-
-/** @param {?proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor|undefined} value */
-proto.com.opensource.svga.ShapeEntity.ShapeStyle.prototype.setStroke = function(value) {
-  jspb.Message.setWrapperField(this, 2, value);
-};
-
-
-proto.com.opensource.svga.ShapeEntity.ShapeStyle.prototype.clearStroke = function() {
-  this.setStroke(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {!boolean}
- */
-proto.com.opensource.svga.ShapeEntity.ShapeStyle.prototype.hasStroke = function() {
-  return jspb.Message.getField(this, 2) != null;
-};
-
-
-/**
- * optional float strokeWidth = 3;
- * @return {number}
- */
-proto.com.opensource.svga.ShapeEntity.ShapeStyle.prototype.getStrokewidth = function() {
-  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 3, 0.0));
-};
-
-
-/** @param {number} value */
-proto.com.opensource.svga.ShapeEntity.ShapeStyle.prototype.setStrokewidth = function(value) {
-  jspb.Message.setProto3FloatField(this, 3, value);
-};
-
-
-/**
- * optional LineCap lineCap = 4;
- * @return {!proto.com.opensource.svga.ShapeEntity.ShapeStyle.LineCap}
- */
-proto.com.opensource.svga.ShapeEntity.ShapeStyle.prototype.getLinecap = function() {
-  return /** @type {!proto.com.opensource.svga.ShapeEntity.ShapeStyle.LineCap} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
-};
-
-
-/** @param {!proto.com.opensource.svga.ShapeEntity.ShapeStyle.LineCap} value */
-proto.com.opensource.svga.ShapeEntity.ShapeStyle.prototype.setLinecap = function(value) {
-  jspb.Message.setProto3EnumField(this, 4, value);
-};
-
-
-/**
- * optional LineJoin lineJoin = 5;
- * @return {!proto.com.opensource.svga.ShapeEntity.ShapeStyle.LineJoin}
- */
-proto.com.opensource.svga.ShapeEntity.ShapeStyle.prototype.getLinejoin = function() {
-  return /** @type {!proto.com.opensource.svga.ShapeEntity.ShapeStyle.LineJoin} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
-};
-
-
-/** @param {!proto.com.opensource.svga.ShapeEntity.ShapeStyle.LineJoin} value */
-proto.com.opensource.svga.ShapeEntity.ShapeStyle.prototype.setLinejoin = function(value) {
-  jspb.Message.setProto3EnumField(this, 5, value);
-};
-
-
-/**
- * optional float miterLimit = 6;
- * @return {number}
- */
-proto.com.opensource.svga.ShapeEntity.ShapeStyle.prototype.getMiterlimit = function() {
-  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 6, 0.0));
-};
-
-
-/** @param {number} value */
-proto.com.opensource.svga.ShapeEntity.ShapeStyle.prototype.setMiterlimit = function(value) {
-  jspb.Message.setProto3FloatField(this, 6, value);
-};
-
-
-/**
- * optional float lineDashI = 7;
- * @return {number}
- */
-proto.com.opensource.svga.ShapeEntity.ShapeStyle.prototype.getLinedashi = function() {
-  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 7, 0.0));
-};
-
-
-/** @param {number} value */
-proto.com.opensource.svga.ShapeEntity.ShapeStyle.prototype.setLinedashi = function(value) {
-  jspb.Message.setProto3FloatField(this, 7, value);
-};
-
-
-/**
- * optional float lineDashII = 8;
- * @return {number}
- */
-proto.com.opensource.svga.ShapeEntity.ShapeStyle.prototype.getLinedashii = function() {
-  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 8, 0.0));
-};
-
-
-/** @param {number} value */
-proto.com.opensource.svga.ShapeEntity.ShapeStyle.prototype.setLinedashii = function(value) {
-  jspb.Message.setProto3FloatField(this, 8, value);
-};
-
-
-/**
- * optional float lineDashIII = 9;
- * @return {number}
- */
-proto.com.opensource.svga.ShapeEntity.ShapeStyle.prototype.getLinedashiii = function() {
-  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 9, 0.0));
-};
-
-
-/** @param {number} value */
-proto.com.opensource.svga.ShapeEntity.ShapeStyle.prototype.setLinedashiii = function(value) {
-  jspb.Message.setProto3FloatField(this, 9, value);
 };
 
 
@@ -2688,7 +1505,7 @@ proto.com.opensource.svga.ShapeEntity.prototype.getType = function() {
 
 /** @param {!proto.com.opensource.svga.ShapeEntity.ShapeType} value */
 proto.com.opensource.svga.ShapeEntity.prototype.setType = function(value) {
-  jspb.Message.setProto3EnumField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -2842,6 +1659,1304 @@ proto.com.opensource.svga.ShapeEntity.prototype.hasTransform = function() {
 };
 
 
+/**
+ * @enum {number}
+ */
+proto.com.opensource.svga.ShapeEntity.ShapeType = {
+  SHAPE: 0,
+  RECT: 1,
+  ELLIPSE: 2,
+  KEEP: 3
+};
+
+
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.com.opensource.svga.ShapeEntity.ShapeArgs = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.com.opensource.svga.ShapeEntity.ShapeArgs, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  proto.com.opensource.svga.ShapeEntity.ShapeArgs.displayName = 'proto.com.opensource.svga.ShapeEntity.ShapeArgs';
+}
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto suitable for use in Soy templates.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+ * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+ *     for transitional soy proto support: http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.com.opensource.svga.ShapeEntity.ShapeArgs.prototype.toObject = function(opt_includeInstance) {
+  return proto.com.opensource.svga.ShapeEntity.ShapeArgs.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Whether to include the JSPB
+ *     instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.com.opensource.svga.ShapeEntity.ShapeArgs} msg The msg instance to transform.
+ * @return {!Object}
+ */
+proto.com.opensource.svga.ShapeEntity.ShapeArgs.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    d: jspb.Message.getFieldWithDefault(msg, 1, "")
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.com.opensource.svga.ShapeEntity.ShapeArgs}
+ */
+proto.com.opensource.svga.ShapeEntity.ShapeArgs.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.com.opensource.svga.ShapeEntity.ShapeArgs;
+  return proto.com.opensource.svga.ShapeEntity.ShapeArgs.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.com.opensource.svga.ShapeEntity.ShapeArgs} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.com.opensource.svga.ShapeEntity.ShapeArgs}
+ */
+proto.com.opensource.svga.ShapeEntity.ShapeArgs.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setD(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Class method variant: serializes the given message to binary data
+ * (in protobuf wire format), writing to the given BinaryWriter.
+ * @param {!proto.com.opensource.svga.ShapeEntity.ShapeArgs} message
+ * @param {!jspb.BinaryWriter} writer
+ */
+proto.com.opensource.svga.ShapeEntity.ShapeArgs.serializeBinaryToWriter = function(message, writer) {
+  message.serializeBinaryToWriter(writer);
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.com.opensource.svga.ShapeEntity.ShapeArgs.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  this.serializeBinaryToWriter(writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format),
+ * writing to the given BinaryWriter.
+ * @param {!jspb.BinaryWriter} writer
+ */
+proto.com.opensource.svga.ShapeEntity.ShapeArgs.prototype.serializeBinaryToWriter = function (writer) {
+  var f = undefined;
+  f = this.getD();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string d = 1;
+ * @return {string}
+ */
+proto.com.opensource.svga.ShapeEntity.ShapeArgs.prototype.getD = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/** @param {string} value */
+proto.com.opensource.svga.ShapeEntity.ShapeArgs.prototype.setD = function(value) {
+  jspb.Message.setField(this, 1, value);
+};
+
+
+
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.com.opensource.svga.ShapeEntity.RectArgs = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.com.opensource.svga.ShapeEntity.RectArgs, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  proto.com.opensource.svga.ShapeEntity.RectArgs.displayName = 'proto.com.opensource.svga.ShapeEntity.RectArgs';
+}
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto suitable for use in Soy templates.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+ * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+ *     for transitional soy proto support: http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.com.opensource.svga.ShapeEntity.RectArgs.prototype.toObject = function(opt_includeInstance) {
+  return proto.com.opensource.svga.ShapeEntity.RectArgs.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Whether to include the JSPB
+ *     instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.com.opensource.svga.ShapeEntity.RectArgs} msg The msg instance to transform.
+ * @return {!Object}
+ */
+proto.com.opensource.svga.ShapeEntity.RectArgs.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    x: +jspb.Message.getFieldWithDefault(msg, 1, 0.0),
+    y: +jspb.Message.getFieldWithDefault(msg, 2, 0.0),
+    width: +jspb.Message.getFieldWithDefault(msg, 3, 0.0),
+    height: +jspb.Message.getFieldWithDefault(msg, 4, 0.0),
+    cornerradius: +jspb.Message.getFieldWithDefault(msg, 5, 0.0)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.com.opensource.svga.ShapeEntity.RectArgs}
+ */
+proto.com.opensource.svga.ShapeEntity.RectArgs.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.com.opensource.svga.ShapeEntity.RectArgs;
+  return proto.com.opensource.svga.ShapeEntity.RectArgs.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.com.opensource.svga.ShapeEntity.RectArgs} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.com.opensource.svga.ShapeEntity.RectArgs}
+ */
+proto.com.opensource.svga.ShapeEntity.RectArgs.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {number} */ (reader.readFloat());
+      msg.setX(value);
+      break;
+    case 2:
+      var value = /** @type {number} */ (reader.readFloat());
+      msg.setY(value);
+      break;
+    case 3:
+      var value = /** @type {number} */ (reader.readFloat());
+      msg.setWidth(value);
+      break;
+    case 4:
+      var value = /** @type {number} */ (reader.readFloat());
+      msg.setHeight(value);
+      break;
+    case 5:
+      var value = /** @type {number} */ (reader.readFloat());
+      msg.setCornerradius(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Class method variant: serializes the given message to binary data
+ * (in protobuf wire format), writing to the given BinaryWriter.
+ * @param {!proto.com.opensource.svga.ShapeEntity.RectArgs} message
+ * @param {!jspb.BinaryWriter} writer
+ */
+proto.com.opensource.svga.ShapeEntity.RectArgs.serializeBinaryToWriter = function(message, writer) {
+  message.serializeBinaryToWriter(writer);
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.com.opensource.svga.ShapeEntity.RectArgs.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  this.serializeBinaryToWriter(writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format),
+ * writing to the given BinaryWriter.
+ * @param {!jspb.BinaryWriter} writer
+ */
+proto.com.opensource.svga.ShapeEntity.RectArgs.prototype.serializeBinaryToWriter = function (writer) {
+  var f = undefined;
+  f = this.getX();
+  if (f !== 0.0) {
+    writer.writeFloat(
+      1,
+      f
+    );
+  }
+  f = this.getY();
+  if (f !== 0.0) {
+    writer.writeFloat(
+      2,
+      f
+    );
+  }
+  f = this.getWidth();
+  if (f !== 0.0) {
+    writer.writeFloat(
+      3,
+      f
+    );
+  }
+  f = this.getHeight();
+  if (f !== 0.0) {
+    writer.writeFloat(
+      4,
+      f
+    );
+  }
+  f = this.getCornerradius();
+  if (f !== 0.0) {
+    writer.writeFloat(
+      5,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional float x = 1;
+ * @return {number}
+ */
+proto.com.opensource.svga.ShapeEntity.RectArgs.prototype.getX = function() {
+  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 1, 0.0));
+};
+
+
+/** @param {number} value */
+proto.com.opensource.svga.ShapeEntity.RectArgs.prototype.setX = function(value) {
+  jspb.Message.setField(this, 1, value);
+};
+
+
+/**
+ * optional float y = 2;
+ * @return {number}
+ */
+proto.com.opensource.svga.ShapeEntity.RectArgs.prototype.getY = function() {
+  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 2, 0.0));
+};
+
+
+/** @param {number} value */
+proto.com.opensource.svga.ShapeEntity.RectArgs.prototype.setY = function(value) {
+  jspb.Message.setField(this, 2, value);
+};
+
+
+/**
+ * optional float width = 3;
+ * @return {number}
+ */
+proto.com.opensource.svga.ShapeEntity.RectArgs.prototype.getWidth = function() {
+  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 3, 0.0));
+};
+
+
+/** @param {number} value */
+proto.com.opensource.svga.ShapeEntity.RectArgs.prototype.setWidth = function(value) {
+  jspb.Message.setField(this, 3, value);
+};
+
+
+/**
+ * optional float height = 4;
+ * @return {number}
+ */
+proto.com.opensource.svga.ShapeEntity.RectArgs.prototype.getHeight = function() {
+  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 4, 0.0));
+};
+
+
+/** @param {number} value */
+proto.com.opensource.svga.ShapeEntity.RectArgs.prototype.setHeight = function(value) {
+  jspb.Message.setField(this, 4, value);
+};
+
+
+/**
+ * optional float cornerRadius = 5;
+ * @return {number}
+ */
+proto.com.opensource.svga.ShapeEntity.RectArgs.prototype.getCornerradius = function() {
+  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 5, 0.0));
+};
+
+
+/** @param {number} value */
+proto.com.opensource.svga.ShapeEntity.RectArgs.prototype.setCornerradius = function(value) {
+  jspb.Message.setField(this, 5, value);
+};
+
+
+
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.com.opensource.svga.ShapeEntity.EllipseArgs = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.com.opensource.svga.ShapeEntity.EllipseArgs, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  proto.com.opensource.svga.ShapeEntity.EllipseArgs.displayName = 'proto.com.opensource.svga.ShapeEntity.EllipseArgs';
+}
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto suitable for use in Soy templates.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+ * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+ *     for transitional soy proto support: http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.com.opensource.svga.ShapeEntity.EllipseArgs.prototype.toObject = function(opt_includeInstance) {
+  return proto.com.opensource.svga.ShapeEntity.EllipseArgs.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Whether to include the JSPB
+ *     instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.com.opensource.svga.ShapeEntity.EllipseArgs} msg The msg instance to transform.
+ * @return {!Object}
+ */
+proto.com.opensource.svga.ShapeEntity.EllipseArgs.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    x: +jspb.Message.getFieldWithDefault(msg, 1, 0.0),
+    y: +jspb.Message.getFieldWithDefault(msg, 2, 0.0),
+    radiusx: +jspb.Message.getFieldWithDefault(msg, 3, 0.0),
+    radiusy: +jspb.Message.getFieldWithDefault(msg, 4, 0.0)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.com.opensource.svga.ShapeEntity.EllipseArgs}
+ */
+proto.com.opensource.svga.ShapeEntity.EllipseArgs.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.com.opensource.svga.ShapeEntity.EllipseArgs;
+  return proto.com.opensource.svga.ShapeEntity.EllipseArgs.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.com.opensource.svga.ShapeEntity.EllipseArgs} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.com.opensource.svga.ShapeEntity.EllipseArgs}
+ */
+proto.com.opensource.svga.ShapeEntity.EllipseArgs.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {number} */ (reader.readFloat());
+      msg.setX(value);
+      break;
+    case 2:
+      var value = /** @type {number} */ (reader.readFloat());
+      msg.setY(value);
+      break;
+    case 3:
+      var value = /** @type {number} */ (reader.readFloat());
+      msg.setRadiusx(value);
+      break;
+    case 4:
+      var value = /** @type {number} */ (reader.readFloat());
+      msg.setRadiusy(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Class method variant: serializes the given message to binary data
+ * (in protobuf wire format), writing to the given BinaryWriter.
+ * @param {!proto.com.opensource.svga.ShapeEntity.EllipseArgs} message
+ * @param {!jspb.BinaryWriter} writer
+ */
+proto.com.opensource.svga.ShapeEntity.EllipseArgs.serializeBinaryToWriter = function(message, writer) {
+  message.serializeBinaryToWriter(writer);
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.com.opensource.svga.ShapeEntity.EllipseArgs.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  this.serializeBinaryToWriter(writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format),
+ * writing to the given BinaryWriter.
+ * @param {!jspb.BinaryWriter} writer
+ */
+proto.com.opensource.svga.ShapeEntity.EllipseArgs.prototype.serializeBinaryToWriter = function (writer) {
+  var f = undefined;
+  f = this.getX();
+  if (f !== 0.0) {
+    writer.writeFloat(
+      1,
+      f
+    );
+  }
+  f = this.getY();
+  if (f !== 0.0) {
+    writer.writeFloat(
+      2,
+      f
+    );
+  }
+  f = this.getRadiusx();
+  if (f !== 0.0) {
+    writer.writeFloat(
+      3,
+      f
+    );
+  }
+  f = this.getRadiusy();
+  if (f !== 0.0) {
+    writer.writeFloat(
+      4,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional float x = 1;
+ * @return {number}
+ */
+proto.com.opensource.svga.ShapeEntity.EllipseArgs.prototype.getX = function() {
+  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 1, 0.0));
+};
+
+
+/** @param {number} value */
+proto.com.opensource.svga.ShapeEntity.EllipseArgs.prototype.setX = function(value) {
+  jspb.Message.setField(this, 1, value);
+};
+
+
+/**
+ * optional float y = 2;
+ * @return {number}
+ */
+proto.com.opensource.svga.ShapeEntity.EllipseArgs.prototype.getY = function() {
+  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 2, 0.0));
+};
+
+
+/** @param {number} value */
+proto.com.opensource.svga.ShapeEntity.EllipseArgs.prototype.setY = function(value) {
+  jspb.Message.setField(this, 2, value);
+};
+
+
+/**
+ * optional float radiusX = 3;
+ * @return {number}
+ */
+proto.com.opensource.svga.ShapeEntity.EllipseArgs.prototype.getRadiusx = function() {
+  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 3, 0.0));
+};
+
+
+/** @param {number} value */
+proto.com.opensource.svga.ShapeEntity.EllipseArgs.prototype.setRadiusx = function(value) {
+  jspb.Message.setField(this, 3, value);
+};
+
+
+/**
+ * optional float radiusY = 4;
+ * @return {number}
+ */
+proto.com.opensource.svga.ShapeEntity.EllipseArgs.prototype.getRadiusy = function() {
+  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 4, 0.0));
+};
+
+
+/** @param {number} value */
+proto.com.opensource.svga.ShapeEntity.EllipseArgs.prototype.setRadiusy = function(value) {
+  jspb.Message.setField(this, 4, value);
+};
+
+
+
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.com.opensource.svga.ShapeEntity.ShapeStyle = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.com.opensource.svga.ShapeEntity.ShapeStyle, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  proto.com.opensource.svga.ShapeEntity.ShapeStyle.displayName = 'proto.com.opensource.svga.ShapeEntity.ShapeStyle';
+}
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto suitable for use in Soy templates.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+ * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+ *     for transitional soy proto support: http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.com.opensource.svga.ShapeEntity.ShapeStyle.prototype.toObject = function(opt_includeInstance) {
+  return proto.com.opensource.svga.ShapeEntity.ShapeStyle.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Whether to include the JSPB
+ *     instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.com.opensource.svga.ShapeEntity.ShapeStyle} msg The msg instance to transform.
+ * @return {!Object}
+ */
+proto.com.opensource.svga.ShapeEntity.ShapeStyle.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    fill: (f = msg.getFill()) && proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor.toObject(includeInstance, f),
+    stroke: (f = msg.getStroke()) && proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor.toObject(includeInstance, f),
+    strokewidth: +jspb.Message.getFieldWithDefault(msg, 3, 0.0),
+    linecap: jspb.Message.getFieldWithDefault(msg, 4, 0),
+    linejoin: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    miterlimit: +jspb.Message.getFieldWithDefault(msg, 6, 0.0),
+    linedashi: +jspb.Message.getFieldWithDefault(msg, 7, 0.0),
+    linedashii: +jspb.Message.getFieldWithDefault(msg, 8, 0.0),
+    linedashiii: +jspb.Message.getFieldWithDefault(msg, 9, 0.0)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.com.opensource.svga.ShapeEntity.ShapeStyle}
+ */
+proto.com.opensource.svga.ShapeEntity.ShapeStyle.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.com.opensource.svga.ShapeEntity.ShapeStyle;
+  return proto.com.opensource.svga.ShapeEntity.ShapeStyle.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.com.opensource.svga.ShapeEntity.ShapeStyle} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.com.opensource.svga.ShapeEntity.ShapeStyle}
+ */
+proto.com.opensource.svga.ShapeEntity.ShapeStyle.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = new proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor;
+      reader.readMessage(value,proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor.deserializeBinaryFromReader);
+      msg.setFill(value);
+      break;
+    case 2:
+      var value = new proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor;
+      reader.readMessage(value,proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor.deserializeBinaryFromReader);
+      msg.setStroke(value);
+      break;
+    case 3:
+      var value = /** @type {number} */ (reader.readFloat());
+      msg.setStrokewidth(value);
+      break;
+    case 4:
+      var value = /** @type {!proto.com.opensource.svga.ShapeEntity.ShapeStyle.LineCap} */ (reader.readEnum());
+      msg.setLinecap(value);
+      break;
+    case 5:
+      var value = /** @type {!proto.com.opensource.svga.ShapeEntity.ShapeStyle.LineJoin} */ (reader.readEnum());
+      msg.setLinejoin(value);
+      break;
+    case 6:
+      var value = /** @type {number} */ (reader.readFloat());
+      msg.setMiterlimit(value);
+      break;
+    case 7:
+      var value = /** @type {number} */ (reader.readFloat());
+      msg.setLinedashi(value);
+      break;
+    case 8:
+      var value = /** @type {number} */ (reader.readFloat());
+      msg.setLinedashii(value);
+      break;
+    case 9:
+      var value = /** @type {number} */ (reader.readFloat());
+      msg.setLinedashiii(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Class method variant: serializes the given message to binary data
+ * (in protobuf wire format), writing to the given BinaryWriter.
+ * @param {!proto.com.opensource.svga.ShapeEntity.ShapeStyle} message
+ * @param {!jspb.BinaryWriter} writer
+ */
+proto.com.opensource.svga.ShapeEntity.ShapeStyle.serializeBinaryToWriter = function(message, writer) {
+  message.serializeBinaryToWriter(writer);
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.com.opensource.svga.ShapeEntity.ShapeStyle.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  this.serializeBinaryToWriter(writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format),
+ * writing to the given BinaryWriter.
+ * @param {!jspb.BinaryWriter} writer
+ */
+proto.com.opensource.svga.ShapeEntity.ShapeStyle.prototype.serializeBinaryToWriter = function (writer) {
+  var f = undefined;
+  f = this.getFill();
+  if (f != null) {
+    writer.writeMessage(
+      1,
+      f,
+      proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor.serializeBinaryToWriter
+    );
+  }
+  f = this.getStroke();
+  if (f != null) {
+    writer.writeMessage(
+      2,
+      f,
+      proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor.serializeBinaryToWriter
+    );
+  }
+  f = this.getStrokewidth();
+  if (f !== 0.0) {
+    writer.writeFloat(
+      3,
+      f
+    );
+  }
+  f = this.getLinecap();
+  if (f !== 0.0) {
+    writer.writeEnum(
+      4,
+      f
+    );
+  }
+  f = this.getLinejoin();
+  if (f !== 0.0) {
+    writer.writeEnum(
+      5,
+      f
+    );
+  }
+  f = this.getMiterlimit();
+  if (f !== 0.0) {
+    writer.writeFloat(
+      6,
+      f
+    );
+  }
+  f = this.getLinedashi();
+  if (f !== 0.0) {
+    writer.writeFloat(
+      7,
+      f
+    );
+  }
+  f = this.getLinedashii();
+  if (f !== 0.0) {
+    writer.writeFloat(
+      8,
+      f
+    );
+  }
+  f = this.getLinedashiii();
+  if (f !== 0.0) {
+    writer.writeFloat(
+      9,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional RGBAColor fill = 1;
+ * @return {?proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor}
+ */
+proto.com.opensource.svga.ShapeEntity.ShapeStyle.prototype.getFill = function() {
+  return /** @type{?proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor} */ (
+    jspb.Message.getWrapperField(this, proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor, 1));
+};
+
+
+/** @param {?proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor|undefined} value */
+proto.com.opensource.svga.ShapeEntity.ShapeStyle.prototype.setFill = function(value) {
+  jspb.Message.setWrapperField(this, 1, value);
+};
+
+
+proto.com.opensource.svga.ShapeEntity.ShapeStyle.prototype.clearFill = function() {
+  this.setFill(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {!boolean}
+ */
+proto.com.opensource.svga.ShapeEntity.ShapeStyle.prototype.hasFill = function() {
+  return jspb.Message.getField(this, 1) != null;
+};
+
+
+/**
+ * optional RGBAColor stroke = 2;
+ * @return {?proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor}
+ */
+proto.com.opensource.svga.ShapeEntity.ShapeStyle.prototype.getStroke = function() {
+  return /** @type{?proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor} */ (
+    jspb.Message.getWrapperField(this, proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor, 2));
+};
+
+
+/** @param {?proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor|undefined} value */
+proto.com.opensource.svga.ShapeEntity.ShapeStyle.prototype.setStroke = function(value) {
+  jspb.Message.setWrapperField(this, 2, value);
+};
+
+
+proto.com.opensource.svga.ShapeEntity.ShapeStyle.prototype.clearStroke = function() {
+  this.setStroke(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {!boolean}
+ */
+proto.com.opensource.svga.ShapeEntity.ShapeStyle.prototype.hasStroke = function() {
+  return jspb.Message.getField(this, 2) != null;
+};
+
+
+/**
+ * optional float strokeWidth = 3;
+ * @return {number}
+ */
+proto.com.opensource.svga.ShapeEntity.ShapeStyle.prototype.getStrokewidth = function() {
+  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 3, 0.0));
+};
+
+
+/** @param {number} value */
+proto.com.opensource.svga.ShapeEntity.ShapeStyle.prototype.setStrokewidth = function(value) {
+  jspb.Message.setField(this, 3, value);
+};
+
+
+/**
+ * optional LineCap lineCap = 4;
+ * @return {!proto.com.opensource.svga.ShapeEntity.ShapeStyle.LineCap}
+ */
+proto.com.opensource.svga.ShapeEntity.ShapeStyle.prototype.getLinecap = function() {
+  return /** @type {!proto.com.opensource.svga.ShapeEntity.ShapeStyle.LineCap} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+};
+
+
+/** @param {!proto.com.opensource.svga.ShapeEntity.ShapeStyle.LineCap} value */
+proto.com.opensource.svga.ShapeEntity.ShapeStyle.prototype.setLinecap = function(value) {
+  jspb.Message.setField(this, 4, value);
+};
+
+
+/**
+ * optional LineJoin lineJoin = 5;
+ * @return {!proto.com.opensource.svga.ShapeEntity.ShapeStyle.LineJoin}
+ */
+proto.com.opensource.svga.ShapeEntity.ShapeStyle.prototype.getLinejoin = function() {
+  return /** @type {!proto.com.opensource.svga.ShapeEntity.ShapeStyle.LineJoin} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
+};
+
+
+/** @param {!proto.com.opensource.svga.ShapeEntity.ShapeStyle.LineJoin} value */
+proto.com.opensource.svga.ShapeEntity.ShapeStyle.prototype.setLinejoin = function(value) {
+  jspb.Message.setField(this, 5, value);
+};
+
+
+/**
+ * optional float miterLimit = 6;
+ * @return {number}
+ */
+proto.com.opensource.svga.ShapeEntity.ShapeStyle.prototype.getMiterlimit = function() {
+  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 6, 0.0));
+};
+
+
+/** @param {number} value */
+proto.com.opensource.svga.ShapeEntity.ShapeStyle.prototype.setMiterlimit = function(value) {
+  jspb.Message.setField(this, 6, value);
+};
+
+
+/**
+ * optional float lineDashI = 7;
+ * @return {number}
+ */
+proto.com.opensource.svga.ShapeEntity.ShapeStyle.prototype.getLinedashi = function() {
+  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 7, 0.0));
+};
+
+
+/** @param {number} value */
+proto.com.opensource.svga.ShapeEntity.ShapeStyle.prototype.setLinedashi = function(value) {
+  jspb.Message.setField(this, 7, value);
+};
+
+
+/**
+ * optional float lineDashII = 8;
+ * @return {number}
+ */
+proto.com.opensource.svga.ShapeEntity.ShapeStyle.prototype.getLinedashii = function() {
+  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 8, 0.0));
+};
+
+
+/** @param {number} value */
+proto.com.opensource.svga.ShapeEntity.ShapeStyle.prototype.setLinedashii = function(value) {
+  jspb.Message.setField(this, 8, value);
+};
+
+
+/**
+ * optional float lineDashIII = 9;
+ * @return {number}
+ */
+proto.com.opensource.svga.ShapeEntity.ShapeStyle.prototype.getLinedashiii = function() {
+  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 9, 0.0));
+};
+
+
+/** @param {number} value */
+proto.com.opensource.svga.ShapeEntity.ShapeStyle.prototype.setLinedashiii = function(value) {
+  jspb.Message.setField(this, 9, value);
+};
+
+
+/**
+ * @enum {number}
+ */
+proto.com.opensource.svga.ShapeEntity.ShapeStyle.LineCap = {
+  LINECAP_BUTT: 0,
+  LINECAP_ROUND: 1,
+  LINECAP_SQUARE: 2
+};
+
+/**
+ * @enum {number}
+ */
+proto.com.opensource.svga.ShapeEntity.ShapeStyle.LineJoin = {
+  LINEJOIN_MITER: 0,
+  LINEJOIN_ROUND: 1,
+  LINEJOIN_BEVEL: 2
+};
+
+
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor.displayName = 'proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor';
+}
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto suitable for use in Soy templates.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+ * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+ *     for transitional soy proto support: http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor.prototype.toObject = function(opt_includeInstance) {
+  return proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Whether to include the JSPB
+ *     instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor} msg The msg instance to transform.
+ * @return {!Object}
+ */
+proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    r: +jspb.Message.getFieldWithDefault(msg, 1, 0.0),
+    g: +jspb.Message.getFieldWithDefault(msg, 2, 0.0),
+    b: +jspb.Message.getFieldWithDefault(msg, 3, 0.0),
+    a: +jspb.Message.getFieldWithDefault(msg, 4, 0.0)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor}
+ */
+proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor;
+  return proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor}
+ */
+proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {number} */ (reader.readFloat());
+      msg.setR(value);
+      break;
+    case 2:
+      var value = /** @type {number} */ (reader.readFloat());
+      msg.setG(value);
+      break;
+    case 3:
+      var value = /** @type {number} */ (reader.readFloat());
+      msg.setB(value);
+      break;
+    case 4:
+      var value = /** @type {number} */ (reader.readFloat());
+      msg.setA(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Class method variant: serializes the given message to binary data
+ * (in protobuf wire format), writing to the given BinaryWriter.
+ * @param {!proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor} message
+ * @param {!jspb.BinaryWriter} writer
+ */
+proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor.serializeBinaryToWriter = function(message, writer) {
+  message.serializeBinaryToWriter(writer);
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  this.serializeBinaryToWriter(writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format),
+ * writing to the given BinaryWriter.
+ * @param {!jspb.BinaryWriter} writer
+ */
+proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor.prototype.serializeBinaryToWriter = function (writer) {
+  var f = undefined;
+  f = this.getR();
+  if (f !== 0.0) {
+    writer.writeFloat(
+      1,
+      f
+    );
+  }
+  f = this.getG();
+  if (f !== 0.0) {
+    writer.writeFloat(
+      2,
+      f
+    );
+  }
+  f = this.getB();
+  if (f !== 0.0) {
+    writer.writeFloat(
+      3,
+      f
+    );
+  }
+  f = this.getA();
+  if (f !== 0.0) {
+    writer.writeFloat(
+      4,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional float r = 1;
+ * @return {number}
+ */
+proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor.prototype.getR = function() {
+  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 1, 0.0));
+};
+
+
+/** @param {number} value */
+proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor.prototype.setR = function(value) {
+  jspb.Message.setField(this, 1, value);
+};
+
+
+/**
+ * optional float g = 2;
+ * @return {number}
+ */
+proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor.prototype.getG = function() {
+  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 2, 0.0));
+};
+
+
+/** @param {number} value */
+proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor.prototype.setG = function(value) {
+  jspb.Message.setField(this, 2, value);
+};
+
+
+/**
+ * optional float b = 3;
+ * @return {number}
+ */
+proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor.prototype.getB = function() {
+  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 3, 0.0));
+};
+
+
+/** @param {number} value */
+proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor.prototype.setB = function(value) {
+  jspb.Message.setField(this, 3, value);
+};
+
+
+/**
+ * optional float a = 4;
+ * @return {number}
+ */
+proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor.prototype.getA = function() {
+  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 4, 0.0));
+};
+
+
+/** @param {number} value */
+proto.com.opensource.svga.ShapeEntity.ShapeStyle.RGBAColor.prototype.setA = function(value) {
+  jspb.Message.setField(this, 4, value);
+};
+
+
 
 /**
  * Generated by JsPbCodeGenerator.
@@ -2892,7 +3007,6 @@ proto.com.opensource.svga.FrameEntity.prototype.toObject = function(opt_includeI
  *     http://goto/soy-param-migration
  * @param {!proto.com.opensource.svga.FrameEntity} msg The msg instance to transform.
  * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.com.opensource.svga.FrameEntity.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -2971,33 +3085,42 @@ proto.com.opensource.svga.FrameEntity.deserializeBinaryFromReader = function(msg
 
 
 /**
+ * Class method variant: serializes the given message to binary data
+ * (in protobuf wire format), writing to the given BinaryWriter.
+ * @param {!proto.com.opensource.svga.FrameEntity} message
+ * @param {!jspb.BinaryWriter} writer
+ */
+proto.com.opensource.svga.FrameEntity.serializeBinaryToWriter = function(message, writer) {
+  message.serializeBinaryToWriter(writer);
+};
+
+
+/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.com.opensource.svga.FrameEntity.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.com.opensource.svga.FrameEntity.serializeBinaryToWriter(this, writer);
+  this.serializeBinaryToWriter(writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the given message to binary data (in protobuf wire
- * format), writing to the given BinaryWriter.
- * @param {!proto.com.opensource.svga.FrameEntity} message
+ * Serializes the message to binary data (in protobuf wire format),
+ * writing to the given BinaryWriter.
  * @param {!jspb.BinaryWriter} writer
- * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.com.opensource.svga.FrameEntity.serializeBinaryToWriter = function(message, writer) {
+proto.com.opensource.svga.FrameEntity.prototype.serializeBinaryToWriter = function (writer) {
   var f = undefined;
-  f = message.getAlpha();
+  f = this.getAlpha();
   if (f !== 0.0) {
     writer.writeFloat(
       1,
       f
     );
   }
-  f = message.getLayout();
+  f = this.getLayout();
   if (f != null) {
     writer.writeMessage(
       2,
@@ -3005,7 +3128,7 @@ proto.com.opensource.svga.FrameEntity.serializeBinaryToWriter = function(message
       proto.com.opensource.svga.Layout.serializeBinaryToWriter
     );
   }
-  f = message.getTransform();
+  f = this.getTransform();
   if (f != null) {
     writer.writeMessage(
       3,
@@ -3013,14 +3136,14 @@ proto.com.opensource.svga.FrameEntity.serializeBinaryToWriter = function(message
       proto.com.opensource.svga.Transform.serializeBinaryToWriter
     );
   }
-  f = message.getClippath();
+  f = this.getClippath();
   if (f.length > 0) {
     writer.writeString(
       4,
       f
     );
   }
-  f = message.getShapesList();
+  f = this.getShapesList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       5,
@@ -3042,7 +3165,7 @@ proto.com.opensource.svga.FrameEntity.prototype.getAlpha = function() {
 
 /** @param {number} value */
 proto.com.opensource.svga.FrameEntity.prototype.setAlpha = function(value) {
-  jspb.Message.setProto3FloatField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -3117,21 +3240,23 @@ proto.com.opensource.svga.FrameEntity.prototype.getClippath = function() {
 
 /** @param {string} value */
 proto.com.opensource.svga.FrameEntity.prototype.setClippath = function(value) {
-  jspb.Message.setProto3StringField(this, 4, value);
+  jspb.Message.setField(this, 4, value);
 };
 
 
 /**
  * repeated ShapeEntity shapes = 5;
- * @return {!Array<!proto.com.opensource.svga.ShapeEntity>}
+ * If you change this array by adding, removing or replacing elements, or if you
+ * replace the array itself, then you must call the setter to update it.
+ * @return {!Array.<!proto.com.opensource.svga.ShapeEntity>}
  */
 proto.com.opensource.svga.FrameEntity.prototype.getShapesList = function() {
-  return /** @type{!Array<!proto.com.opensource.svga.ShapeEntity>} */ (
+  return /** @type{!Array.<!proto.com.opensource.svga.ShapeEntity>} */ (
     jspb.Message.getRepeatedWrapperField(this, proto.com.opensource.svga.ShapeEntity, 5));
 };
 
 
-/** @param {!Array<!proto.com.opensource.svga.ShapeEntity>} value */
+/** @param {!Array.<!proto.com.opensource.svga.ShapeEntity>} value */
 proto.com.opensource.svga.FrameEntity.prototype.setShapesList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 5, value);
 };
@@ -3202,13 +3327,12 @@ proto.com.opensource.svga.MovieEntity.prototype.toObject = function(opt_includeI
  *     http://goto/soy-param-migration
  * @param {!proto.com.opensource.svga.MovieEntity} msg The msg instance to transform.
  * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.com.opensource.svga.MovieEntity.toObject = function(includeInstance, msg) {
   var f, obj = {
     version: jspb.Message.getFieldWithDefault(msg, 1, ""),
     params: (f = msg.getParams()) && proto.com.opensource.svga.MovieParams.toObject(includeInstance, f),
-    imagesMap: (f = msg.getImagesMap()) ? f.toObject(includeInstance, undefined) : [],
+    imagesMap: (f = msg.getImagesMap()) ? f.toArray() : [],
     spritesList: jspb.Message.toObjectList(msg.getSpritesList(),
     proto.com.opensource.svga.SpriteEntity.toObject, includeInstance),
     audiosList: jspb.Message.toObjectList(msg.getAudiosList(),
@@ -3261,7 +3385,7 @@ proto.com.opensource.svga.MovieEntity.deserializeBinaryFromReader = function(msg
     case 3:
       var value = msg.getImagesMap();
       reader.readMessage(value, function(message, reader) {
-        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readBytes, null, "");
+        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readBytes);
          });
       break;
     case 4:
@@ -3284,33 +3408,42 @@ proto.com.opensource.svga.MovieEntity.deserializeBinaryFromReader = function(msg
 
 
 /**
+ * Class method variant: serializes the given message to binary data
+ * (in protobuf wire format), writing to the given BinaryWriter.
+ * @param {!proto.com.opensource.svga.MovieEntity} message
+ * @param {!jspb.BinaryWriter} writer
+ */
+proto.com.opensource.svga.MovieEntity.serializeBinaryToWriter = function(message, writer) {
+  message.serializeBinaryToWriter(writer);
+};
+
+
+/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.com.opensource.svga.MovieEntity.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.com.opensource.svga.MovieEntity.serializeBinaryToWriter(this, writer);
+  this.serializeBinaryToWriter(writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the given message to binary data (in protobuf wire
- * format), writing to the given BinaryWriter.
- * @param {!proto.com.opensource.svga.MovieEntity} message
+ * Serializes the message to binary data (in protobuf wire format),
+ * writing to the given BinaryWriter.
  * @param {!jspb.BinaryWriter} writer
- * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.com.opensource.svga.MovieEntity.serializeBinaryToWriter = function(message, writer) {
+proto.com.opensource.svga.MovieEntity.prototype.serializeBinaryToWriter = function (writer) {
   var f = undefined;
-  f = message.getVersion();
+  f = this.getVersion();
   if (f.length > 0) {
     writer.writeString(
       1,
       f
     );
   }
-  f = message.getParams();
+  f = this.getParams();
   if (f != null) {
     writer.writeMessage(
       2,
@@ -3318,11 +3451,11 @@ proto.com.opensource.svga.MovieEntity.serializeBinaryToWriter = function(message
       proto.com.opensource.svga.MovieParams.serializeBinaryToWriter
     );
   }
-  f = message.getImagesMap(true);
+  f = this.getImagesMap(true);
   if (f && f.getLength() > 0) {
     f.serializeBinary(3, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeBytes);
   }
-  f = message.getSpritesList();
+  f = this.getSpritesList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       4,
@@ -3330,7 +3463,7 @@ proto.com.opensource.svga.MovieEntity.serializeBinaryToWriter = function(message
       proto.com.opensource.svga.SpriteEntity.serializeBinaryToWriter
     );
   }
-  f = message.getAudiosList();
+  f = this.getAudiosList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       5,
@@ -3352,7 +3485,7 @@ proto.com.opensource.svga.MovieEntity.prototype.getVersion = function() {
 
 /** @param {string} value */
 proto.com.opensource.svga.MovieEntity.prototype.setVersion = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  jspb.Message.setField(this, 1, value);
 };
 
 
@@ -3406,15 +3539,17 @@ proto.com.opensource.svga.MovieEntity.prototype.clearImagesMap = function() {
 
 /**
  * repeated SpriteEntity sprites = 4;
- * @return {!Array<!proto.com.opensource.svga.SpriteEntity>}
+ * If you change this array by adding, removing or replacing elements, or if you
+ * replace the array itself, then you must call the setter to update it.
+ * @return {!Array.<!proto.com.opensource.svga.SpriteEntity>}
  */
 proto.com.opensource.svga.MovieEntity.prototype.getSpritesList = function() {
-  return /** @type{!Array<!proto.com.opensource.svga.SpriteEntity>} */ (
+  return /** @type{!Array.<!proto.com.opensource.svga.SpriteEntity>} */ (
     jspb.Message.getRepeatedWrapperField(this, proto.com.opensource.svga.SpriteEntity, 4));
 };
 
 
-/** @param {!Array<!proto.com.opensource.svga.SpriteEntity>} value */
+/** @param {!Array.<!proto.com.opensource.svga.SpriteEntity>} value */
 proto.com.opensource.svga.MovieEntity.prototype.setSpritesList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 4, value);
 };
@@ -3437,15 +3572,17 @@ proto.com.opensource.svga.MovieEntity.prototype.clearSpritesList = function() {
 
 /**
  * repeated AudioEntity audios = 5;
- * @return {!Array<!proto.com.opensource.svga.AudioEntity>}
+ * If you change this array by adding, removing or replacing elements, or if you
+ * replace the array itself, then you must call the setter to update it.
+ * @return {!Array.<!proto.com.opensource.svga.AudioEntity>}
  */
 proto.com.opensource.svga.MovieEntity.prototype.getAudiosList = function() {
-  return /** @type{!Array<!proto.com.opensource.svga.AudioEntity>} */ (
+  return /** @type{!Array.<!proto.com.opensource.svga.AudioEntity>} */ (
     jspb.Message.getRepeatedWrapperField(this, proto.com.opensource.svga.AudioEntity, 5));
 };
 
 
-/** @param {!Array<!proto.com.opensource.svga.AudioEntity>} value */
+/** @param {!Array.<!proto.com.opensource.svga.AudioEntity>} value */
 proto.com.opensource.svga.MovieEntity.prototype.setAudiosList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 5, value);
 };
