@@ -117,7 +117,7 @@ message FrameEntity {
     Layout layout = 2;                  // 初始约束大小
     Transform transform = 3;            // 2D 变换矩阵
     string clipPath = 4;                // 遮罩路径，使用 SVG 标准 Path 绘制图案进行 Mask 遮罩。
-    repeated ShapeEntity shapes = 5;                // 矢量元素列表
+    repeated ShapeEntity shapes = 5;    // 矢量元素列表
 }
 
 message MovieEntity {
